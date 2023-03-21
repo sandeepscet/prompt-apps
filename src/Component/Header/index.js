@@ -2,21 +2,17 @@ import {
   AppBar,
   Box,
   Button,
-  List,
-  ListItemButton,
-  ListItemText,
   Menu,
   MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { useStyleRegistry } from "styled-jsx";
 import { styled, alpha } from "@mui/material/styles";
-import styles from "./Button.module.css";
-import { shadows } from "@mui/system";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import Link from "next/link";
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -26,7 +22,7 @@ const Search = styled("div")(({ theme }) => ({
   },
   marginLeft: 0,
   width: "100%",
- 
+
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
     width: "auto",
@@ -51,7 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
-     
+
     // [theme.breakpoints.up("sm")]: {
     //   width: "12ch",
     //   "&:focus": {
@@ -61,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header = () => {
+const Header = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -73,6 +69,8 @@ const Header = () => {
   function handleClose() {
     setAnchorEl(null);
   }
+
+  const HandleRout = () => {};
 
   return (
     <>
@@ -89,31 +87,32 @@ const Header = () => {
           // },
         }}
       >
-        <AppBar style={{ backgroundColor: "white" }} >
+        <AppBar style={{ backgroundColor: "white" }}>
           <Toolbar>
             <Typography
               align="left"
               variant="h6"
               noWrap
               // component="div"
-              sx={{ marginLeft:20,width:200 ,display: { xs: "none", sm: "block" } }}
+              sx={{
+                marginLeft: 20,
+                width: 200,
+                display: { xs: "none", sm: "block" },
+              }}
               style={{ color: "black" }}
-              
-
             >
               Prompt2UI
             </Typography>
-            <Typography align="left"  variant="div">
-            <Button
-              variant="text"
-              // className={styles.menu}
-              aria-owns={anchorEl ? "simple-menu" : undefined}
-              // aria-haspopup="true"
-              onMouseOver={handleClick}
-            >
-              tal
-            </Button>
-
+            <Typography align="left" variant="div">
+              <Button
+                variant="text"
+                // className={styles.menu}
+                aria-owns={anchorEl ? "simple-menu" : undefined}
+                // aria-haspopup="true"
+                onMouseOver={handleClick}
+              >
+                tal
+              </Button>
             </Typography>
             <Button
               variant="text"
@@ -124,7 +123,7 @@ const Header = () => {
             >
               tal
             </Button>
-            <Search style={{ backgroundColor: "#F6F6F6 ",color:"black" }}>
+            <Search style={{ backgroundColor: "#F6F6F6 ", color: "black" }}>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -136,16 +135,21 @@ const Header = () => {
           </Toolbar>
         </AppBar>
         <div style={{ paddingTop: 6 }}></div>
-        <Menu style={{marginTop:13}}
+        <Menu
+          style={{ marginTop: 13 }}
           id="simple-menu"
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleClose}
           MenuListProps={{ onMouseLeave: handleClose }}
         >
-          <MenuItem onClick={handleClose}>Programing</MenuItem>
-          <MenuItem onClick={handleClose}>Legal</MenuItem>
-          <MenuItem onClick={handleClose}>Personal Assistent</MenuItem>
+          <MenuItem>
+            <Link href="./PromptDetails">PromptDetails</Link>
+          </MenuItem>
+          <MenuItem>
+            {" "}
+            <Link  href="./PromptDetails">Personal Assistent</Link>
+          </MenuItem>
         </Menu>
       </Box>
     </>
