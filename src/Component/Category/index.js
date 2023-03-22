@@ -39,8 +39,9 @@ export const Category = () => {
                   </Avatar>
                 }
                 title={<Typography align="right" variant={"h6"}>{x.name}</Typography>}
-                subheader={<Typography align="left" variant={"h6"}>{x.name}</Typography>}
+                // subheader={<Typography align="left" variant={"h6"}>{x.name}</Typography>}
               />
+              <Box style={{ backgroundColor: x.color }}><Typography style={{marginLeft:16}} align="left" variant={"h6"}>{x.name}</Typography></Box>
               <CardContent>
                 <Box></Box>
                 <Typography variant="body2" color="text.secondary">
