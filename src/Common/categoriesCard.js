@@ -1,9 +1,9 @@
 import { Colors } from "../Theme/colors";
 export const CategoiresData = [
   {
-    name: "xyz1",
-    ToolesName: "xyz1",
-    Desc: "xyz xyz",
+    name: "PDF Tools",
+    ToolesName: "45+ tools",
+    Desc: "Solve your pdf problem",
     color: Colors.Color3,
   },
   {
@@ -29,5 +29,5 @@ export const CategoiresData = [
     ToolesName: "xyz1dsf3",
     Desc: "xyz xyz sdgvfsd2",
     color: Colors.Color7,
-  }
+  },
 ];

@@ -18,9 +18,8 @@ export const SubCategoires = () => {
   const RenderItem = ({ x }) => {
     return (
       <Grid item xs={3}>
-        {/* <Link to='./PromptDetails'> */}
         <Card
-          sx={{ minWidth: 300 }}
+          sx={{ minWidth: 200 }}
           style={{ backgroundColor: "#ffffff", borderRadius: 10 }}
           elevation={0}
           spacing={10}

@@ -10,8 +10,11 @@ import {
   Typography,
 } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/router";
 import { CategoiresData } from "@/src/Common/categoriesCard";
+import { Colors } from "@/src/Theme/colors";
+import { Row } from "@nextui-org/react";
 
 export const Category = () => {
   const router = useRouter();
@@ -34,14 +37,53 @@ export const Category = () => {
                     sx={{ bgcolor: x.color }}
                     aria-label="recipe"
                     variant="rounded"
+                    style={{
+                      color: Colors.White,
+                      fontSize: 12,
+                    }}
                   >
                     <ContentCopyIcon />
                   </Avatar>
                 }
-                title={<Typography align="right" variant={"h6"}>{x.name}</Typography>}
-                // subheader={<Typography align="left" variant={"h6"}>{x.name}</Typography>}
+                title={
+                  <>
+                    <Typography
+                      align="right"
+                      style={{
+                        color: Colors.White,
+                      }}
+                    >
+                      {x.ToolesName}
+                    </Typography>
+                    <ArrowForwardIcon />
+                  </>
+                }
               />
-              <Box style={{ backgroundColor: x.color }}><Typography style={{marginLeft:16}} align="left" variant={"h6"}>{x.name}</Typography></Box>
+
+              <Box style={{ backgroundColor: x.color }}>
+                <Typography
+                  style={{
+                    marginLeft: 16,
+                    color: Colors.White,
+                    fontSize: 18,
+                    fontWeight: "700",
+                  }}
+                  align="left"
+                >
+                  {x.name}
+                </Typography>
+                <Typography
+                  style={{
+                    marginLeft: 16,
+                    color: Colors.White,
+                    fontSize: 12,
+                    paddingBottom: 10,
+                  }}
+                  align="left"
+                >
+                  {x.Desc}
+                </Typography>
+              </Box>
               <CardContent>
                 <Box></Box>
                 <Typography variant="body2" color="text.secondary">

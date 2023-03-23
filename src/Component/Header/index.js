@@ -12,6 +12,7 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -58,6 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = (props) => {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -143,12 +145,12 @@ const Header = (props) => {
           onClose={handleClose}
           MenuListProps={{ onMouseLeave: handleClose }}
         >
-          <MenuItem>
-            <Link href="./PromptDetails">PromptDetails</Link>
+          <MenuItem onClick={() => router.push("/PromptDetails")}>
+            PromptDetails
           </MenuItem>
           <MenuItem>
             {" "}
-            <Link  href="./PromptDetails">Personal Assistent</Link>
+            <Link href="./PromptDetails">Personal Assistent</Link>
           </MenuItem>
         </Menu>
       </Box>
