@@ -2,8 +2,10 @@ import {
   AppBar,
   Box,
   Button,
+  Grid,
   Menu,
   MenuItem,
+  MenuList,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -13,6 +15,9 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import MenuData from "../../Common/menu.json";
+import { Row } from "@nextui-org/react";
+import { width } from "@mui/system";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,19 +66,29 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Header = (props) => {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  // const [modalopen, setOpenmodal] = useState(false);
+  const [menuItem, setMenuitem] = useState([]);
+  const MenuItemsData = MenuData;
 
-  function handleClick(event) {
-    if (anchorEl !== event.currentTarget) {
-      setAnchorEl(event.currentTarget);
-    }
-  }
-
-  function handleClose() {
+  const handleClose = () => {
     setAnchorEl(null);
-  }
+  };
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuOpen = (x, e) => {
+    handleClick(e);
+    const data = x.prompt;
+    console.log(data, "x");
+    setMenuitem(data);
+  };
+
+  console.log("menuitem", menuItem);
   const HandleRout = () => {};
-
+  console.log("menu list", menuItem);
   return (
     <>
       <Box
@@ -91,68 +106,75 @@ const Header = (props) => {
       >
         <AppBar style={{ backgroundColor: "white" }}>
           <Toolbar>
-            <Typography
-              align="left"
-              variant="h6"
-              noWrap
-              // component="div"
-              sx={{
-                marginLeft: 20,
-                width: 200,
-                display: { xs: "none", sm: "block" },
-              }}
-              style={{ color: "black" }}
+            <Grid
+              container
+              rowSpacing={1}
+              style={{}}
+              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
-              Prompt2UI
-            </Typography>
-            <Typography align="left" variant="div">
-              <Button
-                variant="text"
-                // className={styles.menu}
-                aria-owns={anchorEl ? "simple-menu" : undefined}
-                // aria-haspopup="true"
-                onMouseOver={handleClick}
-              >
-                tal
-              </Button>
-            </Typography>
-            <Button
-              variant="text"
-              // className={styles.menu}
-              aria-owns={anchorEl ? "simple-menu" : undefined}
-              // aria-haspopup="true"
-              onMouseOver={handleClick}
-            >
-              tal
-            </Button>
-            <Search style={{ backgroundColor: "#F6F6F6 ", color: "black" }}>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
+              <Grid item xs={3}>
+                {" "}
+                <Typography
+                  align="left"
+                  variant="h6"
+                  noWrap
+                  // component="div"
+                  sx={{
+                    marginLeft: 5,
+                    marginRight: 5,
+                    width: 200,
+                    display: { xs: "none", sm: "block" },
+                  }}
+                  style={{ color: "black" }}
+                >
+                  Prompt2UI
+                </Typography>
+              </Grid>
+              <Grid item xs={6}>
+                {MenuItemsData.map((x) => {
+                  return (
+                    <>
+                      <Button
+                        onClick={(e) => {
+                          handleMenuOpen(x, e);
+                        }}
+                      >
+                        {x.name}
+                      </Button>
+                    </>
+                  );
+                })}
+                <Menu
+                  style={{ marginTop: 13,width:'auto' }}
+                  keepMounted
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  open={Boolean(anchorEl)}
+                >
+                  {menuItem.map((x) => {
+                    return (
+                      <>
+                        <MenuItem style={{paddingRight:30,paddingLeft:30}}>{x}</MenuItem>
+                      </>
+                    );
+                  })}
+                </Menu>
+              </Grid>
+              <Grid item xs={3}>
+                <Search style={{ backgroundColor: "#F6F6F6 ", color: "black" }}>
+                  <SearchIconWrapper>
+                    <SearchIcon />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Search"
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                </Search>
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
         <div style={{ paddingTop: 6 }}></div>
-        <Menu
-          style={{ marginTop: 13 }}
-          id="simple-menu"
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-          MenuListProps={{ onMouseLeave: handleClose }}
-        >
-          <MenuItem onClick={() => router.push("/PromptDetails")}>
-            PromptDetails
-          </MenuItem>
-          <MenuItem>
-            {" "}
-            <Link href="./PromptDetails">Personal Assistent</Link>
-          </MenuItem>
-        </Menu>
       </Box>
     </>
   );

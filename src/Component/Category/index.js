@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import { CategoiresData } from "@/src/Common/categoriesCard";
 import { Colors } from "@/src/Theme/colors";
 import { Row } from "@nextui-org/react";
+import { typography } from "../../Theme/typography";
 
 export const Category = () => {
   const router = useRouter();
@@ -65,8 +66,7 @@ export const Category = () => {
                   style={{
                     marginLeft: 16,
                     color: Colors.White,
-                    fontSize: 18,
-                    fontWeight: "700",
+                    ...typography.body18Regular,
                   }}
                   align="left"
                 >
