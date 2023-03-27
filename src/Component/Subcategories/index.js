@@ -52,6 +52,7 @@ export const SubCategoires = () => {
   return (
     <div style={{ backgroundColor: "#eff7fd" }}>
       <Box paddingRight={5} paddingLeft={5} paddingBottom={5} paddingTop={5}>
+      <h1>Prompt</h1>
         <Grid
           container
           spacing={1}
