@@ -1,8 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Prompt Apps
+
+User interface-based Apps from Prompt.
+
+## Problem
+
+- Text-based tools, Boring And Cognitively demanding so-called `Prompt engineering`
+- Different Model Expect Different Prompt Grammers
+
+## Solution
+
+User interface-based Apps from Prompt. [POC Link](https://sandeepscet.github.io/)
+
+This will help
+
+- Mitigate writer's block
+- Remove the Language Barrier
+- Optimised Prompt beneath UI
+- Create, share, and Remix Prompts
+- Test Diffrent Models
+- Single Interface for all Prompts
+
+## Table of Contents
+
+- [Prompt Apps](#prompt-apps)
+  - [Problem](#problem)
+  - [Solution](#solution)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Development](#development)
+  - [Learn More](#learn-more)
+  - [Contribution](#contribution)
+  - [Thank You!](#thank-you)
+  - [License](#license)
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+Repo is built with [Next.js](https://nextjs.org/).
+
+- Clone the repo
+- `npm install`
+
+### Development
 
 ```bash
 npm run dev
@@ -27,12 +68,18 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contribution
 
-## Deploy on Vercel
+We appreciate feedback and contribution to this template! Before you get started, please see the following:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Contribution guidelines](GENERAL-CONTRIBUTING.md)
+- [Conduct guidelines](CODE-OF-CONDUCT.md)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Thank You!
+
+A big thank you to all of our sources of inspiration!
+
+## License
+
+This repo is covered under [GPL-3](LICENSE).
