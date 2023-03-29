@@ -1,0 +1,96 @@
+[
+  {
+    "id": "productivity",
+    "name": "Productivity",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "creative-writing",
+    "name": "Creative Writing",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "personal-assistants",
+    "name": "Personal Assistants",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "personal-development",
+    "name": "Personal development",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "programming",
+    "name": "Programming",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "analytics",
+    "name": "Analytics",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "educational",
+    "name": "Educational",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "philosophy",
+    "name": "Philosophy",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "social-media",
+    "name": "Social Media",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "collaboration",
+    "name": "Collaboration",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "design",
+    "name": "Design",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "finance",
+    "name": "Finance",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "legal",
+    "name": "Legal",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "recommendations",
+    "name": "Recommendations",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "entertainment",
+    "name": "Entertainment",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "misc",
+    "name": "Misc"
+  }
+]

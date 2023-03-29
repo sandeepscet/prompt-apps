@@ -11,11 +11,15 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.13",
     "@nextui-org/react": "^1.0.0-beta.12",
+    "font-awesome-icons": "^1.6.0",
     "history": "^5.3.0",
+    "lodash-es": "^4.17.21",
     "next": "13.2.4",
+    "openai-node-cli": "^1.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^6.9.0"

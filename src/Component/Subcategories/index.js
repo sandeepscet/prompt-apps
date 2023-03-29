@@ -14,36 +14,43 @@ import { useRouter } from 'next/router'
 import { Data } from '@/src/Common/card'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
+import { getPrompts } from '@/src/Utils/prompt'
 export const SubCategoires = () => {
   const router = useRouter()
 
+  const SubCategoiresData = getPrompts();
+
+  console.log('SubCategoires',SubCategoiresData)
   const RenderItem = ({ x }) => {
     return (
       <Grid item xs={3}>
         <Card
-          sx={{ minWidth: 200 }}
-          style={{ backgroundColor: '#ffffff', borderRadius: 10 }}
-          elevation={0}
+          sx={{ minWidth: 200 , height:150 }}
+          style={{ backgroundColor: Colors.Color13, borderRadius: 10 }}
+          elevation={5}
           spacing={10}
         >
           <CardActionArea onClick={() => router.push('/PromptDetails')}>
             <CardHeader
+              style={{  color: Colors.Black,
+                ...typography.body18Bold,}}
               avatar={
                 <Avatar sx={{ bgcolor: x.color }} aria-label="recipe" variant="rounded">
                   <ContentCopyIcon />
                 </Avatar>
               }
+              title={x.title}
             />
             <CardContent>
-              <Typography
+              {/* <Typography
                 style={{
                   color: Colors.Black,
                   ...typography.body18Regular,
                 }}
                 align="left"
               >
-                {x.name}
-              </Typography>
+                {x.title}
+              </Typography> */}
               <Typography
                 style={{
                   color: Colors.Color8,
@@ -52,7 +59,8 @@ export const SubCategoires = () => {
                 }}
                 align="left"
               >
-                {x.Desc}
+                {x.description
+}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -80,7 +88,7 @@ export const SubCategoires = () => {
           </strong>
         </div>
         <Grid container spacing={1} rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          {Data.map((item) => {
+          {SubCategoiresData.map((item) => {
             return <RenderItem x={item} />
           })}
         </Grid>
