@@ -10,7 +10,7 @@ import {
   Grid,
   Typography,
 } from '@mui/material'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import CategoryIcon from '@mui/icons-material/Category'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 import { useRouter } from 'next/router'
@@ -48,7 +48,7 @@ export const Category = () => {
                       borderRadius: 20,
                     }}
                   >
-                    <ContentCopyIcon />
+                    <CategoryIcon />
                   </Avatar>
                 }
                 title={

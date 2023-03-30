@@ -9,7 +9,7 @@ import {
   Grid,
   Typography,
 } from '@mui/material'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import DescriptionIcon from '@mui/icons-material/Description'
 import { useRouter } from 'next/router'
 import { Data } from '@/src/Common/card'
 import { Colors } from '@/src/Theme/colors'
@@ -25,7 +25,7 @@ export const SubCategoires = () => {
     return (
       <Grid item xs={3}>
         <Card
-          sx={{ minWidth: 200, height: 150 }}
+          sx={{ minWidth: 200 }}
           style={{ backgroundColor: Colors.Color13, borderRadius: 10 }}
           elevation={5}
           spacing={10}
@@ -35,32 +35,12 @@ export const SubCategoires = () => {
               style={{ color: Colors.Black, ...typography.body18Bold }}
               avatar={
                 <Avatar sx={{ bgcolor: x.color }} aria-label="recipe" variant="rounded">
-                  <ContentCopyIcon />
+                  <DescriptionIcon />
                 </Avatar>
               }
               title={x.title}
+              subheader={x.description}
             />
-            <CardContent>
-              {/* <Typography
-                style={{
-                  color: Colors.Black,
-                  ...typography.body18Regular,
-                }}
-                align="left"
-              >
-                {x.title}
-              </Typography> */}
-              <Typography
-                style={{
-                  color: Colors.Color8,
-                  fontSize: 12,
-                  paddingBottom: 10,
-                }}
-                align="left"
-              >
-                {x.description}
-              </Typography>
-            </CardContent>
           </CardActionArea>
         </Card>
       </Grid>
