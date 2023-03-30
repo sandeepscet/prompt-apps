@@ -34,6 +34,22 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InputAdornment from '@mui/material/InputAdornment'
 import Subscription from '../Subcription'
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  PinterestShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  PinterestIcon,
+  WhatsappIcon,
+  RedditIcon,
+  EmailIcon,
+} from 'react-share'
 
 const Header = (props) => {
   const data1 = getTopFiveCategoryWithPrompt()
@@ -41,6 +57,10 @@ const Header = (props) => {
   const handleOpenShareModal = () => setOpenShareModal(true)
   const handleCloseShareModal = () => setOpenShareModal(false)
   const [DarkMode, setDarkMode] = React.useState(false)
+  const [pageURL, setPageURL] = useState(0)
+  React.useEffect(() => {
+    setPageURL(window.location.href)
+  })
   const menuList = data1.map((x) => x.prompt)
   const testing = menuList.map((x) => x.title)
   const router = useRouter()
@@ -282,9 +302,35 @@ const Header = (props) => {
             >
               Tell the world about us
             </Typography>
+            <div style={{ paddingTop: 6 }}>
+              <FacebookShareButton url={pageURL} quote="AI with UI, not prompt. isn't is amazing?">
+                <FacebookIcon size={40} round />
+              </FacebookShareButton>
+              <TwitterShareButton url={pageURL} title="AI with UI, not prompt. isn't is amazing?">
+                <TwitterIcon size={40} round />
+              </TwitterShareButton>
+              <LinkedinShareButton url={pageURL} title="AI with UI, not prompt. isn't is amazing?">
+                <LinkedinIcon size={40} round />
+              </LinkedinShareButton>
+              <PinterestShareButton
+                url={pageURL}
+                description="AI with UI, not prompt. isn't is amazing?"
+              >
+                <PinterestIcon size={40} round />
+              </PinterestShareButton>
+              <RedditShareButton url={pageURL} title="AI with UI, not prompt. isn't is amazing?">
+                <RedditIcon size={40} round />
+              </RedditShareButton>
+              <WhatsappShareButton url={pageURL} title="AI with UI, not prompt. isn't is amazing?">
+                <WhatsappIcon size={40} round />
+              </WhatsappShareButton>
+              <EmailShareButton url={pageURL} subject="Found Amazing Tool">
+                <EmailIcon size={40} round />
+              </EmailShareButton>
+            </div>
             <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
               <TextField
-                value={window.location.href}
+                value={pageURL}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end" style={{ color: Colors.Color12 }}>
