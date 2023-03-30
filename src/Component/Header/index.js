@@ -30,8 +30,8 @@ import { Label } from '@mui/icons-material'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
 import ShareIcon from '@mui/icons-material/Share'
-import DarkModeIcon from '@mui/icons-material/DarkMode'
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
+import SettingsIcon from '@mui/icons-material/Settings'
+import GitHubIcon from '@mui/icons-material/GitHub'
 import InputAdornment from '@mui/material/InputAdornment'
 import Subscription from '../Subcription'
 
@@ -66,12 +66,15 @@ const Header = (props) => {
     setMenuitem(x)
   }
 
-  const ThemeSet = () => {
-    if (!DarkMode) {
-      setDarkMode(true)
-    } else {
-      setDarkMode(false)
-    }
+  const openConfig = () => {
+    alert('pending')
+    //TODO Fill this
+  }
+
+  const redirecToRepo = () => {
+    const url = 'https://github.com/sandeepscet/prompt-apps'
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
   }
 
   console.log('menuitem', menuItem)
@@ -192,7 +195,7 @@ const Header = (props) => {
                     //     setDarkMode(false)
                     //   }
                     // }}
-                    onClick={ThemeSet}
+                    onClick={openConfig}
                     style={{
                       minHeight: '0px',
                       minWidth: '0px',
@@ -202,7 +205,28 @@ const Header = (props) => {
                       marginRight: 10,
                     }}
                   >
-                    {DarkMode ? <DarkModeIcon /> : <DarkModeOutlinedIcon />}
+                    <SettingsIcon />
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    // onClick={() => {
+                    //   if (!DarkMode) {
+                    //     setDarkMode(true)
+                    //   }else{
+                    //     setDarkMode(false)
+                    //   }
+                    // }}
+                    onClick={redirecToRepo}
+                    style={{
+                      minHeight: '0px',
+                      minWidth: '0px',
+                      borderRadius: 25,
+                      height: 40,
+                      width: 40,
+                      marginRight: 10,
+                    }}
+                  >
+                    <GitHubIcon />
                   </Button>
                   <Button
                     variant="outlined"
@@ -217,7 +241,6 @@ const Header = (props) => {
                   >
                     <ShareIcon />
                   </Button>
-
                   <Search style={{ backgroundColor: Colors.Color13, color: 'black' }}>
                     <SearchIconWrapper>
                       <SearchIcon />

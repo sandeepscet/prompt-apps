@@ -28,8 +28,8 @@ const Footer = () => {
       <div style={{ marginTop: 50 }}>
         <Row style={{ justifyContent: 'flex-start' }}>
           <div style={{ width: '30%' }}>
-            TinyWow provides free online conversion, pdf, and other handy tools to help you solve
-            problems of all types. All files both processed and unprocessed are deleted after 1 hour
+            User interface-based Apps will help generate output from CHAT-GPT without knowledge of
+            Boring And Cognitively demanding so-called Prompt engineering
           </div>
           <Row style={{ justifyContent: 'flex-start' }}>
             <Grid container spacing={2}>
