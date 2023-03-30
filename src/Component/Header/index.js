@@ -96,7 +96,6 @@ const Header = (props) => {
           <Toolbar>
             <Grid container rowSpacing={1} style={{}} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               <Grid item xs={2}>
-                {' '}
                 <Typography
                   align="left"
                   variant="h6"
@@ -110,7 +109,8 @@ const Header = (props) => {
                   }}
                   style={{ color: 'black' }}
                 >
-                  Prompt Apps
+                  <Box component="img" src="logo.png" alt="logo" sx={{ height: '30px' }} />
+                  {'    '}Prompt Apps
                 </Typography>
               </Grid>
               <Grid item xs={7}>
