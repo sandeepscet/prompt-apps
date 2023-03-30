@@ -66,6 +66,11 @@ const Header = (props) => {
     setMenuitem(x)
   }
 
+  const onClickCopyUrl = () => {
+    const currentUrl = window.location.href
+    navigator.clipboard.writeText(currentUrl)
+  }
+
   const openConfig = () => {
     alert('pending')
     //TODO Fill this
@@ -263,23 +268,32 @@ const Header = (props) => {
           <Box sx={style}>
             <Typography
               id="keep-mounted-modal-title"
-              variant="h6"
-              style={{ color: Colors.Black, ...typography.body27Bold }}
+              variant="h3"
+              style={{ color: Colors.Black, ...typography.body20Bold }}
               component="h2"
             >
               Show Us Some Love
             </Typography>
+            <Typography
+              id="keep-mounted-modal-title"
+              variant="h6"
+              style={{ color: Colors.Grey, ...typography.body18Regular }}
+              component="h6"
+            >
+              Tell the world about us
+            </Typography>
             <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
               <TextField
+                value={window.location.href}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end" style={{ color: Colors.Color12 }}>
-                      <Button>Copy Link</Button>
+                      <Button onClick={onClickCopyUrl}>Copy Link</Button>
                     </InputAdornment>
                   ),
                 }}
                 id="outlined-basic"
-                label="Share Link"
+                label=""
                 variant="outlined"
               />
             </Typography>
