@@ -22,6 +22,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import MenuData from '../../Common/menu.json'
+import { stringAvatar } from '../../Utils/common'
 import { Row } from '@nextui-org/react'
 import { width } from '@mui/system'
 import { getCategoriesWitPrompts, getTopFiveCategoryWithPrompt } from '@/src/Utils/prompt'
@@ -80,7 +81,6 @@ const Header = (props) => {
 
   const handleMenuOpen = (x, e) => {
     handleClick(e)
-    console.log(x, 'testing onclick')
     // const data = x.prompt;
     // console.log(data, "x");
     setMenuitem(x)
@@ -170,13 +170,11 @@ const Header = (props) => {
                           <Grid item xs={12}>
                             <Row style={{ paddingLeft: 10, paddingRight: 10 }}>
                               <Avatar
+                                {...stringAvatar(x.title)}
                                 variant="square"
-                                sx={{ bgcolor: 'red' }}
                                 aria-label="recipe"
                                 style={{ borderRadius: 5, paddingLeft: 5 }}
-                              >
-                                R
-                              </Avatar>
+                              />
 
                               <div>
                                 <Typography
