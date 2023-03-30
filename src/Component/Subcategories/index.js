@@ -18,22 +18,21 @@ import { getPrompts } from '@/src/Utils/prompt'
 export const SubCategoires = () => {
   const router = useRouter()
 
-  const SubCategoiresData = getPrompts();
+  const SubCategoiresData = getPrompts()
 
-  console.log('SubCategoires',SubCategoiresData)
+  console.log('SubCategoires', SubCategoiresData)
   const RenderItem = ({ x }) => {
     return (
       <Grid item xs={3}>
         <Card
-          sx={{ minWidth: 200 , height:150 }}
+          sx={{ minWidth: 200, height: 150 }}
           style={{ backgroundColor: Colors.Color13, borderRadius: 10 }}
           elevation={5}
           spacing={10}
         >
           <CardActionArea onClick={() => router.push('/PromptDetails')}>
             <CardHeader
-              style={{  color: Colors.Black,
-                ...typography.body18Bold,}}
+              style={{ color: Colors.Black, ...typography.body18Bold }}
               avatar={
                 <Avatar sx={{ bgcolor: x.color }} aria-label="recipe" variant="rounded">
                   <ContentCopyIcon />
@@ -59,8 +58,7 @@ export const SubCategoires = () => {
                 }}
                 align="left"
               >
-                {x.description
-}
+                {x.description}
               </Typography>
             </CardContent>
           </CardActionArea>
