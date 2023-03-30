@@ -110,7 +110,7 @@ const Header = (props) => {
                   }}
                   style={{ color: 'black' }}
                 >
-                  Prompt2UI
+                  Prompt Apps
                 </Typography>
               </Grid>
               <Grid item xs={7}>
@@ -250,7 +250,9 @@ const Header = (props) => {
               <TextField
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment position="end" style={{color:Colors.Color12}}><Button>Copy Link</Button></InputAdornment>
+                    <InputAdornment position="end" style={{ color: Colors.Color12 }}>
+                      <Button>Copy Link</Button>
+                    </InputAdornment>
                   ),
                 }}
                 id="outlined-basic"

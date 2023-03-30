@@ -14,6 +14,10 @@ Please read [General Contribution guidelines](GENERAL-CONTRIBUTING.md).
 - Convert Prompt into Form JSON
 - Raise a PR or save public using Login
 
+## Content Writer
+
+- Help us to write SEO content relative to prompt
+
 ## Documentation
 
 - PR for docs site update, if needed
