@@ -26,7 +26,7 @@ export const SubCategoires = () => {
       <Grid item xs={3}>
         <Card
           sx={{ minWidth: 200 }}
-          style={{ backgroundColor: Colors.Color13, borderRadius: 10 }}
+          style={{ backgroundColor: Colors.White, borderRadius: 10 }}
           elevation={5}
           spacing={10}
         >

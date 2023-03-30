@@ -83,8 +83,8 @@ const Footer = () => {
           </Row>
         </Row>
         <AppBar position="static" elevation={0} component="footer" color="default">
-          <Toolbar style={{ justifyContent: 'center' }}>
-            <Typography variant="caption">©2023</Typography>
+          <Toolbar style={{ justifyContent: 'center', backgroundColor: '#EFF7FD' }}>
+            <Typography variant="caption">@2023 Prompt Apps. All rights reserved</Typography>
           </Toolbar>
         </AppBar>
       </div>

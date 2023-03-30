@@ -264,7 +264,7 @@ const Header = (props) => {
                   >
                     <ShareIcon />
                   </Button>
-                  <Search style={{ backgroundColor: Colors.Color13, color: 'black' }}>
+                  <Search style={{ backgroundColor: Colors.Grey, color: 'black' }}>
                     <SearchIconWrapper>
                       <SearchIcon />
                     </SearchIconWrapper>
@@ -295,7 +295,7 @@ const Header = (props) => {
             <Typography
               id="keep-mounted-modal-title"
               variant="h6"
-              style={{ color: Colors.Grey, ...typography.body18Regular }}
+              style={{ color: Colors.LightGrey, ...typography.body18Regular }}
               component="h6"
             >
               Tell the world about us
