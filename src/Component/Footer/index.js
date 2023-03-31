@@ -15,13 +15,13 @@ const Footer = () => {
 
   return (
     <>
-      <div style={{ marginTop: 10, marginBottom: 10 }}>
+      <div style={{ marginTop: 15, marginBottom: 10 }}>
         <Grid container spacing={2}>
           <Grid item xs={4} md={3}>
             <strong
               style={{
                 color: Colors.GreyText,
-                ...typography.body20Regular,
+                ...typography.body18Regular,
               }}
             >
               This project is free , open and crowd sourced. <br />
@@ -35,7 +35,7 @@ const Footer = () => {
               style={{
                 fontSize: 25,
                 paddingLeft: 15,
-                color: Colors.GreyText,
+                color: Colors.GreyBold,
                 ...typography.body27Bold,
               }}
             >
@@ -44,6 +44,9 @@ const Footer = () => {
             <br />
 
             <MenuItem
+              style={{
+                color: Colors.GreyText,
+              }}
               onClick={() =>
                 router.push({
                   pathname: '/',
@@ -53,14 +56,27 @@ const Footer = () => {
               Home
             </MenuItem>
             <MenuItem
+              style={{
+                color: Colors.GreyText,
+              }}
               component={Link}
               href="https://github.com/sandeepscet/prompt-apps/"
               target="_blank"
             >
               GitHub
             </MenuItem>
-            <MenuItem onClick={() => alert('Launching Soon..')}>Newsletter</MenuItem>
             <MenuItem
+              style={{
+                color: Colors.GreyText,
+              }}
+              onClick={() => alert('Launching Soon..')}
+            >
+              Newsletter
+            </MenuItem>
+            <MenuItem
+              style={{
+                color: Colors.GreyText,
+              }}
               component={Link}
               href="mailto:sandeep.scet@gmail.com?subject=Contacted%20for%20prompt%20Apps&body=Please%20write%20reason%20for%20contact%20here."
               target="_blank"
@@ -73,7 +89,7 @@ const Footer = () => {
               style={{
                 fontSize: 25,
                 paddingLeft: 15,
-                color: Colors.GreyText,
+                color: Colors.GreyBold,
                 ...typography.body27Bold,
               }}
             >
@@ -82,6 +98,9 @@ const Footer = () => {
             {firstfiveprompts.map((x) => {
               return (
                 <MenuItem
+                  style={{
+                    color: Colors.GreyText,
+                  }}
                   onClick={() =>
                     router.push({
                       pathname: '/PromptDetails',
@@ -107,6 +126,9 @@ const Footer = () => {
             {secondfiveprompts.map((x) => {
               return (
                 <MenuItem
+                  style={{
+                    color: Colors.GreyText,
+                  }}
                   onClick={() =>
                     router.push({
                       pathname: '/PromptDetails',
@@ -131,6 +153,9 @@ const Footer = () => {
             {thirdfiveprompts.map((x) => {
               return (
                 <MenuItem
+                  style={{
+                    color: Colors.GreyText,
+                  }}
                   onClick={() =>
                     router.push({
                       pathname: '/PromptDetails',

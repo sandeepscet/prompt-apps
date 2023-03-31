@@ -4,10 +4,10 @@ import { Category } from '../src/Component/Category'
 import { SubCategoires } from '@/src/Component/Subcategories'
 import Subscription from '@/src/Component/Subcription'
 import RecentHeader from '@/src/Component/RecentHeader'
-import { getPrompts } from '@/src/Utils/prompt'
+import { getPopularPrompts } from '@/src/Utils/prompt'
 
 const MainPage = () => {
-  const getPromptsData = getPrompts()
+  const getPromptsData = getPopularPrompts()
 
   return (
     <>
