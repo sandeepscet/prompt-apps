@@ -19,74 +19,116 @@ import { useRouter } from 'next/router'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
 import MenuData from '../../Common/menu.json'
+import { getPrompts } from '@/src/Utils/prompt'
 const Footer = () => {
   const router = useRouter()
-  const MenuItemsData = MenuData
-  console.log('dfdffdsffdff', MenuItemsData)
+  const MenuItemsData = MenuData;
+  const SubCategoiresData = getPrompts();
+  let firstfiveprompts = SubCategoiresData.slice(0, 5);
+  let secondfiveprompts = SubCategoiresData.slice(5, 10);
+  let thirdfiveprompts = SubCategoiresData.slice(10, 15);
   return (
     <>
-      <div style={{ marginTop: 50 }}>
-        <Row style={{ justifyContent: 'flex-start' }}>
-          <div style={{ width: '30%' }}>
-            User interface-based Apps will help generate output from CHAT-GPT without knowledge of
-            Boring And Cognitively demanding so-called Prompt engineering
-          </div>
-          <Row style={{ justifyContent: 'flex-start' }}>
-            <Grid container spacing={2}>
-              <Grid item xs={3}>
-                <MenuList style={{ color: 'Black' }}>
-                  <strong
-                    style={{
-                      fontSize: 25,
-                      paddingLeft: 15,
-                      color: 'black',
-                      ...typography.body27Bold,
-                    }}
-                  >
-                    Navigate
-                  </strong>
-                  <br />
-                  <MenuItem
-                    style={{ marginTop: 3 }}
-                    onClick={() => router.push('/PromptDetails')}
-                  ></MenuItem>
-                  <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                  <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                  <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                  <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                  <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                </MenuList>
-              </Grid>
-              <MenuList style={{ color: 'Black' }}>
-                <strong
-                  style={{
-                    fontSize: 25,
-                    paddingLeft: 15,
-                    color: 'black',
-                    ...typography.body27Bold,
-                  }}
-                >
-                  Prompt
-                </strong>
-                <br />
-                <MenuItem
-                  style={{ marginTop: 3 }}
-                  onClick={() => router.push('/PromptDetails')}
-                ></MenuItem>
-                <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-                <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-              </MenuList>
-            </Grid>
-          </Row>
-        </Row>
-        <AppBar position="static" elevation={0} component="footer" color="default">
-          <Toolbar style={{ justifyContent: 'center', backgroundColor: '#EFF7FD' }}>
-            <Typography variant="caption">@2023 Prompt Apps. All rights reserved</Typography>
-          </Toolbar>
-        </AppBar>
+      <div style={{ marginTop: 50, marginBottom: 50 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={4} md={4}>
+            <strong
+              style={{
+                fontSize: 25,
+                color: 'black',
+                ...typography.body15Regular,
+              }}
+            >
+              TinyWow provides free online conversion, pdf, and other handy tools to help you solve
+              problems of all types. All files both processed and unprocessed are deleted after 1 hour
+            </strong>
+          </Grid>
+          <Grid item xs={2} md={2}>
+
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            >
+              Navigate
+            </strong>
+            <br />
+
+            <MenuItem >Home</MenuItem>
+
+
+          </Grid>
+          <Grid item xs={2} md={2}>
+
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            >
+              Prompt
+            </strong>
+
+            {
+              firstfiveprompts.map((x) => {
+                return (<MenuItem onClick={() => router.push({
+                  pathname: '/PromptDetails',
+                  query: { SubCategoryName: x.title },
+                })}>{x.title}</MenuItem>)
+              })
+            }
+
+          </Grid>
+          <Grid item xs={2} md={2}>
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            >
+
+            </strong>
+
+            {
+              secondfiveprompts.map((x) => {
+                return (<MenuItem onClick={() => router.push({
+                  pathname: '/PromptDetails',
+                  query: { SubCategoryName: x.title },
+                })}>{x.title}</MenuItem>)
+              })
+            }
+
+          </Grid>
+          <Grid item xs={2} md={2}>
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            >
+
+            </strong>
+            {
+              thirdfiveprompts.map((x) => {
+                return (<MenuItem onClick={() => router.push({
+                  pathname: '/PromptDetails',
+                  query: { SubCategoryName: x.title },
+                })}>{x.title}</MenuItem>)
+              })
+            }
+
+          </Grid>
+
+        </Grid>
       </div>
     </>
   )
