@@ -23,7 +23,7 @@ import { getCategoryWithPrompt } from '@/src/Utils/prompt'
 export const Category = () => {
   const router = useRouter()
   const Categoires = getCategoryWithPrompt()
-  console.log('Categoires', Categoires)
+
   const RenderItem = ({ x }) => {
     return (
       <>
