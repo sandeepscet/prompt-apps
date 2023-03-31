@@ -7,6 +7,7 @@ import {
   CardActionArea,
   CardContent,
   CardHeader,
+  Chip,
   Grid,
   Typography,
 } from '@mui/material'
@@ -18,34 +19,45 @@ import { Colors } from '@/src/Theme/colors'
 import { Row } from '@nextui-org/react'
 import { typography } from '../../Theme/typography'
 import { getCategoryWithPrompt, getPrompts } from '@/src/Utils/prompt'
+import { stringToColor } from '@/src/Utils/common'
 
 export const Category = () => {
   const router = useRouter()
   const Categoires = getCategoryWithPrompt()
+  const colors = ['#6F56EC', '#F66213', '#D61C4E', '#1C67CA', '#247881']
+  const footerColors = ['#EFEDFD', '#FEF2EB', '#FDEDF1', '#EDF4FD', '#EFF9FB']
 
-  const RenderItem = ({ x }) => {
+  const RenderItem = ({ x, index }) => {
+    const colorIndex = index % colors.length
+    const primaryColor = colors[colorIndex]
+    const secondaryColor = footerColors[colorIndex]
+
     return (
       <>
         <Grid item xs={3}>
           <Card
             sx={{ minWidth: 200 }}
-            style={{ backgroundColor: Colors.White, borderRadius: 10 }}
+            style={{ backgroundColor: primaryColor, borderRadius: 10 }}
             elevation={10}
             spacing={10}
           >
-            <CardActionArea onClick={() => router.push({
-              pathname: '/PromptDetails',
-              query: { categoryName: x.category.name },
-            })}>
+            <CardActionArea
+              onClick={() =>
+                router.push({
+                  pathname: '/PromptDetails',
+                  query: { categoryName: x.category.name },
+                })
+              }
+            >
               <CardHeader
-                style={{ backgroundColor: Colors.Color4 }}
+                style={{}}
                 avatar={
                   <Avatar
-                    sx={{ bgcolor: x.color }}
+                    sx={{ bgcolor: secondaryColor }}
                     aria-label="recipe"
                     variant="rounded"
                     style={{
-                      color: Colors.White,
+                      color: primaryColor,
                       fontSize: 12,
                       borderRadius: 20,
                     }}
@@ -58,22 +70,27 @@ export const Category = () => {
                     <Typography
                       align="right"
                       style={{
-                        color: Colors.Black,
+                        color: Colors.White,
                       }}
                     >
-                      {x.prompt.length} prompt
+                      <Chip
+                        label={x.prompt.length + ' Apps'}
+                        style={{
+                          color: Colors.White,
+                        }}
+                      />
                     </Typography>
                   </>
                 }
               />
 
-              <Box style={{ backgroundColor: Colors.Color4, paddingRight: 10 }}>
+              <Box style={{ paddingRight: 10 }}>
                 <Row style={{ justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
                     <Typography
                       style={{
                         marginLeft: 16,
-                        color: Colors.Black,
+                        color: Colors.White,
                         ...typography.body18Regular,
                       }}
                       align="left"
@@ -89,7 +106,7 @@ export const Category = () => {
                       }}
                       align="left"
                     >
-                      {x.category.name}
+                      {x.category.description}
                     </Typography>
                   </div>
                   <ArrowForwardRoundedIcon />
@@ -101,7 +118,7 @@ export const Category = () => {
                   style={{
                     border: '1px solid #E79668',
                     borderRadius: 5,
-                    backgroundColor: Colors.Color11,
+                    backgroundColor: secondaryColor,
                   }}
                 >
                   <Row>
@@ -129,8 +146,8 @@ export const Category = () => {
       <Box paddingRight={5} paddingLeft={5} paddingBottom={5} paddingTop={5}>
         <h1>Category</h1>
         <Grid container spacing={1} rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          {Categoires.map((item) => {
-            return <RenderItem x={item} />
+          {Categoires.map((item, index) => {
+            return <RenderItem x={item} key={index} index={index} />
           })}
         </Grid>
       </Box>

@@ -123,7 +123,15 @@ const Header = (props) => {
         <AppBar style={{ backgroundColor: 'white' }}>
           <Toolbar>
             <Grid container rowSpacing={1} style={{}} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              <Grid item xs={2}>
+              <Grid
+                item
+                xs={2}
+                onClick={() =>
+                  router.push({
+                    pathname: '/',
+                  })
+                }
+              >
                 <Typography
                   align="left"
                   variant="h6"
@@ -133,6 +141,7 @@ const Header = (props) => {
                     marginLeft: 5,
                     marginRight: 5,
                     width: 200,
+                    cursor: 'pointer',
                     display: { xs: 'none', sm: 'block' },
                   }}
                   style={{ color: 'black' }}

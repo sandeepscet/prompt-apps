@@ -15,10 +15,10 @@ const MainPage = () => {
   const router = useRouter()
   return (
     <>
-    <div style={{width:'100%'}}>
-      <Subscription />
-      <Category />
-      <SubCategoires />
+      <div style={{ width: '100%' }}>
+        <Subscription />
+        <SubCategoires />
+        <Category />
       </div>
     </>
   )

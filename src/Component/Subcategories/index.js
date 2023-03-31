@@ -21,7 +21,6 @@ export const SubCategoires = () => {
 
   const SubCategoiresData = getPrompts()
 
-  console.log('SubCategoires', SubCategoiresData)
   const RenderItem = ({ x }) => {
     return (
       <Grid item xs={3}>
@@ -74,7 +73,7 @@ export const SubCategoires = () => {
               ...typography.body27Bold,
             }}
           >
-            Prompt
+            Apps
           </strong>
         </div>
         <Grid container spacing={1} rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

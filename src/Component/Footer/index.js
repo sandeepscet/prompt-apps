@@ -22,14 +22,14 @@ import MenuData from '../../Common/menu.json'
 import { getPrompts } from '@/src/Utils/prompt'
 const Footer = () => {
   const router = useRouter()
-  const MenuItemsData = MenuData;
-  const SubCategoiresData = getPrompts();
-  let firstfiveprompts = SubCategoiresData.slice(0, 5);
-  let secondfiveprompts = SubCategoiresData.slice(5, 10);
-  let thirdfiveprompts = SubCategoiresData.slice(10, 15);
+  const MenuItemsData = MenuData
+  const SubCategoiresData = getPrompts()
+  let firstfiveprompts = SubCategoiresData.slice(0, 5)
+  let secondfiveprompts = SubCategoiresData.slice(5, 10)
+  let thirdfiveprompts = SubCategoiresData.slice(10, 15)
   return (
     <>
-      <div style={{ marginTop: 50, marginBottom: 50 }}>
+      <div style={{ marginTop: 10, marginBottom: 10 }}>
         <Grid container spacing={2}>
           <Grid item xs={4} md={4}>
             <strong
@@ -39,12 +39,11 @@ const Footer = () => {
                 ...typography.body15Regular,
               }}
             >
-              TinyWow provides free online conversion, pdf, and other handy tools to help you solve
-              problems of all types. All files both processed and unprocessed are deleted after 1 hour
+              User interface-based Apps will help generate output from CHAT GPT without knowledge of
+              Boring And Cognitively demanding so-called Prompt engineering
             </strong>
           </Grid>
           <Grid item xs={2} md={2}>
-
             <strong
               style={{
                 fontSize: 25,
@@ -57,32 +56,23 @@ const Footer = () => {
             </strong>
             <br />
 
-            <MenuItem >Home</MenuItem>
-
-
-          </Grid>
-          <Grid item xs={2} md={2}>
-
-            <strong
-              style={{
-                fontSize: 25,
-                paddingLeft: 15,
-                color: 'black',
-                ...typography.body27Bold,
-              }}
+            <MenuItem
+              onClick={() =>
+                router.push({
+                  pathname: '/',
+                })
+              }
             >
-              Prompt
-            </strong>
-
-            {
-              firstfiveprompts.map((x) => {
-                return (<MenuItem onClick={() => router.push({
-                  pathname: '/PromptDetails',
-                  query: { SubCategoryName: x.title },
-                })}>{x.title}</MenuItem>)
-              })
-            }
-
+              Home
+            </MenuItem>
+            <MenuItem
+              component={Link}
+              href="https://github.com/sandeepscet/prompt-apps/"
+              target="_blank"
+            >
+              GitHub
+            </MenuItem>
+            <MenuItem onClick={() => alert('Launching Soon..')}>Newsletter</MenuItem>
           </Grid>
           <Grid item xs={2} md={2}>
             <strong
@@ -93,18 +83,23 @@ const Footer = () => {
                 ...typography.body27Bold,
               }}
             >
-
+              Apps
             </strong>
 
-            {
-              secondfiveprompts.map((x) => {
-                return (<MenuItem onClick={() => router.push({
-                  pathname: '/PromptDetails',
-                  query: { SubCategoryName: x.title },
-                })}>{x.title}</MenuItem>)
-              })
-            }
-
+            {firstfiveprompts.map((x) => {
+              return (
+                <MenuItem
+                  onClick={() =>
+                    router.push({
+                      pathname: '/PromptDetails',
+                      query: { SubCategoryName: x.title },
+                    })
+                  }
+                >
+                  {x.title}
+                </MenuItem>
+              )
+            })}
           </Grid>
           <Grid item xs={2} md={2}>
             <strong
@@ -114,22 +109,60 @@ const Footer = () => {
                 color: 'black',
                 ...typography.body27Bold,
               }}
-            >
+            ></strong>
 
-            </strong>
-            {
-              thirdfiveprompts.map((x) => {
-                return (<MenuItem onClick={() => router.push({
-                  pathname: '/PromptDetails',
-                  query: { SubCategoryName: x.title },
-                })}>{x.title}</MenuItem>)
-              })
-            }
-
+            {secondfiveprompts.map((x) => {
+              return (
+                <MenuItem
+                  onClick={() =>
+                    router.push({
+                      pathname: '/PromptDetails',
+                      query: { SubCategoryName: x.title },
+                    })
+                  }
+                >
+                  {x.title}
+                </MenuItem>
+              )
+            })}
           </Grid>
-
+          <Grid item xs={2} md={2}>
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            ></strong>
+            {thirdfiveprompts.map((x) => {
+              return (
+                <MenuItem
+                  onClick={() =>
+                    router.push({
+                      pathname: '/PromptDetails',
+                      query: { SubCategoryName: x.title },
+                    })
+                  }
+                >
+                  {x.title}
+                </MenuItem>
+              )
+            })}
+          </Grid>
         </Grid>
       </div>
+      <AppBar
+        position="static"
+        elevation={0}
+        component="footer"
+        color="default"
+        style={{ height: 10 }}
+      >
+        <Toolbar style={{ justifyContent: 'center', backgroundColor: '#EFF7FD' }}>
+          <Typography variant="caption">@2023 Prompt Apps. All rights reserved</Typography>
+        </Toolbar>
+      </AppBar>
     </>
   )
 }
