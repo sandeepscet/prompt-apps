@@ -110,7 +110,7 @@ export const Category = () => {
                   <ArrowForwardRoundedIcon />
                 </Row>
               </Box>
-              <CardContent>
+              <CardContent style={{paddingTop:0}}>
                 <Box
                   sx={{ padding: 1, width: 'auto' }}
                   style={{
