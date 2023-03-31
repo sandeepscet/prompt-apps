@@ -17,7 +17,7 @@ import { useRouter } from 'next/router'
 import { Colors } from '@/src/Theme/colors'
 import { Row } from '@nextui-org/react'
 import { typography } from '../../Theme/typography'
-import { getCategoryWithPrompt } from '@/src/Utils/prompt'
+import { getCategoryWithPrompt, getPrompts } from '@/src/Utils/prompt'
 
 export const Category = () => {
   const router = useRouter()
@@ -33,7 +33,10 @@ export const Category = () => {
             elevation={10}
             spacing={10}
           >
-            <CardActionArea onClick={() => router.push('/PromptDetails')}>
+            <CardActionArea onClick={() => router.push({
+              pathname: '/PromptDetails',
+              query: { categoryName: x.category.name },
+            })}>
               <CardHeader
                 style={{ backgroundColor: Colors.Color4 }}
                 avatar={

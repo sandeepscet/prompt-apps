@@ -30,7 +30,10 @@ export const SubCategoires = () => {
           elevation={5}
           spacing={10}
         >
-          <CardActionArea onClick={() => router.push('/PromptDetails')}>
+          <CardActionArea onClick={() => router.push({
+            pathname: '/PromptDetails',
+            query: { SubCategoryName: x.title },
+          })}>
             <CardHeader
               style={{ color: Colors.Black, ...typography.body18Bold }}
               avatar={
