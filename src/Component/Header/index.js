@@ -1,40 +1,25 @@
+import React, { useState, useEffect } from 'react'
 import {
   AppBar,
   Box,
   Button,
-  Card,
-  CardHeader,
   Grid,
-  IconButton,
   Menu,
-  MenuItem,
-  MenuList,
   Modal,
   TextField,
   Toolbar,
   Typography,
 } from '@mui/material'
 import Avatar from '@mui/material/Avatar'
-import React, { useState } from 'react'
 import { styled, alpha } from '@mui/material/styles'
 import InputBase from '@mui/material/InputBase'
 import SearchIcon from '@mui/icons-material/Search'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import MenuData from '../../Common/menu.json'
-import { stringAvatar } from '../../Utils/common'
 import { Row } from '@nextui-org/react'
-import { width } from '@mui/system'
-import { getCategoriesWitPrompts, getTopFiveCategoryWithPrompt } from '@/src/Utils/prompt'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
-import { Label } from '@mui/icons-material'
-import { Colors } from '@/src/Theme/colors'
-import { typography } from '@/src/Theme/typography'
 import ShareIcon from '@mui/icons-material/Share'
 import SettingsIcon from '@mui/icons-material/Settings'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InputAdornment from '@mui/material/InputAdornment'
-import Subscription from '../Subcription'
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -52,25 +37,27 @@ import {
   EmailIcon,
 } from 'react-share'
 
-const Header = (props) => {
+import { stringAvatar } from '../../Utils/common'
+import { getTopFiveCategoryWithPrompt } from '@/src/Utils/prompt'
+import { Colors } from '@/src/Theme/colors'
+import { typography } from '@/src/Theme/typography'
+
+const Header = () => {
+  const router = useRouter()
+
+  const [pageURL, setPageURL] = useState(0)
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [menuItem, setMenuitem] = useState([])
+  const [openShareModal, setOpenShareModal] = useState(false)
+
   const data1 = getTopFiveCategoryWithPrompt()
-  const [openShareModal, setOpenShareModal] = React.useState(false)
+
   const handleOpenShareModal = () => setOpenShareModal(true)
   const handleCloseShareModal = () => setOpenShareModal(false)
-  const [DarkMode, setDarkMode] = React.useState(false)
-  const [pageURL, setPageURL] = useState(0)
-  React.useEffect(() => {
+
+  useEffect(() => {
     setPageURL(window.location.href)
   })
-  const menuList = data1.map((x) => x.prompt)
-  const testing = menuList.map((x) => x.title)
-  const router = useRouter()
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl)
-  // const [modalopen, setOpenmodal] = useState(false);
-  const [menuItem, setMenuitem] = useState([])
-  const MenuItemsData = MenuData
-
   const handleClose = () => {
     setAnchorEl(null)
   }
@@ -91,7 +78,6 @@ const Header = (props) => {
 
   const openConfig = () => {
     alert('pending')
-    //TODO Fill this
   }
 
   const redirecToRepo = () => {
@@ -100,7 +86,6 @@ const Header = (props) => {
     if (newWindow) newWindow.opener = null
   }
 
-  const HandleRout = () => {}
   return (
     <>
       <Box
@@ -110,10 +95,6 @@ const Header = (props) => {
           fontSize: 20,
           backgroundColor: '#fff',
           color: 'black',
-          // '&:hover': {
-          //     backgroundColor: '#eeeee4',
-          //     opacity: [0.9, 0.8, 0.7],
-          // },
         }}
       >
         <AppBar style={{ backgroundColor: 'white' }}>
@@ -132,7 +113,6 @@ const Header = (props) => {
                   align="left"
                   variant="h6"
                   noWrap
-                  // component="div"
                   sx={{
                     marginLeft: 5,
                     marginRight: 5,
@@ -173,7 +153,15 @@ const Header = (props) => {
                       <>
                         <Grid container spacing={2}>
                           <Grid item xs={12}>
-                            <Row style={{ paddingLeft: 10, paddingRight: 10 }}>
+                            <Row
+                              style={{ paddingLeft: 10, paddingRight: 10 }}
+                              onClick={() =>
+                                router.push({
+                                  pathname: '/PromptDetails',
+                                  query: { SubCategoryName: x.title },
+                                })
+                              }
+                            >
                               <Avatar
                                 {...stringAvatar(x.title)}
                                 variant="square"
@@ -216,13 +204,6 @@ const Header = (props) => {
                 <Row>
                   <Button
                     variant="outlined"
-                    // onClick={() => {
-                    //   if (!DarkMode) {
-                    //     setDarkMode(true)
-                    //   }else{
-                    //     setDarkMode(false)
-                    //   }
-                    // }}
                     onClick={openConfig}
                     style={{
                       minHeight: '0px',
@@ -237,13 +218,6 @@ const Header = (props) => {
                   </Button>
                   <Button
                     variant="outlined"
-                    // onClick={() => {
-                    //   if (!DarkMode) {
-                    //     setDarkMode(true)
-                    //   }else{
-                    //     setDarkMode(false)
-                    //   }
-                    // }}
                     onClick={redirecToRepo}
                     style={{
                       minHeight: '0px',
@@ -385,7 +359,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -400,7 +373,6 @@ const style = {
   width: 'auto',
   bgcolor: 'background.paper',
   borderRadius: 3,
-  // border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 }

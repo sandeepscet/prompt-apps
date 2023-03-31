@@ -1,8 +1,8 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import {
   Avatar,
   Box,
-  Button,
   Card,
   CardActionArea,
   CardContent,
@@ -12,14 +12,11 @@ import {
   Typography,
 } from '@mui/material'
 import CategoryIcon from '@mui/icons-material/Category'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
-import { useRouter } from 'next/router'
 import { Colors } from '@/src/Theme/colors'
 import { Row } from '@nextui-org/react'
 import { typography } from '../../Theme/typography'
-import { getCategoryWithPrompt, getPrompts } from '@/src/Utils/prompt'
-import { stringToColor } from '@/src/Utils/common'
+import { getCategoryWithPrompt } from '@/src/Utils/prompt'
 
 export const Category = () => {
   const router = useRouter()
@@ -44,8 +41,8 @@ export const Category = () => {
             <CardActionArea
               onClick={() =>
                 router.push({
-                  pathname: '/PromptDetails',
-                  query: { categoryName: x.category.name },
+                  pathname: '/CategoiresPrompt',
+                  query: { categoryName: x.category.id },
                 })
               }
             >

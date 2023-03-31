@@ -18,8 +18,6 @@ function Prompt(props) {
   async function onSubmit(form) {
     const formData = form.formData
     const generatedPrompt = replaceAll(promptFinalMetaData.prompt, formData)
-    console.log({ generatedPrompt })
-    // const result = await getClientResponse(generatedPrompt, 'text-davinci-003')
     const result = { response: generatedPrompt }
     console.log(result)
     if (result !== 'ERROR_RESPONSE') {
