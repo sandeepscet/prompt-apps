@@ -24,19 +24,19 @@ const Footer = () => {
   const router = useRouter()
   const MenuItemsData = MenuData
   const SubCategoiresData = getPrompts()
-  let firstfiveprompts = SubCategoiresData.slice(0, 5)
+  let firstfiveprompts = SubCategoiresData.slice(10, 15)
   let secondfiveprompts = SubCategoiresData.slice(5, 10)
-  let thirdfiveprompts = SubCategoiresData.slice(10, 15)
+  let thirdfiveprompts = SubCategoiresData.slice(15, 20)
+
   return (
     <>
       <div style={{ marginTop: 10, marginBottom: 10 }}>
         <Grid container spacing={2}>
-          <Grid item xs={4} md={4}>
+          <Grid item xs={4} md={3}>
             <strong
               style={{
-                fontSize: 25,
-                color: 'black',
-                ...typography.body15Regular,
+                color: Colors.GreyText,
+                ...typography.body20Regular,
               }}
             >
               User interface-based Apps will help generate output from CHAT GPT without knowledge of
@@ -48,7 +48,7 @@ const Footer = () => {
               style={{
                 fontSize: 25,
                 paddingLeft: 15,
-                color: 'black',
+                color: Colors.GreyText,
                 ...typography.body27Bold,
               }}
             >
@@ -79,7 +79,7 @@ const Footer = () => {
               style={{
                 fontSize: 25,
                 paddingLeft: 15,
-                color: 'black',
+                color: Colors.GreyText,
                 ...typography.body27Bold,
               }}
             >
@@ -106,7 +106,7 @@ const Footer = () => {
               style={{
                 fontSize: 25,
                 paddingLeft: 15,
-                color: 'black',
+                color: Colors.GreyText,
                 ...typography.body27Bold,
               }}
             ></strong>
@@ -131,7 +131,7 @@ const Footer = () => {
               style={{
                 fontSize: 25,
                 paddingLeft: 15,
-                color: 'black',
+                color: Colors.GreyText,
                 ...typography.body27Bold,
               }}
             ></strong>
