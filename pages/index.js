@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 import { useRouter } from 'next/router'
 import { SubCategoires } from '@/src/Component/Subcategories'
 import Subscription from '@/src/Component/Subcription'
+import RecentHeader from '@/src/Component/RecentHeader'
 
 const MainPage = () => {
   const router = useRouter()
@@ -17,6 +18,7 @@ const MainPage = () => {
     <>
       <div style={{ width: '100%' }}>
         <Subscription />
+        <RecentHeader />
         <SubCategoires />
         <Category />
       </div>
