@@ -40,7 +40,7 @@ const Footer = () => {
               This project is free , open and crowd sourced. <br />
               <br />
               You can contribute by development of Features, Suggest generage use prompts , Convert
-              prompts into forms , Donate GPT-Token for testing , Sponser Development
+              prompts into forms , Donate GPT-Token for testing , Sponsor Development.
             </strong>
           </Grid>
           <Grid item xs={2} md={2}>
@@ -73,6 +73,13 @@ const Footer = () => {
               GitHub
             </MenuItem>
             <MenuItem onClick={() => alert('Launching Soon..')}>Newsletter</MenuItem>
+            <MenuItem
+              component={Link}
+              href="mailto:sandeep.scet@gmail.com?subject=Contacted%20for%20prompt%20Apps&body=Please%20write%20reason%20for%20contact%20here."
+              target="_blank"
+            >
+              Contact
+            </MenuItem>
           </Grid>
           <Grid item xs={2} md={2}>
             <strong
@@ -85,7 +92,6 @@ const Footer = () => {
             >
               Apps
             </strong>
-
             {firstfiveprompts.map((x) => {
               return (
                 <MenuItem

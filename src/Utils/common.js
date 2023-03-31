@@ -1,5 +1,4 @@
 function replaceAll(str, mapObj) {
-  console.log('str, mapObj',str, mapObj)
   var re = new RegExp(Object.keys(mapObj).join('|'), 'gi')
 
   return str.replace(re, function (matched) {

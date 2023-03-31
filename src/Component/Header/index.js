@@ -81,8 +81,6 @@ const Header = (props) => {
 
   const handleMenuOpen = (x, e) => {
     handleClick(e)
-    // const data = x.prompt;
-    // console.log(data, "x");
     setMenuitem(x)
   }
 
@@ -102,9 +100,7 @@ const Header = (props) => {
     if (newWindow) newWindow.opener = null
   }
 
-  console.log('menuitem', menuItem)
   const HandleRout = () => {}
-  console.log('menu list', menuItem)
   return (
     <>
       <Box

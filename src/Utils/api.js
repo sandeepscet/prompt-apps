@@ -1,9 +1,5 @@
-async function createCompletionServer(
-  prompt,
-  engine = 'gpt-3.5-turbo',
-  apiEndpoint
-) {
-  const post = { message: prompt, engine: engine } 
+async function createCompletionServer(prompt, engine = 'gpt-3.5-turbo', apiEndpoint) {
+  const post = { message: prompt, engine: engine }
   try {
     const response = await fetch(apiEndpoint, {
       method: 'post',

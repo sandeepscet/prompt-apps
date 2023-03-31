@@ -11,7 +11,6 @@ import {
 } from '@mui/material'
 import DescriptionIcon from '@mui/icons-material/Description'
 import { useRouter } from 'next/router'
-import { Data } from '@/src/Common/card'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
 import { getPopularPrompts } from '@/src/Utils/prompt'
