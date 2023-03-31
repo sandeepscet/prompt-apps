@@ -3,7 +3,7 @@ import categories from '../Common/categories.json'
 import promptsMetaData from '../Common/promptsMetaData.json'
 
 function getPrompts() {
-  return promptsMetaData
+  return [...promptsMetaData]
 }
 
 function getCategories() {
@@ -42,7 +42,8 @@ function getTopFiveCategoryWithPrompt() {
 
 // To display Just below Menu
 function getRecentPrompts() {
-  return getPrompts().reverse().slice(0, 5)
+  const prompts = [...getPrompts()]
+  return prompts.reverse().slice(0, 5)
 }
 
 // To display in Footer

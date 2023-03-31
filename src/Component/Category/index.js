@@ -64,19 +64,20 @@ export const Category = () => {
                 }
                 title={
                   <>
-                    <Typography
+                    <div
                       align="right"
                       style={{
                         color: Colors.White,
                       }}
                     >
                       <Chip
+                        align="right"
                         label={x.prompt.length + ' Apps'}
                         style={{
                           color: Colors.White,
                         }}
                       />
-                    </Typography>
+                    </div>
                   </>
                 }
               />
