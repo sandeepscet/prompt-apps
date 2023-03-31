@@ -1,24 +1,11 @@
-import { Info, Label, Security } from '@mui/icons-material'
-import {
-  AppBar,
-  Avatar,
-  Box,
-  Button,
-  Container,
-  Grid,
-  MenuItem,
-  MenuList,
-  Paper,
-  Toolbar,
-  Typography,
-} from '@mui/material'
 import React from 'react'
 import Link from 'next/link'
-import { Row } from '@nextui-org/react'
 import { useRouter } from 'next/router'
-import { Colors } from '@/src/Theme/colors'
+import { AppBar, Grid, MenuItem, Toolbar, Typography } from '@mui/material'
+
 import { typography } from '@/src/Theme/typography'
 import { getPrompts } from '@/src/Utils/prompt'
+import { Colors } from '@/src/Theme/colors'
 const Footer = () => {
   const router = useRouter()
   const SubCategoiresData = getPrompts()

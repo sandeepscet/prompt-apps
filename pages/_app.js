@@ -1,7 +1,7 @@
+import React from 'react'
 // import '../styles/globals.css'
-import Layout from "./layout";
 
-import React, { Component } from "react";
+import Layout from './Layout'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

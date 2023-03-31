@@ -1,11 +1,11 @@
+import React, { useEffect, useState } from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
-import React from 'react'
 
 const Subscription = () => {
-  const [hydrated, setHydrated] = React.useState(false)
-  React.useEffect(() => {
+  const [hydrated, setHydrated] = useState(false)
+  useEffect(() => {
     setHydrated(true)
   }, [])
 

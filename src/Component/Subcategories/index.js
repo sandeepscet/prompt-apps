@@ -1,25 +1,16 @@
 import React from 'react'
-import {
-  Avatar,
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardHeader,
-  Grid,
-  Typography,
-} from '@mui/material'
+import { Avatar, Box, Card, CardActionArea, CardHeader, Grid } from '@mui/material'
 import DescriptionIcon from '@mui/icons-material/Description'
 import { useRouter } from 'next/router'
-import { Data } from '@/src/Common/card'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
-import { getPopularPrompts } from '@/src/Utils/prompt'
+// import { getPopularPrompts } from '@/src/Utils/prompt'
 import { stringToColor } from '@/src/Utils/common'
-export const SubCategoires = () => {
-  const router = useRouter()
+// const SubCategoiresData = getPopularPrompts()
 
-  const SubCategoiresData = getPopularPrompts()
+export const SubCategoires = (props) => {
+  const { SubCategoiresData, categoryName } = props
+  const router = useRouter()
 
   const RenderItem = ({ x }) => {
     return (
