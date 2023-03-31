@@ -13,7 +13,11 @@ const Subscription = () => {
     {
       text: 'Want Updates of New Prompts and Features? No Spam.',
       button: (
-        <a target="_blank" href="https://github.com/sandeepscet/prompt-apps/">
+        <a
+          target="_blank"
+          href="https://github.com/sandeepscet/prompt-apps/"
+          style={{ textDecoration: 'none' }}
+        >
           <Button variant="secondary" style={{ ...typography.body12Regular, color: Colors.White }}>
             Subscribe
           </Button>
