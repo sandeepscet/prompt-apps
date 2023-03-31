@@ -69,10 +69,13 @@ function getPromptsByCategory(categoryId) {
 }
 
 function getPromptById(id) {
+  console.log('promptsMetaData::',promptsMetaData)
   const promptMetaData = promptsMetaData.find((obj) => {
-    return obj.id === id;
-  });
+    console.log('promptMetaData', obj.title === id)
 
+    return obj.title === id;
+  });
+  console.log('promptMetaDatafinal',promptMetaData)
   const RJSFSchemaProperties = promptMetaData.schema.properties;
   const UiSchema = {};
   for (let key in RJSFSchemaProperties) {

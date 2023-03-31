@@ -29,85 +29,106 @@ const Footer = () => {
   let thirdfiveprompts = SubCategoiresData.slice(10, 15);
   return (
     <>
-  <div style={{ marginTop: 50 }}>
+      <div style={{ marginTop: 50, marginBottom: 50 }}>
         <Grid container spacing={2}>
           <Grid item xs={4} md={4}>
-            <div>
+            <strong
+              style={{
+                fontSize: 25,
+                color: 'black',
+                ...typography.body15Regular,
+              }}
+            >
               TinyWow provides free online conversion, pdf, and other handy tools to help you solve
               problems of all types. All files both processed and unprocessed are deleted after 1 hour
-            </div>
+            </strong>
           </Grid>
           <Grid item xs={2} md={2}>
-            <MenuList style={{ color: 'Black' }}>
-              <strong
-                style={{
-                  fontSize: 25,
-                  paddingLeft: 15,
-                  color: 'black',
-                  ...typography.body27Bold,
-                }}
-              >
-                Navigate
-              </strong>
-              <br />
 
-              <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-              <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-              <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-              <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-              <MenuItem onClick={() => router.push('/PromptDetails')}>PromptDetails</MenuItem>
-            </MenuList>
-          </Grid>
-          <Grid item xs={2} md={2}>
-            <MenuList style={{ color: 'Black' }}>
-              <strong
-                style={{
-                  fontSize: 25,
-                  paddingLeft: 15,
-                  color: 'black',
-                  ...typography.body27Bold,
-                }}
-              >
-                Prompt
-              </strong>
-              <br />
-              {
-                firstfiveprompts.map((x) => {
-                  return (<MenuItem onClick={() => router.push('/PromptDetails')}>{x.title}</MenuItem>)
-                })
-              }
-            </MenuList>
-          </Grid>
-          <Grid item xs={2} md={2}>
-            <MenuList style={{ color: 'Black' }}>
-              <br />
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            >
+              Navigate
+            </strong>
+            <br />
 
-              {
-                secondfiveprompts.map((x) => {
-                  return (<MenuItem onClick={() => router.push('/PromptDetails')}>{x.title}</MenuItem>)
-                })
-              }
-            </MenuList>
+            <MenuItem >Home</MenuItem>
+
+
           </Grid>
           <Grid item xs={2} md={2}>
-            <MenuList style={{ color: 'Black' }}>
-              <br />
-              {
-                thirdfiveprompts.map((x) => {
-                  return (<MenuItem onClick={() => router.push('/PromptDetails')}>{x.title}</MenuItem>)
-                })
-              }
-            </MenuList>
+
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            >
+              Prompt
+            </strong>
+
+            {
+              firstfiveprompts.map((x) => {
+                return (<MenuItem onClick={() => router.push({
+                  pathname: '/PromptDetails',
+                  query: { SubCategoryName: x.title },
+                })}>{x.title}</MenuItem>)
+              })
+            }
+
+          </Grid>
+          <Grid item xs={2} md={2}>
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            >
+
+            </strong>
+
+            {
+              secondfiveprompts.map((x) => {
+                return (<MenuItem onClick={() => router.push({
+                  pathname: '/PromptDetails',
+                  query: { SubCategoryName: x.title },
+                })}>{x.title}</MenuItem>)
+              })
+            }
+
+          </Grid>
+          <Grid item xs={2} md={2}>
+            <strong
+              style={{
+                fontSize: 25,
+                paddingLeft: 15,
+                color: 'black',
+                ...typography.body27Bold,
+              }}
+            >
+
+            </strong>
+            {
+              thirdfiveprompts.map((x) => {
+                return (<MenuItem onClick={() => router.push({
+                  pathname: '/PromptDetails',
+                  query: { SubCategoryName: x.title },
+                })}>{x.title}</MenuItem>)
+              })
+            }
+
           </Grid>
 
         </Grid>
-
-
-        <AppBar position="static" elevation={0} component="footer" color="default">
-          <Toolbar style={{ justifyContent: 'center' }}>
-            <Typography variant="caption">©2023</Typography>
-          </Toolbar>
-        </AppBar>
       </div>
     </>
   )

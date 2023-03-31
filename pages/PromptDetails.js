@@ -5,6 +5,7 @@ import Checkbox from '@/src/Component/Checkbox'
 import { Router, useRouter } from 'next/router'
 import { getPrompts } from '@/src/Utils/prompt'
 import { Grid } from '@mui/material'
+import Prompt from '@/src/Component/Prompt'
 
 const elements = [
   { type: 'gender', label: 'Gender' },
@@ -22,43 +23,14 @@ const PromptDetails = () => {
     <>
       <Grid container spacing={2} style={{
         paddingTop: 20,
-        // paddingBottom: 50,
         backgroundColor: '#eff7fd',
-        // minHeight: 500,
       }}>
-        <Grid item xs={2} md={2}>
-
-        </Grid>
+        <Grid item xs={2} md={2}></Grid>
         <Grid item xs={8} md={8}>
-          <h1 style={{ textAlign: 'center' }}>{Data.title}</h1>
-          <form >
-            {elements.map((element) => {
-              if (element.type === 'gender') {
-                return <RadioButton key={element.label} label={element.label} />
-              } else if (element.type === 'text') {
-                return <Input key={element.label} label={element.label} />
-              } else if (element.type === 'checkbox') {
-                return <Checkbox key={element.label} label={element.label} />
-              }
-              return null
-            })}
-          </form>
+          <Prompt id={router.query.SubCategoryName} />
         </Grid>
-        <Grid item xs={2} md={2}>
-
-        </Grid>
+        <Grid item xs={2} md={2}></Grid>
       </Grid>
-      <div
-        style={{
-          paddingTop: 20,
-          paddingBottom: 50,
-          backgroundColor: '#eff7fd',
-          minHeight: 500,
-        }}
-      >
-
-
-      </div>
     </>
   )
 }
