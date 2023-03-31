@@ -83,7 +83,7 @@ export const Category = () => {
               />
 
               <Box style={{ paddingRight: 10 }}>
-                <Row style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+                <Row style={{ justifyContent: 'space-between'}}>
                   <div>
                     <Typography
                       style={{
