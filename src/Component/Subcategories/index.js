@@ -15,6 +15,7 @@ import { Data } from '@/src/Common/card'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
 import { getPrompts } from '@/src/Utils/prompt'
+import { stringToColor } from '@/src/Utils/common'
 export const SubCategoires = () => {
   const router = useRouter()
 
@@ -30,14 +31,22 @@ export const SubCategoires = () => {
           elevation={5}
           spacing={10}
         >
-          <CardActionArea onClick={() => router.push({
-            pathname: '/PromptDetails',
-            query: { SubCategoryName: x.title },
-          })}>
+          <CardActionArea
+            onClick={() =>
+              router.push({
+                pathname: '/PromptDetails',
+                query: { SubCategoryName: x.title },
+              })
+            }
+          >
             <CardHeader
               style={{ color: Colors.Black, ...typography.body18Bold }}
               avatar={
-                <Avatar sx={{ bgcolor: x.color }} aria-label="recipe" variant="rounded">
+                <Avatar
+                  sx={{ bgcolor: stringToColor(x.title) }}
+                  aria-label="recipe"
+                  variant="rounded"
+                >
                   <DescriptionIcon />
                 </Avatar>
               }
