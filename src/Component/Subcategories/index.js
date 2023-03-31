@@ -14,12 +14,12 @@ import { useRouter } from 'next/router'
 import { Data } from '@/src/Common/card'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
-import { getPrompts } from '@/src/Utils/prompt'
+import { getPopularPrompts } from '@/src/Utils/prompt'
 import { stringToColor } from '@/src/Utils/common'
 export const SubCategoires = () => {
   const router = useRouter()
 
-  const SubCategoiresData = getPrompts()
+  const SubCategoiresData = getPopularPrompts()
 
   const RenderItem = ({ x }) => {
     return (
@@ -73,7 +73,7 @@ export const SubCategoires = () => {
               ...typography.body27Bold,
             }}
           >
-            Apps
+            Popular Apps
           </strong>
         </div>
         <Grid container spacing={1} rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

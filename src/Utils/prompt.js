@@ -43,12 +43,12 @@ function getTopFiveCategoryWithPrompt() {
 
 // To display Just below Menu
 function getRecentPrompts() {
-  return getPrompts().slice(0, 5)
+  return getPrompts().reverse().slice(0, 5)
 }
 
 // To display in Footer
 function getPopularPrompts() {
-  return getPrompts().slice(0, 10)
+  return getPrompts().slice(0, 16)
 }
 
 // To display below prompt output
@@ -125,4 +125,5 @@ export {
   getTopFiveCategoryWithPrompt,
   getCategoryWithPrompt,
   getRecentPrompts,
+  getPopularPrompts,
 }

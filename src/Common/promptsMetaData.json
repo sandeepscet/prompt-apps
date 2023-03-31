@@ -679,5 +679,173 @@
         }
       }
     }
+  },
+  {
+    "title": "Personal Shopper",
+    "description": "Suggest items for me to purchase",
+    "prompt": "I want you to act as my personal shopper. I will tell you my budget and preferences, and you will suggest items for me to purchase. You should only reply with the items you recommend, and nothing else. Do not write explanations. My first request is I have a budget of {currency}{amount} and I am looking for a {item}.",
+    "icon": null,
+    "seoMeta": ["Finance", "Shopping"],
+    "id": "[personalshopper]",
+    "outputFormattor": null,
+    "categories": ["recommendations", "finance"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{amount}", "{item}"],
+      "properties": {
+        "{currency}": {
+          "type": "string",
+          "default": "$",
+          "title": "Your Currency"
+        },
+        "{amount}": {
+          "type": "number",
+          "title": "Amount?",
+          "default": "100"
+        },
+        "{item}": {
+          "type": "string",
+          "title": "Items"
+        }
+      }
+    }
+  },
+  {
+    "title": "Stand-up Comedian",
+    "description": "Humorous take on any topic",
+    "prompt": "I want you to act as a stand-up comedian. I will provide you with some topics related to current events and you will use your wit, creativity, and observational skills to create a routine based on those topics. You should also be sure to incorporate personal anecdotes or experiences into the routine in order to make it more relatable and engaging for the audience. My first request is “I want a humorous take on {topic}.",
+    "icon": null,
+    "seoMeta": ["Finance", "Shopping"],
+    "id": "[personalshopper]",
+    "outputFormattor": null,
+    "categories": ["entertainment"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{topic}"],
+      "properties": {
+        "{topic}": {
+          "type": "string",
+          "title": "Topic ?"
+        }
+      }
+    }
+  },
+  {
+    "title": "Sequel Writer",
+    "description": "Write a sequel/prequel about the any movie",
+    "prompt": "Write a {type} about the {moviename} movie",
+    "icon": null,
+    "seoMeta": ["entertainment", "movie", "writing"],
+    "id": "[sequel-writer]",
+    "outputFormattor": null,
+    "categories": ["entertainment"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{moviename}", "{type}"],
+      "properties": {
+        "{type}": {
+          "type": "string",
+          "default": "Sequel",
+          "ui:widget": "radio",
+          "enum": ["Sequel", "Prequel", "Remake"],
+          "title": "Installment  ?"
+        },
+        "{moviename}": {
+          "type": "string",
+          "title": "Movie Name ?"
+        }
+      }
+    }
+  },
+  {
+    "title": "City Chooser",
+    "description": "Looking for the best city to live in",
+    "prompt": "As someone looking for the best city to live in, consider these basic factors:  Interests: {interests} , Climate Preference: {climate} Monthly Budget: [budget] Good In {criteria} .Main Task: Generate a simple list of cities that align with provided interests, climate preference, living standard and budget.",
+    "icon": null,
+    "seoMeta": ["personal"],
+    "id": "citychooser",
+    "outputFormattor": null,
+    "categories": ["personal-assistants"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{interests}", "{climate}", "{budget}"],
+      "properties": {
+        "{climate}": {
+          "type": "array",
+          "title": "Climate",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["Warm", "Cold", "Temperate"]
+          },
+          "uniqueItems": true
+        },
+        "{criteria}": {
+          "type": "array",
+          "title": "Good in Criteria",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Education",
+              "Health",
+              "Housing",
+              "Mobility",
+              "Safety",
+              "Environment",
+              "Recreation",
+              "Energy Consumption",
+              "Economic Opportunities"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "{interests}": {
+          "type": "string",
+          "title": "Interests?",
+          "ui:placeholder": "outdoor activities, arts and culture, nightlife"
+        },
+        "{budget}": {
+          "type": "number",
+          "title": "Monthly Budget ($)"
+        }
+      }
+    }
+  },
+  {
+    "title": "Code Improvement",
+    "description": "Seeking to improve  code",
+    "prompt": "As a software developer seeking to improve your code, consider the following basic aspects: Language: {lanaguage} Code Snippet: ```[xxx] {codeblock} ``` Problem or Error: {description} Main Task: Identify and address the issue in the provided code snippet to improve the code quality.",
+    "icon": null,
+    "seoMeta": ["programming", "coding"],
+    "id": "code-improvement",
+    "outputFormattor": null,
+    "categories": ["programming", "educational"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{lanaguage}"],
+      "properties": {
+        "{language}": {
+          "type": "string",
+          "default": "PHP",
+          "title": "Programming Language"
+        },
+        "codeblock": {
+          "type": "string",
+          "title": "Code Block",
+          "ui:widget": "textarea"
+        },
+        "{description}": {
+          "type": "string",
+          "title": "What improvement you looking for?",
+          "ui:placeholder": "Explain the specific problem or error message you're encountering"
+        }
+      }
+    }
   }
 ]

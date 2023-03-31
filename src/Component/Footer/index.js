@@ -18,15 +18,13 @@ import { Row } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
-import MenuData from '../../Common/menu.json'
 import { getPrompts } from '@/src/Utils/prompt'
 const Footer = () => {
   const router = useRouter()
-  const MenuItemsData = MenuData
   const SubCategoiresData = getPrompts()
   let firstfiveprompts = SubCategoiresData.slice(10, 15)
-  let secondfiveprompts = SubCategoiresData.slice(5, 10)
-  let thirdfiveprompts = SubCategoiresData.slice(15, 20)
+  let secondfiveprompts = SubCategoiresData.slice(15, 20)
+  let thirdfiveprompts = SubCategoiresData.slice(0, 5)
 
   return (
     <>
@@ -39,8 +37,10 @@ const Footer = () => {
                 ...typography.body20Regular,
               }}
             >
-              User interface-based Apps will help generate output from CHAT GPT without knowledge of
-              Boring And Cognitively demanding so-called Prompt engineering
+              This project is free , open and crowd sourced. <br />
+              <br />
+              You can contribute by development of Features, Suggest generage use prompts , Convert
+              prompts into forms , Donate GPT-Token for testing , Sponser Development
             </strong>
           </Grid>
           <Grid item xs={2} md={2}>
