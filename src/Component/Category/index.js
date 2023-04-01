@@ -83,7 +83,7 @@ export const Category = () => {
               />
 
               <Box style={{ paddingRight: 10 }}>
-                <Row style={{ justifyContent: 'space-between'}}>
+                <Row style={{ justifyContent: 'space-between' }}>
                   <div>
                     <Typography
                       style={{
@@ -110,7 +110,7 @@ export const Category = () => {
                   <ArrowForwardRoundedIcon />
                 </Row>
               </Box>
-              <CardContent style={{paddingTop:0}}>
+              <CardContent style={{ paddingTop: 0 }}>
                 <Box
                   sx={{ padding: 1, width: 'auto' }}
                   style={{

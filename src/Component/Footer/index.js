@@ -9,26 +9,68 @@ import { Colors } from '@/src/Theme/colors'
 const Footer = () => {
   const router = useRouter()
   const SubCategoiresData = getPrompts()
-  let firstfiveprompts = SubCategoiresData.slice(10, 15)
-  let secondfiveprompts = SubCategoiresData.slice(15, 20)
-  let thirdfiveprompts = SubCategoiresData.slice(0, 5)
+  let firstfiveprompts = SubCategoiresData.slice(10, 16)
+  let secondfiveprompts = SubCategoiresData.slice(16, 22)
+  let thirdfiveprompts = SubCategoiresData.slice(22, 28)
+
+  const supportActions = [
+    {
+      text: 'Feature Development',
+      action: 'https://prompt-apps.canny.io/feature-requests',
+    },
+    {
+      text: 'Prompts Writer',
+      action: 'https://prompt-apps.canny.io/prompt-conversion',
+    },
+    {
+      text: 'Prompt to JSON',
+      action:
+        'https://github.com/sandeepscet/prompt-apps/blob/main/src/Common/promptsMetaData.json',
+    },
+    {
+      text: 'Gift GPT Tokens',
+      action:
+        'mailto:sandeep.scet@gmail.com?subject=I%20would%20like%20to%20donate%20GPT%20Tokens&body=Agent%20%3A%20Chatgpt%0D%0AAmount%20%3A%20%2412%0D%0A%0D%0AI%20would%20like%20to%20give%20you%20this%20months%20chatgpt%20premium%20sponsorship.%20Please%20share%20account.%0D%0A',
+    },
+    {
+      text: 'Sponsor Development',
+      action: 'https://github.com/sandeepscet/prompt-apps',
+    },
+    {
+      text: 'Report an Issue',
+      action: 'https://github.com/sandeepscet/prompt-apps/issues',
+    },
+  ]
 
   return (
     <>
       <div style={{ marginTop: 15, marginBottom: 10 }}>
         <Grid container spacing={2}>
-          <Grid item xs={4} md={3}>
+          <Grid item xs={2} md={2}>
             <strong
               style={{
-                color: Colors.GreyText,
-                ...typography.body18Regular,
+                fontSize: 25,
+                paddingLeft: 15,
+                color: Colors.GreyBold,
+                ...typography.body27Bold,
               }}
             >
-              This project is free , open and crowd sourced. <br />
-              <br />
-              You can contribute by development of Features, Suggest generage use prompts , Convert
-              prompts into forms , Donate GPT-Token for testing , Sponsor Development.
+              Support Us
             </strong>
+            {supportActions.map((x) => {
+              return (
+                <MenuItem
+                  component={Link}
+                  href={x.action}
+                  target="_blank"
+                  style={{
+                    color: Colors.GreyText,
+                  }}
+                >
+                  {x.text}
+                </MenuItem>
+              )
+            })}
           </Grid>
           <Grid item xs={2} md={2}>
             <strong

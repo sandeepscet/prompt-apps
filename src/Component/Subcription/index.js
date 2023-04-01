@@ -11,7 +11,7 @@ const Subscription = () => {
 
   const featureActions = [
     {
-      text: 'Want Updates of New Prompts and Features? No Spam.',
+      text: '',
       button: (
         <a
           target="_blank"
@@ -19,7 +19,7 @@ const Subscription = () => {
           style={{ textDecoration: 'none' }}
         >
           <Button variant="secondary" style={{ ...typography.body12Regular, color: Colors.White }}>
-            Subscribe
+            Help us by starring our GitHub repo 🚀
           </Button>
         </a>
       ),
