@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import { getCategoryWithPrompt } from '@/src/Utils/prompt'
@@ -6,13 +6,18 @@ import { SubCategoires } from '@/src/Component/Subcategories'
 
 const CategoiresPrompt = () => {
   const router = useRouter()
-  const data = getCategoryWithPrompt()
-  const AllData = data.filter((x) => x.category?.id === router.query.categoryName)
-  const getPromptsData = AllData.map((x) => x.prompt)[0]
+  const [promptData, setPromptData] = useState([])
+
+  useEffect(() => {
+    const data = getCategoryWithPrompt()
+    const categories = data.filter((x) => x.category?.id === router.query.categoryName)
+    const getPromptsData = categories.map((x) => x.prompt)[0]
+    setPromptData(getPromptsData)
+  }, [router])
 
   return (
     <>
-      <SubCategoires SubCategoiresData={getPromptsData} categoryName={router.query.categoryName} />
+      <SubCategoires SubCategoiresData={promptData} categoryName={router.query.categoryName} />
     </>
   )
 }

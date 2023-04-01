@@ -1,19 +1,19 @@
-import * as React from 'react';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Typography from '@mui/material/Typography';
+import React, { useState } from 'react'
+import FormGroup from '@mui/material/FormGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import Typography from '@mui/material/Typography'
 
 export default function CheckboxLabels() {
-  const [checkedValues, setCheckedValues] = React.useState({
+  const [checkedValues, setCheckedValues] = useState({
     football: false,
     basketball: false,
-    abc: false
-  });
+    abc: false,
+  })
 
   const handleCheckboxChange = (event) => {
-    setCheckedValues({ ...checkedValues, [event.target.name]: event.target.checked });
-  };
+    setCheckedValues({ ...checkedValues, [event.target.name]: event.target.checked })
+  }
 
   return (
     <FormGroup>
@@ -21,17 +21,31 @@ export default function CheckboxLabels() {
         ABC
       </Typography>
       <FormControlLabel
-        control={<Checkbox checked={checkedValues.football} onChange={handleCheckboxChange} name="football" />}
+        control={
+          <Checkbox
+            checked={checkedValues.football}
+            onChange={handleCheckboxChange}
+            name="football"
+          />
+        }
         label="Football"
       />
       <FormControlLabel
-        control={<Checkbox checked={checkedValues.basketball} onChange={handleCheckboxChange} name="basketball" />}
+        control={
+          <Checkbox
+            checked={checkedValues.basketball}
+            onChange={handleCheckboxChange}
+            name="basketball"
+          />
+        }
         label="Basketball"
       />
       <FormControlLabel
-        control={<Checkbox checked={checkedValues.abc} onChange={handleCheckboxChange} name="abc" />}
+        control={
+          <Checkbox checked={checkedValues.abc} onChange={handleCheckboxChange} name="abc" />
+        }
         label="ABC"
       />
     </FormGroup>
-  );
+  )
 }

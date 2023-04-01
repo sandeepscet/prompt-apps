@@ -68,7 +68,6 @@ function getPromptsByCategory(categoryId) {
 }
 
 function getPromptById(id) {
-  console.log('promptsMetaData::', promptsMetaData)
   const promptMetaData = promptsMetaData.find((obj) => {
     return obj.title === id
   })

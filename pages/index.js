@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Category } from '../src/Component/Category'
 import { SubCategoires } from '@/src/Component/Subcategories'
 import Subscription from '@/src/Component/Subcription'
 import RecentHeader from '@/src/Component/RecentHeader'
 import { getPopularPrompts } from '@/src/Utils/prompt'
+import { Category } from '@/src/Component/Category'
 
 const MainPage = () => {
   const getPromptsData = getPopularPrompts()
