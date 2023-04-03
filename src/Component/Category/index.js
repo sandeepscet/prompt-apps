@@ -47,7 +47,7 @@ export const Category = () => {
               }
             >
               <CardHeader
-                style={{paddingBottom:0}}
+                style={{ paddingBottom: 0 }}
                 avatar={
                   <Avatar
                     sx={{ bgcolor: secondaryColor }}
@@ -82,8 +82,8 @@ export const Category = () => {
                 }
               />
 
-              <Box style={{ paddingRight: 10}}>
-                <Row style={{ justifyContent: 'space-between'}}>
+              <Box style={{ paddingRight: 10 }}>
+                <Row style={{ justifyContent: 'space-between' }}>
                   <div>
                     <Typography
                       style={{
@@ -125,7 +125,13 @@ export const Category = () => {
                       color="text.secondary"
                       align="center"
                       style={{ ...typography.body12Regular }}
-                      onClick={() => alert('fdgderf')}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        router.push({
+                          pathname: '/PromptDetails',
+                          query: { SubCategoryName: x.prompt[0]?.title },
+                        })
+                      }}
                     >
                       Features Prompts: {x.prompt[0]?.title}
                     </Typography>
