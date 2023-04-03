@@ -142,6 +142,7 @@ const Footer = () => {
                 <MenuItem
                   style={{
                     color: Colors.GreyText,
+                    textTransform: 'capitalize',
                   }}
                   onClick={() =>
                     router.push({
@@ -170,6 +171,7 @@ const Footer = () => {
                 <MenuItem
                   style={{
                     color: Colors.GreyText,
+                    textTransform: 'capitalize',
                   }}
                   onClick={() =>
                     router.push({
@@ -197,6 +199,7 @@ const Footer = () => {
                 <MenuItem
                   style={{
                     color: Colors.GreyText,
+                    textTransform: 'capitalize',
                   }}
                   onClick={() =>
                     router.push({

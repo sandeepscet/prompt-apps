@@ -89,6 +89,7 @@ export const Category = () => {
                   <div>
                     <Typography
                       style={{
+                        textTransform: 'capitalize',
                         marginLeft: 16,
                         color: Colors.White,
                         ...typography.body18Regular,
@@ -126,7 +127,7 @@ export const Category = () => {
                       variant="body2"
                       color="text.secondary"
                       align="center"
-                      style={{ ...typography.body12Regular }}
+                      style={{ textTransform: 'capitalize', ...typography.body12Regular }}
                       onClick={(e) => {
                         e.stopPropagation()
                         router.push({
