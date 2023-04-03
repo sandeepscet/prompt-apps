@@ -43,7 +43,7 @@ function getTopFiveCategoryWithPrompt() {
 // To display Just below Menu
 function getRecentPrompts() {
   const prompts = [...getPrompts()]
-  return prompts.reverse().slice(0, 5)
+  return prompts.slice(17, 22)
 }
 
 // To display in Footer

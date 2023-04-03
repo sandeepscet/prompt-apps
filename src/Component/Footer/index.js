@@ -9,9 +9,9 @@ import { Colors } from '@/src/Theme/colors'
 const Footer = () => {
   const router = useRouter()
   const SubCategoiresData = getPrompts()
-  let firstfiveprompts = SubCategoiresData.slice(10, 16)
-  let secondfiveprompts = SubCategoiresData.slice(16, 22)
-  let thirdfiveprompts = SubCategoiresData.slice(22, 28)
+  let firstfiveprompts = SubCategoiresData.slice(21, 27)
+  let secondfiveprompts = SubCategoiresData.slice(27, 33)
+  let thirdfiveprompts = SubCategoiresData.slice(33, 39)
 
   const supportActions = [
     {
@@ -142,6 +142,7 @@ const Footer = () => {
                 <MenuItem
                   style={{
                     color: Colors.GreyText,
+                    textTransform: 'capitalize',
                   }}
                   onClick={() =>
                     router.push({
@@ -170,6 +171,7 @@ const Footer = () => {
                 <MenuItem
                   style={{
                     color: Colors.GreyText,
+                    textTransform: 'capitalize',
                   }}
                   onClick={() =>
                     router.push({
@@ -197,6 +199,7 @@ const Footer = () => {
                 <MenuItem
                   style={{
                     color: Colors.GreyText,
+                    textTransform: 'capitalize',
                   }}
                   onClick={() =>
                     router.push({

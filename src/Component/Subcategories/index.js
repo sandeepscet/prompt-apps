@@ -30,7 +30,7 @@ export const SubCategoires = (props) => {
             }
           >
             <CardHeader
-              style={{ color: Colors.Black, ...typography.body18Bold }}
+              style={{ textTransform: 'capitalize', color: Colors.Black, ...typography.body18Bold }}
               avatar={
                 <Avatar
                   sx={{ bgcolor: stringToColor(x.title) }}
