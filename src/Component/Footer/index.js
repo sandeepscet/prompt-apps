@@ -9,9 +9,9 @@ import { Colors } from '@/src/Theme/colors'
 const Footer = () => {
   const router = useRouter()
   const SubCategoiresData = getPrompts()
-  let firstfiveprompts = SubCategoiresData.slice(10, 16)
-  let secondfiveprompts = SubCategoiresData.slice(16, 22)
-  let thirdfiveprompts = SubCategoiresData.slice(22, 28)
+  let firstfiveprompts = SubCategoiresData.slice(21, 26)
+  let secondfiveprompts = SubCategoiresData.slice(26, 31)
+  let thirdfiveprompts = SubCategoiresData.slice(31, 37)
 
   const supportActions = [
     {

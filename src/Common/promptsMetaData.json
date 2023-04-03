@@ -847,5 +847,437 @@
         }
       }
     }
+  },
+  {
+    "icon": null,
+    "outputFormattor": null,
+    "categories": ["entertainment"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{genre}"],
+      "properties": {
+        "{genre}": {
+          "type": "string",
+          "title": "Genre"
+        },
+        "similar": {
+          "type": "string",
+          "title": "Similar To "
+        }
+      }
+    },
+    "prompt": "Can you recommend a good {genre}  movie similar to {similar} for me to watch ?",
+    "title": "Movie Recommendation",
+    "description": "Recommend a good genre movie for me",
+    "seoMeta": ["movie , recommendation"],
+    "id": "movie-recommendation"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["social-media"],
+    "outputFormattor": null,
+    "categories": ["productivity", "social-media", "personal-assistants", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{typeofcontent}"],
+      "properties": {
+        "{typeofcontent}": {
+          "type": "array",
+          "title": "Type Of Content",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["image", "video", "text"]
+          },
+          "uniqueItems": true
+        },
+        "{socialmediaplatform}": {
+          "type": "array",
+          "title": "Social Media Platform",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["Instagram", "Twitter", "Facebook", "Linkedin"]
+          },
+          "uniqueItems": true
+        },
+        "{targetaudience}": {
+          "type": "array",
+          "title": "Target of Audience",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["teenagers", "millennials", "genZ", "parents", "woman"]
+          },
+          "uniqueItems": true
+        },
+        "{tone}": {
+          "type": "array",
+          "title": "Tone",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["funny", "informative", "serious"]
+          },
+          "uniqueItems": true
+        },
+        "{goal}": {
+          "type": "array",
+          "title": "Goal",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["increase engagement", "drive traffic", "promote brand"]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "prompt": "Help me create a {typeofcontent} for {socialmediaplatform} that targets {targetaudience} with a {tone} tone and a {goal} goal.",
+    "title": "Create a Social Media Post",
+    "description": "Help me create post based  on  type of content , platform , target audience and goal .",
+    "id": "create--social-media-post"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["design", "social-media"],
+    "outputFormattor": null,
+    "categories": ["design", "social-media", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{typedesign}"],
+      "properties": {
+        "{typeofcontent}": {
+          "type": "array",
+          "title": "Type Of Design",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["poster", "logo", "website"]
+          },
+          "uniqueItems": true
+        },
+        "{socialmediaplatform}": {
+          "type": "array",
+          "title": "Social Media Platform",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["Instagram", "Twitter", "Facebook", "Linkedin"]
+          },
+          "uniqueItems": true
+        },
+        "{targetaudience}": {
+          "type": "array",
+          "title": "Target of Audience",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["teenagers", "millennials", "genZ", "parents", "woman", "corporate"]
+          },
+          "uniqueItems": true
+        },
+        "{colorscheme}": {
+          "type": "array",
+          "title": "Color scheme",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": ["bright", "monochromatic", "pastel"]
+          },
+          "uniqueItems": true
+        },
+        "{specificelement}": {
+          "type": "string",
+          "title": "Any specific Element",
+          "ui:placeholder": "geometric shapes, nature elements, typography, etc."
+        }
+      }
+    },
+    "prompt": "Create a {typedesign} that appeals to a {targetaudience} audience, using {colorscheme} colors and incorporating {specificelement} element.",
+    "title": "Create a Design",
+    "description": "Create a for Design based on target audience , color scheme.",
+    "id": "create-a-design"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["budget", "personal-budget"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "finance"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{budget_type}", "{income}"],
+      "properties": {
+        "{budgettype}": {
+          "type": "string",
+          "title": "Type Of Budget",
+          "ui:widget": "radio",
+          "enum": ["Monthly", "Yearly", "Weekly"],
+          "uniqueItems": true
+        },
+        "{income}": {
+          "type": "number",
+          "title": "Income"
+        },
+        "{expenses}": {
+          "type": "number",
+          "title": "Expense"
+        },
+        "{goal}": {
+          "type": "string",
+          "title": "Goal",
+          "ui:widget": "radio",
+          "enum": ["Savings", "Debt Repayment", "Retirement"],
+          "uniqueItems": true
+        }
+      }
+    },
+    "prompt": "Please help me to create a {budgettype} budget plan for my {income} income, with {expenses} expenses, in order to achieve my financial {goal} goal.",
+    "title": "Budget Planner from income",
+    "description": "Create a budget plan based on recurrence , income, expenses, goal",
+    "id": "budget-planner-from-income"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["movie", "recommendation", "books"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "entertainment", "social-media"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{number}", "{category}", "{interest}"],
+      "properties": {
+        "{number}": {
+          "type": "number",
+          "title": "Number of Recommendation"
+        },
+        "{category}": {
+          "type": "string",
+          "title": "Category",
+          "ui:placeholder": "books, movies, podcasts"
+        },
+
+        "{interest}": {
+          "type": "string",
+          "title": "Interest",
+          "ui:placeholder": "motivation, entertainment, education, etc."
+        }
+      }
+    },
+    "prompt": "What are your top {number} {category} recommendations for someone looking for {interest}?",
+    "title": "Interest Recommendations",
+    "description": "Recommendation based on interest",
+    "id": "interest-recommendation"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["recipe", "recommendation"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "personal-development", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{dietary}", "{mealtype}", "{cuisine}"],
+      "properties": {
+        "{dietary}": {
+          "type": "string",
+          "title": "Dietary",
+          "ui:placeholder": "vegan, vegetarian, gluten-free, keto"
+        },
+        "{mealtype}": {
+          "type": "string",
+          "title": "Meal Type",
+          "ui:placeholder": "breakfast, lunch, dinner"
+        },
+
+        "{cuisine}": {
+          "type": "string",
+          "title": "Cuisine",
+          "ui:placeholder": "Italian, Mexican, Indian, etc."
+        }
+      }
+    },
+    "prompt": "Recipe suggestions based on {dietary} restrictions for {mealtype} and  {cuisine} cuisine",
+    "title": "Recipe Suggestions",
+    "description": "Suggestions based on dietary restrictions for meal type and cuisine",
+    "id": "recipe-suggestions"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["career", "advice"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "personal-development", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{industry}", "{levelofexperience}", "{careergoals}"],
+      "properties": {
+        "{industry}": {
+          "type": "string",
+          "title": "Industry",
+          "ui:placeholder": "tech, finance, marketing etc"
+        },
+        "{levelofexperience}": {
+          "type": "string",
+          "title": "Level of Experience",
+          "ui:placeholder": "entry-level, mid-career, executive"
+        },
+
+        "{careergoals}": {
+          "type": "string",
+          "title": "Career Goals",
+          "ui:placeholder": "promotion, career change, entrepreneurship"
+        }
+      }
+    },
+    "prompt": "Career advice for professionals from {industry} and {levelofexperience} level of experience with {careergoals} career goals",
+    "title": "Career advice for professionals",
+    "description": "Career advice based on  industry, level of experience and goals",
+    "id": "career-advice-for-professionals"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["career", "advice"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "personal-development", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{genre}", "{author}", "{readingformat}"],
+      "properties": {
+        "{genre}": {
+          "type": "string",
+          "title": "Genre",
+          "ui:placeholder": "mystery, romance, science fiction"
+        },
+        "{author}": {
+          "type": "string",
+          "title": "Author",
+          "ui:placeholder": "Stephen King, Jane Austen, George R.R. Martin"
+        },
+
+        "{readingformat}": {
+          "type": "string",
+          "title": "Reading Format",
+          "ui:widget": "radio",
+          "enum": ["e-book", "audiobook", "physical book"]
+        }
+      }
+    },
+    "prompt": "Can you recommend a good books based {genre} genre from authour {author} in  {readingformat} reading format",
+    "title": "Book recommendations",
+    "description": "Book recommendations based on genre",
+    "id": "book-recommendations-based-on-genre"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["travel", "advice"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "recommendations", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{destination}", "{style}", "{budget}"],
+      "properties": {
+        "{destination}": {
+          "type": "string",
+          "title": "Destination",
+          "ui:placeholder": "beach, city, mountains"
+        },
+        "{style}": {
+          "type": "string",
+          "title": "Style",
+          "ui:placeholder": "adventure, relaxation, cultural"
+        },
+
+        "{budget}": {
+          "type": "string",
+          "title": "budget",
+          "ui:widget": "radio",
+          "enum": ["luxury", "mid-range", "budget-friendly"]
+        }
+      }
+    },
+    "prompt": "Suggest Travel itinerary for a {destination} destination, {style} style and  {budget} budget",
+    "title": "Travel itinerary suggestions",
+    "description": "Travel itinerary suggestions for a weekend getaway",
+    "id": "travel-itinerary-suggestions"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["travel", "advice"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "recommendations", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{room}", "{style}", "{skilllevel}"],
+      "properties": {
+        "{room}": {
+          "type": "string",
+          "title": "Room",
+          "ui:placeholder": "bedroom, living room, kitchen"
+        },
+        "{style}": {
+          "type": "string",
+          "title": "Style",
+          "ui:placeholder": "modern, rustic, bohemian"
+        },
+
+        "{skilllevel}": {
+          "type": "string",
+          "title": "Skill Level",
+          "ui:widget": "radio",
+          "enum": ["beginner", "intermediate", "advanced"]
+        }
+      }
+    },
+    "prompt": "Suggest DIY project ideas for home decor {room} room , {style} style and {skilllevel } skill level",
+    "title": "DIY project ideas for Home Decor",
+    "description": "DIY project ideas based on room, style , expertise",
+    "id": "DIY-project-ideas-for-home-decor"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["travel", "advice"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "recommendations", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{space}", "{type}", "{climate}", "{skilllevel}"],
+      "properties": {
+        "{type}": {
+          "type": "string",
+          "title": "Type",
+          "ui:placeholder": "Vegetable, herb, flower"
+        },
+        "{climate}": {
+          "type": "string",
+          "title": "Climate",
+          "ui:placeholder": "tropical, temperate, arid etc"
+        },
+        "{space}": {
+          "type": "string",
+          "title": "Skill Level",
+          "ui:widget": "radio",
+          "enum": ["balcony", "backyard", "community garden"]
+        },
+        "{skilllevel}": {
+          "type": "string",
+          "title": "Skill Level",
+          "ui:widget": "radio",
+          "enum": ["beginner", "intermediate", "advanced"]
+        }
+      }
+    },
+    "prompt": "Gardening tips for {skilllevel} Skill Level, {type} Type of garden , {climate} climate for {space} like space",
+    "title": "Gardening tips",
+    "description": "Gardening tips  based on garden type, climate , space",
+    "id": "gardening-tips"
   }
 ]
