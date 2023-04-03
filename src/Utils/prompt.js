@@ -67,6 +67,16 @@ function getPromptsByCategory(categoryId) {
   return prompts
 }
 
+function getCategoryById(id) {
+  const categories = getCategories()
+  const category = categories.filter((obj) => {
+    return obj.id === id
+  })
+  if (category.length > 0) {
+    return category[0]
+  }
+}
+
 function getPromptById(id) {
   const promptMetaData = promptsMetaData.find((obj) => {
     return obj.title === id
@@ -122,4 +132,5 @@ export {
   getCategoryWithPrompt,
   getRecentPrompts,
   getPopularPrompts,
+  getCategoryById,
 }
