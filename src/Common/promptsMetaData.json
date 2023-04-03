@@ -1279,5 +1279,207 @@
     "title": "Gardening tips",
     "description": "Gardening tips  based on garden type, climate , space",
     "id": "gardening-tips"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["legal"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "legal"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{type}", "{country1}", "{country2}"],
+      "properties": {
+        "{type}": {
+          "type": "string",
+          "title": "Type",
+          "ui:placeholder": "employment contracts, marriage, renting, etc."
+        },
+        "{country1}": {
+          "type": "string",
+          "title": "Country 1",
+          "ui:placeholder": "United States, Canada, Australia, etc."
+        },
+        "{country2}": {
+          "type": "string",
+          "title": "Country 2",
+          "ui:placeholder": "Canada, Australia, United States etc."
+        }
+      }
+    },
+    "prompt": "What are the laws regarding {type} in {country1} and how do they differ from {country2}?",
+    "title": "Laws Comparision",
+    "description": "Compare Laws between Countries",
+    "id": "laws-comparision"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["legal"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "legal"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{type}", "{country}", "{customer}"],
+      "properties": {
+        "{type}": {
+          "type": "string",
+          "title": "Type",
+          "ui:placeholder": "employment contracts, marriage, renting, etc."
+        },
+        "{customer}": {
+          "type": "string",
+          "title": "Customer Type",
+          "ui:placeholder": "employers, landlords, consumers, etc."
+        },
+        "{country}": {
+          "type": "string",
+          "title": "Country",
+          "ui:placeholder": "Canada, Australia, United States etc."
+        }
+      }
+    },
+    "prompt": "What are the possible consequences for {customer} if they violate {type} in {country}?",
+    "title": "Laws Consequences",
+    "description": "Consequences of Laws",
+    "id": "laws-consequences"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["marketing"],
+    "outputFormattor": null,
+    "categories": ["social-media", "creative-writing", "productivity"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{metric}", "{industry}", "{demographic}", "{interest}"],
+      "properties": {
+        "{metric}": {
+          "type": "string",
+          "title": "Metric",
+          "ui:placeholder": "sales, website traffic, social media engagement"
+        },
+        "{industry}": {
+          "type": "string",
+          "title": "Industry",
+          "ui:placeholder": "fashion, technology, healthcare"
+        },
+        "{demographic}": {
+          "type": "string",
+          "title": "Demographic",
+          "ui:placeholder": "age, gender, location"
+        },
+        "{interest}": {
+          "type": "string",
+          "title": "Interest",
+          "ui:placeholder": "sustainability, fitness, travel"
+        }
+      }
+    },
+    "prompt": "You are a marketer trying to increase {metric} for a {industry} company. What are some strategies you would recommend for targeting {demographic} customers who are interested in {interest}?",
+    "title": "Digital Marketer",
+    "description": "marketer trying to increase  Sales or website Traffic",
+    "id": "digital-marketer"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["fitness"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "personal-development", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{goal}", "{bodypart}", "{skill}", "{metric}"],
+      "properties": {
+        "{goal}": {
+          "type": "string",
+          "title": "Goal",
+          "ui:placeholder": "weight loss, muscle gain, improved stamina"
+        },
+        "{bodypart}": {
+          "type": "string",
+          "title": "Bodypart",
+          "ui:placeholder": "legs, abs, arms"
+        },
+        "{skill}": {
+          "type": "string",
+          "title": "Skill",
+          "ui:placeholder": "balance, strength, flexibility"
+        },
+        "{metric}": {
+          "type": "string",
+          "title": "Metric",
+          "ui:placeholder": "endurance, speed, power"
+        }
+      }
+    },
+    "prompt": "You are a fitness trainer designing a workout plan for a {goal} client. What exercises would you recommend for {bodypart} that target {skill} and improve {metric}?",
+    "title": "Fitness Trainer",
+    "description": "Fitness trainer designing a workout plan for client",
+    "id": "fitness-trainer"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["wedding", "planning"],
+    "outputFormattor": null,
+    "categories": ["personal-assistants", "misc"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{theme}", "{venue}", "{emotion}"],
+      "properties": {
+        "{theme}": {
+          "type": "string",
+          "title": "Theme",
+          "ui:placeholder": "rustic, vintage, beach"
+        },
+        "{venue}": {
+          "type": "string",
+          "title": "Venue",
+          "ui:placeholder": "ballroom, garden, vineyard"
+        },
+        "{emotion}": {
+          "type": "string",
+          "title": "Emotion",
+          "ui:placeholder": "romance, joy, nostalgia"
+        }
+      }
+    },
+    "prompt": "You are planning a wedding and need ideas for {theme}. What are some decor elements, colors, and music genres that would complement {venue} and evoke {emotion}?",
+    "title": "Wedding Theme Ideas",
+    "description": "Planning a wedding and need ideas for theme",
+    "id": "wedding-theme-ideas"
+  },
+  {
+    "icon": null,
+    "seoMeta": ["startup", "investment"],
+    "outputFormattor": null,
+    "categories": ["finance", "analytics"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{businessage}", "{fundingsource}", "{businessmodel}"],
+      "properties": {
+        "{businessage}": {
+          "type": "string",
+          "title": "Business Age",
+          "ui:placeholder": "e.g. pre-revenue, 1 year, 3 years"
+        },
+        "{fundingsource}": {
+          "type": "string",
+          "title": "Funding Source",
+          "ui:placeholder": "e.g. bootstrapped, venture capital, angel investors"
+        },
+        "{businessmodel}": {
+          "type": "string",
+          "title": "Business Model",
+          "ui:placeholder": "e.g. subscription-based, e-commerce, B2B"
+        }
+      }
+    },
+    "prompt": "Prepare a cash flow statement for a startup company considering {businessage} Business age, {fundingsource} Funding source and {businessmodel} Business Model",
+    "title": "cash flow statement",
+    "description": "Prepare a cash flow statement for a startup company.",
+    "id": "cash-flow-statement"
   }
 ]

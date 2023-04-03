@@ -29,36 +29,21 @@
     "description": "",
     "icon": ""
   },
-  {
-    "id": "analytics",
-    "name": "Analytics",
-    "description": "",
-    "icon": ""
-  },
+
   {
     "id": "educational",
     "name": "Educational",
     "description": "",
     "icon": ""
   },
-  {
-    "id": "philosophy",
-    "name": "Philosophy",
-    "description": "",
-    "icon": ""
-  },
+
   {
     "id": "social-media",
     "name": "Social Media",
     "description": "",
     "icon": ""
   },
-  {
-    "id": "design",
-    "name": "Design",
-    "description": "",
-    "icon": ""
-  },
+
   {
     "id": "finance",
     "name": "Finance",
@@ -86,5 +71,23 @@
   {
     "id": "misc",
     "name": "Misc"
+  },
+  {
+    "id": "analytics",
+    "name": "Analytics",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "design",
+    "name": "Design",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "id": "philosophy",
+    "name": "Philosophy",
+    "description": "",
+    "icon": ""
   }
 ]

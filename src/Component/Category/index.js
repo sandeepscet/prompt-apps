@@ -20,7 +20,9 @@ import { getCategoryWithPrompt } from '@/src/Utils/prompt'
 
 export const Category = () => {
   const router = useRouter()
-  const Categoires = getCategoryWithPrompt()
+  const allCategoires = getCategoryWithPrompt()
+  const Categoires = allCategoires.splice(0, 12)
+
   const colors = ['#6F56EC', '#F66213', '#D61C4E', '#1C67CA', '#247881']
   const footerColors = ['#EFEDFD', '#FEF2EB', '#FDEDF1', '#EDF4FD', '#EFF9FB']
 
