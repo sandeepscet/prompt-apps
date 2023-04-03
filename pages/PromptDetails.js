@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Grid } from '@mui/material'
 
@@ -6,6 +6,15 @@ import Prompt from '@/src/Component/Prompt'
 
 const PromptDetails = () => {
   const router = useRouter()
+  const [SubCategoryName, setSubCategoryName] = useState('')
+
+  useEffect(() => {
+    if (router.isReady) {
+      const { SubCategoryName } = router.query
+      if (!SubCategoryName) return null
+      setSubCategoryName(SubCategoryName)
+    }
+  }, [router.isReady])
 
   return (
     <>
@@ -19,7 +28,7 @@ const PromptDetails = () => {
       >
         <Grid item xs={2} md={2}></Grid>
         <Grid item xs={8} md={8}>
-          <Prompt id={router.query.SubCategoryName} />
+          {SubCategoryName && <Prompt id={SubCategoryName} />}
         </Grid>
         <Grid item xs={2} md={2}></Grid>
       </Grid>
