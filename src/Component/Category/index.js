@@ -41,8 +41,8 @@ export const Category = () => {
             <CardActionArea
               onClick={() =>
                 router.push({
-                  pathname: '/CategoiresPrompt',
-                  query: { categoryName: x.category.id },
+                  pathname: '/CategoryPrompts',
+                  query: { categoryId: x.category.id },
                 })
               }
             >
