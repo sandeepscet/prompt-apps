@@ -133,7 +133,7 @@ export const Category = () => {
                         })
                       }}
                     >
-                      Features Prompts: {x.prompt[0]?.title}
+                      Features Prompt: {x.prompt[0]?.title}
                     </Typography>
                   </Row>
                 </Box>
