@@ -47,7 +47,7 @@ export const Category = () => {
               }
             >
               <CardHeader
-                style={{}}
+                style={{paddingBottom:0}}
                 avatar={
                   <Avatar
                     sx={{ bgcolor: secondaryColor }}
@@ -82,8 +82,8 @@ export const Category = () => {
                 }
               />
 
-              <Box style={{ paddingRight: 10 }}>
-                <Row style={{ justifyContent: 'space-between' }}>
+              <Box style={{ paddingRight: 10}}>
+                <Row style={{ justifyContent: 'space-between'}}>
                   <div>
                     <Typography
                       style={{
