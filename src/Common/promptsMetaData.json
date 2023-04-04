@@ -828,7 +828,7 @@
     "model": ["chatgpt"],
     "schema": {
       "type": "object",
-      "required": ["{lanaguage}"],
+      "required": ["{language}"],
       "properties": {
         "{language}": {
           "type": "string",
