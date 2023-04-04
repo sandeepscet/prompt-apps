@@ -56,8 +56,12 @@ function getSimilarPrompts(promptId) {
   return getPrompts().slice(0, 8)
 }
 
-function listPrompts(term, categoryId, pageNo, pageSize) {
-  return getPrompts().slice(0, pageSize)
+function listPrompts(term, categoryId, pageNo, pageSize = 15) {
+  const prompts = [...getPrompts()]
+  const filteredPrompts = prompts.filter((obj) => {
+    return obj.title.includes(term)
+  })
+  return filteredPrompts.splice(0, pageSize)
 }
 
 function getPromptsByCategory(categoryId) {
@@ -122,4 +126,5 @@ export {
   getCategoryWithPrompt,
   getRecentPrompts,
   getPopularPrompts,
+  listPrompts,
 }
