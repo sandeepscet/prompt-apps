@@ -22,5 +22,4 @@ export const Colors = {
   Color13: '#F6F6EB',
   Color14: '#1a8fe3',
   Color15: '#f6f6f6',
-  Color16: '#fafdff',
 }
