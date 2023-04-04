@@ -146,6 +146,7 @@ const Header = () => {
                   keepMounted
                   anchorEl={anchorEl}
                   onClose={handleClose}
+                  onBlur={handleClose}
                   open={Boolean(anchorEl)}
                 >
                   {menuItem.map((x) => {
