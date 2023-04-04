@@ -1,31 +1,84 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, createRef } from 'react'
 import Form from '@rjsf/mui'
 import validator from '@rjsf/validator-ajv8'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import CopyIcon from '@mui/icons-material/ContentCopy'
+import CopyAllIcon from '@mui/icons-material/CopyAll'
+import AcUnitIcon from '@mui/icons-material/AcUnit'
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
+import CloseIcon from '@mui/icons-material/Close'
 
+import ReplayCircleFilledIcon from '@mui/icons-material/ReplayCircleFilled'
+import SendIcon from '@mui/icons-material/Send'
 import { getPromptById } from '@/src/Utils/prompt'
 import { replaceAll } from '@/src/Utils/common'
-import { Box, Button, Grid, Typography } from '@mui/material'
+import { getClientResponse } from '@/src/Utils/client'
+
+import { Box, Button, Grid, Typography, Alert, Collapse, IconButton } from '@mui/material'
 import { Row } from '@nextui-org/react'
 import { Colors } from '@/src/Theme/colors'
-// import './Prompt.css'
+import ShareModal from '@/src/Component/Common/ShareModal'
 
 const Prompt = (props) => {
   const { id } = props
+  const formRef = createRef()
+  const outputBoxRef = createRef(null)
+
   const [promptMetaDate, setPromptMetaDate] = useState(null)
   const [formData, setFormData] = useState(null)
   const [output, setOutput] = useState('Output Will be display Here')
+  const [openShareModal, setOpenShareModal] = useState(false)
+  const [generatedPrompt, setGeneratedPrompt] = useState('')
+  const [alertOnOutputBox, setAlertOnOutputBox] = useState(false)
 
   useEffect(() => {
     const promptFinalMetaData = getPromptById(id)
     setPromptMetaDate(promptFinalMetaData)
   }, [id])
 
+  const onClickCopy = () => {
+    navigator.clipboard.writeText(output)
+  }
+
+  const onClickShare = () => {
+    setOpenShareModal(true)
+  }
+
+  const onClickCopyPrompt = () => {
+    navigator.clipboard.writeText(generatedPrompt)
+  }
+
+  const onClickRegenerate = () => {
+    formRef.current.submit()
+  }
+
+  const closeShareModal = () => {
+    setOpenShareModal(false)
+  }
+
+  const onClickTryInChatGPT = () => {
+    alert('Available Soon!!!')
+  }
+
   async function onSubmit(form) {
     const formData = form.formData
     const generatedPrompt = replaceAll(promptMetaDate?.prompt, formData)
-    const result = { response: generatedPrompt }
+    setGeneratedPrompt(generatedPrompt)
+    outputBoxRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+    const storedOption = localStorage.getItem('option')
+
+    let result = {
+      response: generatedPrompt,
+    }
+
+    if (storedOption) {
+      const generateResponse = await getClientResponse(generatedPrompt, 'text-davinci-003')
+      result = { response: generateResponse }
+    } else {
+      setAlertOnOutputBox(true)
+    }
 
     if (result !== 'ERROR_RESPONSE') {
       setOutput(result.response)
@@ -34,7 +87,6 @@ const Prompt = (props) => {
 
   return (
     <>
-     
       <Grid
         container
         spacing={2}
@@ -75,6 +127,7 @@ const Prompt = (props) => {
                   onChange={(e) => setFormData(e.formData)}
                   validator={validator}
                   onSubmit={onSubmit}
+                  ref={formRef}
                 />
               ) : null}
             </Row>
@@ -98,12 +151,30 @@ const Prompt = (props) => {
               height: '100%',
               padding: 5,
             }}
+            ref={outputBoxRef}
           >
             {' '}
-            <Typography variant="h6" component="h6">
-              {' '}
-              Ai Output
-            </Typography>
+            <Collapse in={alertOnOutputBox}>
+              <Alert
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      setAlertOnOutputBox(false)
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+                sx={{ mb: 2 }}
+                severity="success"
+                color="info"
+              >
+                Configuration of openAI key or endpoint pending, Generated Prompt to use in chatGPT
+              </Alert>
+            </Collapse>
             <Box
               sx={{
                 width: 'auto',
@@ -127,36 +198,61 @@ const Prompt = (props) => {
                 </div>
               </Row>
             </Box>
-            <Row style={{ marginTop: 20 }}>
+            <Row style={{ marginTop: '2rem' }}>
               <Button
-                variant="contained"
-                style={{
-                  float: 'left',
-                  width: '50%',
-                  backgroundColor: Colors.Color15,
-                  color: Colors.Black,
-                }}
+                onClick={onClickCopy}
+                style={{ marginRight: '1rem' }}
+                variant="outlined"
+                startIcon={<CopyIcon />}
               >
                 Copy
               </Button>
               <Button
-                variant="contained"
-                style={{
-                  float: 'left',
-                  width: '50%',
-                  backgroundColor: Colors.Color15,
-                  color: Colors.Black,
-                  marginLeft: 10,
-                }}
+                onClick={onClickRegenerate}
+                style={{ marginRight: '1rem' }}
+                variant="outlined"
+                startIcon={<ReplayCircleFilledIcon />}
               >
-                Download
+                Regenerate
+              </Button>
+              <Button
+                onClick={onClickCopyPrompt}
+                style={{ marginRight: '1rem' }}
+                variant="outlined"
+                startIcon={<CopyAllIcon />}
+              >
+                Copy Prompt
+              </Button>
+            </Row>
+            <Row style={{ marginTop: '2rem' }}>
+              <Button
+                onClick={onClickShare}
+                style={{ marginRight: '1rem' }}
+                variant="outlined"
+                endIcon={<SendIcon />}
+              >
+                Share
+              </Button>
+              <Button
+                onClick={onClickTryInChatGPT}
+                style={{ marginRight: '1rem' }}
+                variant="contained"
+                endIcon={<AcUnitIcon />}
+              >
+                Try in chatGPT
+              </Button>
+              <Button
+                style={{ marginRight: '1rem', display: 'none' }}
+                variant="contained"
+                endIcon={<ThumbUpAltIcon />}
+              >
+                Feedback
               </Button>
             </Row>
           </Box>
         </Grid>
         <Grid item xs={2} md={2}></Grid>
       </Grid>
-  
     </>
   )
 }

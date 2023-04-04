@@ -1,10 +1,6 @@
 import { Configuration, OpenAIApi } from 'openai'
 
-async function createCompletionBrowser(
-  prompt: string,
-  engine: string = 'gpt-3.5-turbo',
-  apiKey: string
-) {
+async function createCompletionBrowser(prompt, engine = 'gpt-3.5-turbo', apiKey) {
   const configuration = new Configuration({
     apiKey,
   })
@@ -77,7 +73,7 @@ async function createCompletionBrowser(
     } else {
       return 'ERROR_RESPONSE'
     }
-  } catch (error: any) {
+  } catch (error) {
     if (error.response) {
       console.log(error.response.status)
       console.log(error.response.data)
