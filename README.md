@@ -9,7 +9,7 @@ User interface-based Apps from Prompt.
 
 ## Solution
 
-User interface-based Apps from Prompt. [POC Link](https://sandeepscet.github.io/)
+User interface-based Apps from Prompt. [Live Link](https://prompt-apps.vercel.app/)
 
 This will help
 
@@ -20,18 +20,13 @@ This will help
 - Test Diffrent Models
 - Single Interface for all Prompts
 
-## Table of Contents
+## Develoment
 
-- [Prompt Apps](#prompt-apps)
-  - [Problem](#problem)
-  - [Solution](#solution)
-  - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-    - [Installation](#installation)
-    - [Development](#development)
-  - [Contribution](#contribution)
-  - [Thank You!](#thank-you)
-  - [License](#license)
+- [Open Feature Requests](https://prompt-apps.canny.io/feature-requests)
+
+- [Bugs](https://github.com/sandeepscet/prompt-apps/issues?q=is%3Aissue+is%3Aopen)
+
+- [Prompt Conversion](https://prompt-apps.canny.io/prompt-conversion)
 
 ## Getting Started
 
@@ -42,7 +37,7 @@ Repo is built with [Next.js](https://nextjs.org/).
 - Clone the repo
 - `npm install`
 
-### Development
+### Development Environment
 
 ```bash
 npm run dev
