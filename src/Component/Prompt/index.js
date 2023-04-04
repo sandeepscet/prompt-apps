@@ -7,11 +7,15 @@ import CopyIcon from '@mui/icons-material/ContentCopy'
 import CopyAllIcon from '@mui/icons-material/CopyAll'
 import AcUnitIcon from '@mui/icons-material/AcUnit'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
+import CloseIcon from '@mui/icons-material/Close'
+
 import ReplayCircleFilledIcon from '@mui/icons-material/ReplayCircleFilled'
 import SendIcon from '@mui/icons-material/Send'
 import { getPromptById } from '@/src/Utils/prompt'
 import { replaceAll } from '@/src/Utils/common'
-import { Box, Button, Grid, Typography } from '@mui/material'
+import { getClientResponse } from '@/src/Utils/client'
+
+import { Box, Button, Grid, Typography, Alert, Collapse, IconButton } from '@mui/material'
 import { Row } from '@nextui-org/react'
 import { Colors } from '@/src/Theme/colors'
 import ShareModal from '@/src/Component/Common/ShareModal'
@@ -26,6 +30,7 @@ const Prompt = (props) => {
   const [output, setOutput] = useState('Output Will be display Here')
   const [openShareModal, setOpenShareModal] = useState(false)
   const [generatedPrompt, setGeneratedPrompt] = useState('')
+  const [alertOnOutputBox, setAlertOnOutputBox] = useState(false)
 
   useEffect(() => {
     const promptFinalMetaData = getPromptById(id)
@@ -60,8 +65,20 @@ const Prompt = (props) => {
     const formData = form.formData
     const generatedPrompt = replaceAll(promptMetaDate?.prompt, formData)
     setGeneratedPrompt(generatedPrompt)
-    const result = { response: generatedPrompt }
     outputBoxRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+    const storedOption = localStorage.getItem('option')
+
+    let result = {
+      response: generatedPrompt,
+    }
+
+    if (storedOption) {
+      const generateResponse = await getClientResponse(generatedPrompt, 'text-davinci-003')
+      result = { response: generateResponse }
+    } else {
+      setAlertOnOutputBox(true)
+    }
 
     if (result !== 'ERROR_RESPONSE') {
       setOutput(result.response)
@@ -129,10 +146,27 @@ const Prompt = (props) => {
             ref={outputBoxRef}
           >
             {' '}
-            <Typography variant="h6" component="h6">
-              {' '}
-              Output
-            </Typography>
+            <Collapse in={alertOnOutputBox}>
+              <Alert
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      setAlertOnOutputBox(false)
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+                sx={{ mb: 2 }}
+                severity="success"
+                color="info"
+              >
+                Configuration of openAI key or endpoint pending, Generated Prompt to use in chatGPT
+              </Alert>
+            </Collapse>
             <Box
               sx={{
                 width: 'auto',
