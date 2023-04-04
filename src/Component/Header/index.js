@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import {
   AppBar,
   Box,
@@ -129,7 +129,7 @@ const Header = () => {
               <Grid item xs={7}>
                 {data1.map((x) => {
                   return (
-                    <>
+                    <Fragment key={x.category.name}>
                       <Button
                         style={{ color: Colors.Color8, ...typography.body12Bold }}
                         onClick={(e) => {
@@ -138,7 +138,7 @@ const Header = () => {
                       >
                         {x.category.name}
                       </Button>
-                    </>
+                    </Fragment>
                   )
                 })}
                 <Menu
