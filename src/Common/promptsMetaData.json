@@ -450,7 +450,8 @@
         },
         "programminglanguage": {
           "type": "string",
-          "title": "PHP"
+          "title": "Programming Language",
+          "ui:placeholder": "PHP"
         }
       }
     }
