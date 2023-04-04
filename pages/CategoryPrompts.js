@@ -12,7 +12,8 @@ const CategoiresPrompt = () => {
   const [categoryId, setCategoryId] = useState('')
 
   useEffect(() => {
-    const { categoryId } = router.query
+    if (router.isReady) {
+      const { categoryId } = router.query
     if (categoryId) {
       const category = getCategoryById(categoryId)
       const data = getPromptsByCategory(categoryId)
@@ -20,7 +21,7 @@ const CategoiresPrompt = () => {
       setCategory(category)
       setCategoryId(categoryId)
     }
-  }, [router.isReady])
+  }, [router])
 
   return (
     <>

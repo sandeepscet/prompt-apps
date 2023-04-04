@@ -20,7 +20,7 @@ const PromptDetails = () => {
       const promptData = getPromptById(SubCategoryName)
       setpromptData(promptData)
     }
-  }, [router.isReady])
+  }, [router])
 
   return (
     <>
