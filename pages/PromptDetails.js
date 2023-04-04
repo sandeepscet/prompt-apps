@@ -14,7 +14,7 @@ const PromptDetails = () => {
       if (!SubCategoryName) return null
       setSubCategoryName(SubCategoryName)
     }
-  }, [router.isReady])
+  }, [router])
 
   return (
     <>
