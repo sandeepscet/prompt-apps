@@ -18,20 +18,7 @@ const PromptDetails = () => {
 
   return (
     <>
-      <Grid
-        container
-        spacing={2}
-        style={{
-          paddingTop: 20,
-          backgroundColor: '#eff7fd',
-        }}
-      >
-        <Grid item xs={2} md={2}></Grid>
-        <Grid item xs={8} md={8}>
-          {SubCategoryName && <Prompt id={SubCategoryName} />}
-        </Grid>
-        <Grid item xs={2} md={2}></Grid>
-      </Grid>
+       {SubCategoryName && <Prompt id={SubCategoryName} />}
     </>
   )
 }
