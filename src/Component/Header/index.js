@@ -20,6 +20,11 @@ import ShareIcon from '@mui/icons-material/Share'
 import SettingsIcon from '@mui/icons-material/Settings'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InputAdornment from '@mui/material/InputAdornment'
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormControl from '@mui/material/FormControl'
+import FormLabel from '@mui/material/FormLabel'
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -41,7 +46,6 @@ import { stringAvatar } from '../../Utils/common'
 import { getTopFiveCategoryWithPrompt } from '@/src/Utils/prompt'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
-import { Form, Modal as ModalBootstrap } from 'react-bootstrap'
 
 const Header = () => {
   const router = useRouter()
@@ -51,7 +55,7 @@ const Header = () => {
   const [menuItem, setMenuitem] = useState([])
   const [openShareModal, setOpenShareModal] = useState(false)
   const [show, setShow] = useState(false)
-  const [option, setOptions] = useState(null)
+  const [option, setOptions] = useState('')
   const [apiKey, setApiKey] = useState(null)
   const [apiEndpoint, setApiEndpoint] = useState(null)
 
@@ -117,6 +121,11 @@ const Header = () => {
     const url = 'https://github.com/sandeepscet/prompt-apps'
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
     if (newWindow) newWindow.opener = null
+  }
+
+  const HadnleRadioChange = (e) => {
+    let data = e.target.value
+    setOptions(data)
   }
 
   return (
@@ -362,82 +371,91 @@ const Header = () => {
           onClose={handleCloseSettingModal}
           aria-labelledby="keep-mounted-modal-title"
           aria-describedby="keep-mounted-modal-description"
-          title={'Title'}
-          footer={'Footer'}
         >
-          <Form onSubmit={handleSubmit}>
-            <Box sx={styles}>
-              <div onChange={onChangeOptions} key={`inline-radio`} className="mb-3">
-                <Row>
-                  <Form.Check
-                    inline
-                    type="radio"
-                    value="key"
-                    name="options"
-                    checked={option === 'key'}
-                  />{' '}
-                  Key (Browser)
-                  <Form.Check
-                    style={{ marginLeft: 30 }}
-                    inline
-                    type="radio"
-                    value="endpoint"
-                    name="options"
-                    checked={option === 'endpoint'}
-                  />{' '}
-                  Endpoint (Server)
-                </Row>
-              </div>
-              <Row>
-                {option === 'key' && (
-                  <div>
-                    <Form.Label htmlFor="apiKey">OpenAI API Key:</Form.Label>
-                    <Form.Control
-                      type="text"
-                      id="apiKey"
-                      aria-describedby="apiKeyHelpBlock"
-                      value={apiKey ? apiKey : ''}
-                      onChange={(e) => setApiKey(e.target.value)}
+          <Box sx={styles}>
+            <Typography variant="h4"> Test</Typography>
+            <Row>
+              {console.log('option', option)}
+              <Typography>
+                <FormControl style={{ marginTop: 15 }}>
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                    onChange={(e) => HadnleRadioChange(e)}
+                  >
+                    <FormControlLabel value="key" control={<Radio />} label="Key (Browser)" />
+                    <FormControlLabel
+                      value="endpoint"
+                      control={<Radio />}
+                      label="Endpoint (Server)"
                     />
-                    <Form.Text id="apiKeyHelpBlock" muted>
-                      You can find your Secret API key in your{' '}
-                      <a
-                        href="https://beta.openai.com/account/api-keys"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        User settings{' '}
-                      </a>
-                      .
-                    </Form.Text>
-                  </div>
-                )}
-                {option === 'endpoint' && (
-                  <div>
-                    <Form.Label htmlFor="apiKey">Server Endpoint:</Form.Label>
-                    <Form.Control
-                      type="text"
-                      id="apiEndpoint"
-                      aria-describedby="apiEndpoint"
-                      value={apiEndpoint ? apiEndpoint : ''}
-                      onChange={(e) => setApiEndpoint(e.target.value)}
-                    />
-                    <Form.Text id="apiEndpointBlock" muted>
-                      You can setup server that will respond to prompt{' '}
-                      <a
-                        href="https://github.com/waylaidwanderer/node-chatgpt-api"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Sample Repo
-                      </a>
-                      .
-                    </Form.Text>
-                  </div>
-                )}
-              </Row>
-            </Box>
-          </Form>
+                  </RadioGroup>
+                </FormControl>
+              </Typography>
+            </Row>
+            <Row>
+              <Typography style={{ marginTop: 20 }} variant="div">
+                Server Endpoint
+              </Typography>
+            </Row>
+            <br />
+            {option === 'key' && (
+              <>
+                <Typography style={{ marginTop: 10, with: '100%' }} variant="div">
+                  <TextField
+                    size="small"
+                    id="apiKey"
+                    style={{ width: '100%' ,paddingBottom:10}}
+                    value={apiKey ? apiKey : ''}
+                    onChange={(e) => setApiKey(e.target.value)}
+                  />
+                </Typography>
+                <Typography style={{ marginTop: 15, with: '100%' }} variant="div">
+                  You can find your Secret API key in your{' '}
+                  <a
+                    href="https://beta.openai.com/account/api-keys"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    User settings{' '}
+                  </a>
+                </Typography>
+              </>
+            )}
+            {option === 'endpoint' && (
+              <>
+                <Typography style={{ marginTop: 10, with: '100%',}} variant="div">
+                  <TextField
+                    size="small"
+                    id="apiEndpoint"
+                    value={apiEndpoint ? apiEndpoint : ''}
+                    onChange={(e) => setApiEndpoint(e.target.value)}
+                    style={{ width: '100%' ,paddingBottom:10 }}
+                  />
+                </Typography>
+                <Typography style={{ marginTop:15, with: '100%' }} variant="div">
+                  You can setup server that will respond to prompt{' '}
+                  <a
+                    href="https://github.com/waylaidwanderer/node-chatgpt-api"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Sample Repo
+                  </a>
+                </Typography>
+                <br />
+              </>
+            )}
+            <Row>
+              <Typography style={{ marginTop: 30 }} variant="div">
+                <Button variant="contained">Close</Button>
+                <Button variant="contained" style={{ marginLeft: 10 }}>
+                  Submit
+                </Button>
+              </Typography>
+            </Row>
+          </Box>
         </Modal>
       </Box>
     </>
