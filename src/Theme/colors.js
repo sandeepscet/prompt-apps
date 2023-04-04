@@ -21,4 +21,5 @@ export const Colors = {
   Color12: '#828283',
   Color13: '#F6F6EB',
   Color14: '#1a8fe3',
+  Color17: '#1a8fe3',
 }
