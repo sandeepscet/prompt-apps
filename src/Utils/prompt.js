@@ -62,7 +62,7 @@ function listPrompts(term, categoryId, pageNo, pageSize = 15) {
   const filteredPrompts = prompts.filter((obj) => {
     return obj.title.toLowerCase().includes(term)
   })
-  return filteredPrompts
+  return filteredPrompts.splice(0, pageSize)
 }
 
 function getPromptsByCategory(categoryId) {
