@@ -41,6 +41,7 @@ import { stringAvatar } from '../../Utils/common'
 import { getTopFiveCategoryWithPrompt } from '@/src/Utils/prompt'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
+import { Form, Modal as ModalBootstrap } from 'react-bootstrap'
 
 const Header = () => {
   const router = useRouter()
@@ -49,15 +50,47 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [menuItem, setMenuitem] = useState([])
   const [openShareModal, setOpenShareModal] = useState(false)
+  const [show, setShow] = useState(false)
+  const [option, setOptions] = useState(null)
+  const [apiKey, setApiKey] = useState(null)
+  const [apiEndpoint, setApiEndpoint] = useState(null)
 
   const data1 = getTopFiveCategoryWithPrompt()
 
   const handleOpenShareModal = () => setOpenShareModal(true)
   const handleCloseShareModal = () => setOpenShareModal(false)
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    localStorage.setItem('apiKey', apiKey)
+    localStorage.setItem('apiEndpoint', apiEndpoint)
+    localStorage.setItem('option', option)
+    props.onUpdate({ apiKey: apiKey, apiEndpoint: apiEndpoint })
+    setShow(false)
+  }
+  const handleCloseSettingModal = () => {
+    setApiKey(localStorage.getItem('apiKey'))
+    setApiEndpoint(localStorage.getItem('apiEndpoint'))
+    setOptions(localStorage.getItem('option'))
+    setShow(false)
+  }
+  const handleShow = () => setShow(true)
+
+  function onChangeOptions(event) {
+    setOptions(event.target.value)
+    console.log(event.target.value)
+  }
+
   useEffect(() => {
     setPageURL(window.location.href)
   })
+
+  useEffect(() => {
+    setOptions(localStorage.getItem('option'))
+    setApiKey(localStorage.getItem('apiKey'))
+    setApiEndpoint(localStorage.getItem('apiEndpoint'))
+  }, [])
+
   const handleClose = () => {
     setAnchorEl(null)
   }
@@ -77,7 +110,7 @@ const Header = () => {
   }
 
   const openConfig = () => {
-    alert('pending')
+    setShow(true)
   }
 
   const redirecToRepo = () => {
@@ -323,6 +356,89 @@ const Header = () => {
             </Typography>
           </Box>
         </Modal>
+        <Modal
+          keepMounted
+          open={show}
+          onClose={handleCloseSettingModal}
+          aria-labelledby="keep-mounted-modal-title"
+          aria-describedby="keep-mounted-modal-description"
+          title={'Title'}
+          footer={'Footer'}
+        >
+          <Form onSubmit={handleSubmit}>
+            <Box sx={styles}>
+              <div onChange={onChangeOptions} key={`inline-radio`} className="mb-3">
+                <Row>
+                  <Form.Check
+                    inline
+                    type="radio"
+                    value="key"
+                    name="options"
+                    checked={option === 'key'}
+                  />{' '}
+                  Key (Browser)
+                  <Form.Check
+                    style={{ marginLeft: 30 }}
+                    inline
+                    type="radio"
+                    value="endpoint"
+                    name="options"
+                    checked={option === 'endpoint'}
+                  />{' '}
+                  Endpoint (Server)
+                </Row>
+              </div>
+              <Row>
+                {option === 'key' && (
+                  <div>
+                    <Form.Label htmlFor="apiKey">OpenAI API Key:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      id="apiKey"
+                      aria-describedby="apiKeyHelpBlock"
+                      value={apiKey ? apiKey : ''}
+                      onChange={(e) => setApiKey(e.target.value)}
+                    />
+                    <Form.Text id="apiKeyHelpBlock" muted>
+                      You can find your Secret API key in your{' '}
+                      <a
+                        href="https://beta.openai.com/account/api-keys"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        User settings{' '}
+                      </a>
+                      .
+                    </Form.Text>
+                  </div>
+                )}
+                {option === 'endpoint' && (
+                  <div>
+                    <Form.Label htmlFor="apiKey">Server Endpoint:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      id="apiEndpoint"
+                      aria-describedby="apiEndpoint"
+                      value={apiEndpoint ? apiEndpoint : ''}
+                      onChange={(e) => setApiEndpoint(e.target.value)}
+                    />
+                    <Form.Text id="apiEndpointBlock" muted>
+                      You can setup server that will respond to prompt{' '}
+                      <a
+                        href="https://github.com/waylaidwanderer/node-chatgpt-api"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Sample Repo
+                      </a>
+                      .
+                    </Form.Text>
+                  </div>
+                )}
+              </Row>
+            </Box>
+          </Form>
+        </Modal>
       </Box>
     </>
   )
@@ -372,6 +488,18 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 'auto',
+  bgcolor: 'background.paper',
+  borderRadius: 3,
+  boxShadow: 24,
+  p: 4,
+}
+
+const styles = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
   bgcolor: 'background.paper',
   borderRadius: 3,
   boxShadow: 24,
