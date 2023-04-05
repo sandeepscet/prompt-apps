@@ -64,12 +64,10 @@ const Header = () => {
   const handleOpenShareModal = () => setOpenShareModal(true)
   const handleCloseShareModal = () => setOpenShareModal(false)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     localStorage.setItem('apiKey', apiKey)
     localStorage.setItem('apiEndpoint', apiEndpoint)
     localStorage.setItem('option', option)
-    props.onUpdate({ apiKey: apiKey, apiEndpoint: apiEndpoint })
     setShow(false)
   }
   const handleCloseSettingModal = () => {
@@ -77,12 +75,6 @@ const Header = () => {
     setApiEndpoint(localStorage.getItem('apiEndpoint'))
     setOptions(localStorage.getItem('option'))
     setShow(false)
-  }
-  const handleShow = () => setShow(true)
-
-  function onChangeOptions(event) {
-    setOptions(event.target.value)
-    console.log(event.target.value)
   }
 
   useEffect(() => {
@@ -373,7 +365,25 @@ const Header = () => {
           aria-describedby="keep-mounted-modal-description"
         >
           <Box sx={styles}>
-            <Typography variant="h4"> Test</Typography>
+            <Typography
+              style={{
+                color: Colors.Black,
+                ...typography.body27Bold,
+              }}
+              align="left"
+            >
+              Configuration
+            </Typography>
+            <Typography
+              style={{
+                color: Colors.Black,
+                ...typography.body15Regular,
+              }}
+              align="left"
+            >
+              API :
+            </Typography>
+
             <Row>
               {console.log('option', option)}
               <Typography>
@@ -395,23 +405,28 @@ const Header = () => {
               </Typography>
             </Row>
             <Row>
-              <Typography style={{ marginTop: 20 }} variant="div">
-                Server Endpoint
-              </Typography>
+              {option ? (
+                <Typography
+                  style={{ color: Colors.Black, ...typography.body15Regular, marginTop: 20 }}
+                >
+                  {option === 'key' ? 'OpenAI API Key:' : 'Server Endpoint:'}
+                </Typography>
+              ) : null}
             </Row>
-            <br />
             {option === 'key' && (
               <>
-                <Typography style={{ marginTop: 10, with: '100%' }} variant="div">
+                <Typography style={{ with: '100%', marginTop: 5 }}>
                   <TextField
                     size="small"
                     id="apiKey"
-                    style={{ width: '100%' ,paddingBottom:10}}
+                    style={{ width: '100%', paddingBottom: 1 }}
                     value={apiKey ? apiKey : ''}
                     onChange={(e) => setApiKey(e.target.value)}
                   />
                 </Typography>
-                <Typography style={{ marginTop: 15, with: '100%' }} variant="div">
+                <Typography
+                  style={{ color: Colors.Color18, ...typography.body15Regular, width: '100%' }}
+                >
                   You can find your Secret API key in your{' '}
                   <a
                     href="https://beta.openai.com/account/api-keys"
@@ -425,16 +440,18 @@ const Header = () => {
             )}
             {option === 'endpoint' && (
               <>
-                <Typography style={{ marginTop: 10, with: '100%',}} variant="div">
+                <Typography style={{ width: '100%', marginTop: 5 }}>
                   <TextField
                     size="small"
                     id="apiEndpoint"
                     value={apiEndpoint ? apiEndpoint : ''}
                     onChange={(e) => setApiEndpoint(e.target.value)}
-                    style={{ width: '100%' ,paddingBottom:10 }}
+                    style={{ width: '100%', paddingBottom: 1 }}
                   />
                 </Typography>
-                <Typography style={{ marginTop:15, with: '100%' }} variant="div">
+                <Typography
+                  style={{ color: Colors.Color18, ...typography.body15Regular, width: '100%' }}
+                >
                   You can setup server that will respond to prompt{' '}
                   <a
                     href="https://github.com/waylaidwanderer/node-chatgpt-api"
@@ -444,16 +461,19 @@ const Header = () => {
                     Sample Repo
                   </a>
                 </Typography>
-                <br />
               </>
             )}
-            <Row>
-              <Typography style={{ marginTop: 30 }} variant="div">
-                <Button variant="contained">Close</Button>
-                <Button variant="contained" style={{ marginLeft: 10 }}>
-                  Submit
-                </Button>
-              </Typography>
+            <Row align="right" style={{ marginTop: 20, width: '100%', justifyContent: 'flex-end' }}>
+              <Button
+                variant="contained"
+                style={{ backgroundColor: Colors.Color19 }}
+                onClick={handleCloseSettingModal}
+              >
+                Close
+              </Button>
+              <Button variant="contained" style={{ marginLeft: 10 }} onClick={handleSubmit}>
+                Submit
+              </Button>
             </Row>
           </Box>
         </Modal>
