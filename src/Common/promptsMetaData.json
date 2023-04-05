@@ -428,7 +428,7 @@
   {
     "title": "Code Generation",
     "description": "Create checklist for different topic",
-    "prompt": "Write {problemStatement} in {programminglanguage } ",
+    "prompt": "Write '{problemstatement}' in {programminglanguage}",
     "icon": null,
     "seoMeta": ["Code", "Generation", "Programming"],
     "id": "codegeneration",
@@ -437,9 +437,9 @@
     "model": ["chatgpt"],
     "schema": {
       "type": "object",
-      "required": ["problemStatement", "programminglanguage"],
+      "required": ["{problemstatement}", "{programminglanguage}"],
       "properties": {
-        "problemStatement": {
+        "{problemstatement}": {
           "type": "string",
           "title": "Problem Statement",
           "default": "Simple Factorial Program",
@@ -448,7 +448,7 @@
             "rows": 5
           }
         },
-        "programminglanguage": {
+        "{programminglanguage}": {
           "type": "string",
           "title": "Programming Language",
           "ui:placeholder": "PHP"

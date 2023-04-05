@@ -3,6 +3,7 @@ import Form from '@rjsf/mui'
 import validator from '@rjsf/validator-ajv8'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+
 import CopyIcon from '@mui/icons-material/ContentCopy'
 import CopyAllIcon from '@mui/icons-material/CopyAll'
 import AcUnitIcon from '@mui/icons-material/AcUnit'
@@ -13,7 +14,7 @@ import ReplayCircleFilledIcon from '@mui/icons-material/ReplayCircleFilled'
 import SendIcon from '@mui/icons-material/Send'
 import { getPromptById } from '@/src/Utils/prompt'
 import { replaceAll } from '@/src/Utils/common'
-import { getClientResponse } from '@/src/Utils/client'
+import getClientResponse from '@/src/Utils/client'
 
 import { Box, Button, Grid, Typography, Alert, Collapse, IconButton } from '@mui/material'
 import { Row } from '@nextui-org/react'
@@ -75,13 +76,15 @@ const Prompt = (props) => {
 
     if (storedOption) {
       const generateResponse = await getClientResponse(generatedPrompt, 'text-davinci-003')
-      result = { response: generateResponse }
+      result = generateResponse
     } else {
       setAlertOnOutputBox(true)
     }
 
     if (result !== 'ERROR_RESPONSE') {
       setOutput(result.response)
+    } else {
+      setOutput('Error While generating Response.')
     }
   }
 
