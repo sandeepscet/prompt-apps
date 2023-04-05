@@ -112,13 +112,10 @@ const Prompt = (props) => {
           <Box
             sx={{
               width: 'auto',
-              height: 500,
               backgroundColor: Colors.White,
               border: '1px solid white',
               borderRadius: 5,
               padding: 5,
-              overflow: 'hidden',
-              overflowY: 'scroll',
             }}
           >
             <Row>
