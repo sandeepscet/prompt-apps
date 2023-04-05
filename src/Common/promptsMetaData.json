@@ -450,7 +450,8 @@
         },
         "programminglanguage": {
           "type": "string",
-          "title": "PHP"
+          "title": "Programming Language",
+          "ui:placeholder": "PHP"
         }
       }
     }
@@ -702,7 +703,7 @@
         "{amount}": {
           "type": "number",
           "title": "Amount?",
-          "default": "100"
+          "default": 100
         },
         "{item}": {
           "type": "string",
@@ -733,29 +734,40 @@
     }
   },
   {
-    "title": "Sequel Writer",
-    "description": "Write a sequel/prequel about the any movie",
-    "prompt": "Write a {type} about the {moviename} movie",
+    "title": "Behind The Name",
+    "description": "The etymology and history of first names",
+    "prompt": "Can you please share meaning of name '{name}'.  Please output with below fields. {fields}",
     "icon": null,
-    "seoMeta": ["entertainment", "movie", "writing"],
-    "id": "[sequel-writer]",
+    "seoMeta": ["name", "personal"],
+    "id": "behind-the-name",
     "outputFormattor": null,
-    "categories": ["entertainment"],
+    "categories": ["entertainment", "personal-assistants"],
     "model": ["chatgpt"],
     "schema": {
       "type": "object",
-      "required": ["{moviename}", "{type}"],
+      "required": ["{name}"],
       "properties": {
-        "{type}": {
+        "{name}": {
           "type": "string",
-          "default": "Sequel",
-          "ui:widget": "radio",
-          "enum": ["Sequel", "Prequel", "Remake"],
-          "title": "Installment  ?"
+          "title": "Name"
         },
-        "{moviename}": {
-          "type": "string",
-          "title": "Movie Name ?"
+        "{fields}": {
+          "type": "array",
+          "title": "Information you looking",
+          "ui:widget": "checkboxes",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Meaning",
+              "Related Names",
+              "Origin",
+              "Positive or Nagative",
+              "History",
+              "Gender",
+              "Famous people"
+            ]
+          },
+          "uniqueItems": true
         }
       }
     }
@@ -828,7 +840,7 @@
     "model": ["chatgpt"],
     "schema": {
       "type": "object",
-      "required": ["{lanaguage}"],
+      "required": ["{language}"],
       "properties": {
         "{language}": {
           "type": "string",
@@ -844,6 +856,34 @@
           "type": "string",
           "title": "What improvement you looking for?",
           "ui:placeholder": "Explain the specific problem or error message you're encountering"
+        }
+      }
+    }
+  },
+  {
+    "title": "Sequel Writer",
+    "description": "Write a sequel/prequel about the any movie",
+    "prompt": "Write a {type} about the {moviename} movie",
+    "icon": null,
+    "seoMeta": ["entertainment", "movie", "writing"],
+    "id": "[sequel-writer]",
+    "outputFormattor": null,
+    "categories": ["entertainment"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{moviename}", "{type}"],
+      "properties": {
+        "{type}": {
+          "type": "string",
+          "default": "Sequel",
+          "ui:widget": "radio",
+          "enum": ["Sequel", "Prequel", "Remake"],
+          "title": "Installment  ?"
+        },
+        "{moviename}": {
+          "type": "string",
+          "title": "Movie Name ?"
         }
       }
     }

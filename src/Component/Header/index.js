@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment, createRef } from 'react'
 import {
   AppBar,
   Box,
@@ -25,6 +25,7 @@ import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormControl from '@mui/material/FormControl'
 import FormLabel from '@mui/material/FormLabel'
+import DescriptionIcon from '@mui/icons-material/Description'
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -42,13 +43,16 @@ import {
   EmailIcon,
 } from 'react-share'
 
-import { stringAvatar } from '../../Utils/common'
+import { stringAvatar, stringToColor } from '../../Utils/common'
 import { getTopFiveCategoryWithPrompt } from '@/src/Utils/prompt'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
 
+import { listPrompts } from '@/src/Utils/prompt'
+import Link from 'next/link'
 const Header = () => {
   const router = useRouter()
+  const searchInputRef = createRef()
 
   const [pageURL, setPageURL] = useState(0)
   const [anchorEl, setAnchorEl] = useState(null)
@@ -59,6 +63,7 @@ const Header = () => {
   const [apiKey, setApiKey] = useState(null)
   const [apiEndpoint, setApiEndpoint] = useState(null)
 
+  const [searchResults, setSearchResults] = useState([])
   const data1 = getTopFiveCategoryWithPrompt()
 
   const handleOpenShareModal = () => setOpenShareModal(true)
@@ -114,6 +119,19 @@ const Header = () => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
     if (newWindow) newWindow.opener = null
   }
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value
+    const filteredResults = listPrompts(searchTerm)
+    setSearchResults(filteredResults)
+  }
+
+  const onClickSearchResult = () => {
+    const parentInp = searchInputRef.current
+    if (parentInp) {
+      parentInp.querySelector('input').value = ''
+    }
+    setSearchResults([])
+  }
 
   const HadnleRadioChange = (e) => {
     let data = e.target.value
@@ -163,7 +181,7 @@ const Header = () => {
               <Grid item xs={7}>
                 {data1.map((x) => {
                   return (
-                    <>
+                    <Fragment key={x.category.name}>
                       <Button
                         style={{ color: Colors.Color8, ...typography.body12Bold }}
                         onClick={(e) => {
@@ -172,7 +190,7 @@ const Header = () => {
                       >
                         {x.category.name}
                       </Button>
-                    </>
+                    </Fragment>
                   )
                 })}
                 <Menu
@@ -282,7 +300,16 @@ const Header = () => {
                     <SearchIconWrapper>
                       <SearchIcon />
                     </SearchIconWrapper>
-                    <StyledInputBase placeholder="Search" inputProps={{ 'aria-label': 'search' }} />
+                    <StyledInputBase
+                      ref={searchInputRef}
+                      onChange={handleSearch}
+                      placeholder="Search"
+                      inputProps={{ 'aria-label': 'search' }}
+                    />
+                    <SearchResultsBox
+                      results={searchResults}
+                      onClickSearchResult={onClickSearchResult}
+                    />
                   </Search>
                 </Row>
               </Grid>
@@ -542,4 +569,57 @@ const styles = {
   borderRadius: 3,
   boxShadow: 24,
   p: 4,
+}
+const SearchResultsBox = ({ results, onClickSearchResult }) => {
+  if (!results || results.length === 0) {
+    return null
+  }
+
+  return (
+    <Box
+      sx={{
+        position: 'absolute',
+        width: '100%',
+        zIndex: 2,
+        backgroundColor: 'background.paper',
+        borderRadius: 3,
+        boxShadow: 24,
+        p: 2,
+        marginTop: 1,
+      }}
+    >
+      {results.map((result, index) => (
+        <div
+          key={index}
+          style={{
+            marginTop: '0.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+            fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
+          }}
+        >
+          <Avatar
+            sx={{ bgcolor: stringToColor(result.title) }}
+            aria-label="recipe"
+            variant="rounded"
+          >
+            <DescriptionIcon />
+          </Avatar>
+          <Link
+            href={`/PromptDetails?SubCategoryName=${result.title}`}
+            onClick={onClickSearchResult}
+            style={{
+              color: Colors.Black,
+              textDecoration: 'none',
+              cursor: 'pointer',
+              fontSize: 15,
+            }}
+          >
+            {result.title}
+          </Link>
+        </div>
+      ))}
+    </Box>
+  )
 }

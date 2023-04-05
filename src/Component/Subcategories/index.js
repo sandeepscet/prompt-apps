@@ -68,8 +68,8 @@ export const SubCategoires = (props) => {
           </strong>
         </div>
         <Grid container spacing={1} rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          {SubCategoiresData.map((item) => {
-            return <RenderItem x={item} />
+          {SubCategoiresData.map((item, index) => {
+            return <RenderItem x={item} key={index} />
           })}
         </Grid>
       </Box>
