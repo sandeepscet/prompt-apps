@@ -14,12 +14,13 @@ import Avatar from '@mui/material/Avatar'
 import { styled, alpha } from '@mui/material/styles'
 import InputBase from '@mui/material/InputBase'
 import SearchIcon from '@mui/icons-material/Search'
-import { useRouter } from 'next/router'
+import {  useRouter } from 'next/router'
 import { Row } from '@nextui-org/react'
 import ShareIcon from '@mui/icons-material/Share'
 import SettingsIcon from '@mui/icons-material/Settings'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InputAdornment from '@mui/material/InputAdornment'
+import DescriptionIcon from '@mui/icons-material/Description'
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -37,11 +38,13 @@ import {
   EmailIcon,
 } from 'react-share'
 
-import { stringAvatar } from '../../Utils/common'
+import { stringAvatar, stringToColor } from '../../Utils/common'
 import { getTopFiveCategoryWithPrompt } from '@/src/Utils/prompt'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
 
+import { listPrompts } from '@/src/Utils/prompt'
+import Link from 'next/link'
 const Header = () => {
   const router = useRouter()
 
@@ -49,7 +52,7 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [menuItem, setMenuitem] = useState([])
   const [openShareModal, setOpenShareModal] = useState(false)
-
+  const [searchResults, setSearchResults] = useState([])
   const data1 = getTopFiveCategoryWithPrompt()
 
   const handleOpenShareModal = () => setOpenShareModal(true)
@@ -84,6 +87,12 @@ const Header = () => {
     const url = 'https://github.com/sandeepscet/prompt-apps'
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
     if (newWindow) newWindow.opener = null
+  }
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value
+    const filteredResults = listPrompts(searchTerm)
+    console.log(filteredResults)
+    setSearchResults(filteredResults)
   }
 
   return (
@@ -248,7 +257,12 @@ const Header = () => {
                     <SearchIconWrapper>
                       <SearchIcon />
                     </SearchIconWrapper>
-                    <StyledInputBase placeholder="Search" inputProps={{ 'aria-label': 'search' }} />
+                    <StyledInputBase
+                      onChange={handleSearch}
+                      placeholder="Search"
+                      inputProps={{ 'aria-label': 'search' }}
+                    />
+                    <SearchResultsBox results={searchResults} />
                   </Search>
                 </Row>
               </Grid>
@@ -376,4 +390,57 @@ const style = {
   borderRadius: 3,
   boxShadow: 24,
   p: 4,
+}
+
+const SearchResultsBox = ({ results }) => {
+  if (!results || results.length === 0) {
+    return null
+  }
+
+  return (
+    <Box
+      sx={{
+        position: 'absolute',
+        width: '100%',
+        zIndex: 2,
+        backgroundColor: 'background.paper',
+        borderRadius: 3,
+        boxShadow: 24,
+        p: 2,
+        marginTop: 1,
+      }}
+    >
+      {results.map((result, index) => (
+        <div
+          key={index}
+          style={{
+            marginBottom: 16,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+            fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
+          }}
+        >
+          <Avatar
+            sx={{ bgcolor: stringToColor(result.title) }}
+            aria-label="recipe"
+            variant="rounded"
+          >
+            <DescriptionIcon />
+          </Avatar>
+          <Link
+            href={`/PromptDetails?SubCategoryName=${result.title}`}
+            style={{
+              color: Colors.Black,
+              textDecoration: 'none',
+              cursor: 'pointer',
+              fontSize: 15,
+            }}
+          >
+            {result.title}
+          </Link>
+        </div>
+      ))}
+    </Box>
+  )
 }
