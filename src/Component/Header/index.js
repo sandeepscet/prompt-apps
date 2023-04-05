@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect, Fragment, createRef } from 'react'
 import {
   AppBar,
   Box,
@@ -14,7 +14,7 @@ import Avatar from '@mui/material/Avatar'
 import { styled, alpha } from '@mui/material/styles'
 import InputBase from '@mui/material/InputBase'
 import SearchIcon from '@mui/icons-material/Search'
-import {  useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { Row } from '@nextui-org/react'
 import ShareIcon from '@mui/icons-material/Share'
 import SettingsIcon from '@mui/icons-material/Settings'
@@ -47,6 +47,7 @@ import { listPrompts } from '@/src/Utils/prompt'
 import Link from 'next/link'
 const Header = () => {
   const router = useRouter()
+  const searchInputRef = createRef()
 
   const [pageURL, setPageURL] = useState(0)
   const [anchorEl, setAnchorEl] = useState(null)
@@ -91,8 +92,15 @@ const Header = () => {
   const handleSearch = (e) => {
     const searchTerm = e.target.value
     const filteredResults = listPrompts(searchTerm)
-    console.log(filteredResults)
     setSearchResults(filteredResults)
+  }
+
+  const onClickSearchResult = () => {
+    const parentInp = searchInputRef.current
+    if (parentInp) {
+      parentInp.querySelector('input').value = ''
+    }
+    setSearchResults([])
   }
 
   return (
@@ -258,11 +266,15 @@ const Header = () => {
                       <SearchIcon />
                     </SearchIconWrapper>
                     <StyledInputBase
+                      ref={searchInputRef}
                       onChange={handleSearch}
                       placeholder="Search"
                       inputProps={{ 'aria-label': 'search' }}
                     />
-                    <SearchResultsBox results={searchResults} />
+                    <SearchResultsBox
+                      results={searchResults}
+                      onClickSearchResult={onClickSearchResult}
+                    />
                   </Search>
                 </Row>
               </Grid>
@@ -392,7 +404,7 @@ const style = {
   p: 4,
 }
 
-const SearchResultsBox = ({ results }) => {
+const SearchResultsBox = ({ results, onClickSearchResult }) => {
   if (!results || results.length === 0) {
     return null
   }
@@ -414,7 +426,7 @@ const SearchResultsBox = ({ results }) => {
         <div
           key={index}
           style={{
-            marginBottom: 16,
+            marginTop: '0.5rem',
             display: 'flex',
             alignItems: 'center',
             gap: '15px',
@@ -430,6 +442,7 @@ const SearchResultsBox = ({ results }) => {
           </Avatar>
           <Link
             href={`/PromptDetails?SubCategoryName=${result.title}`}
+            onClick={onClickSearchResult}
             style={{
               color: Colors.Black,
               textDecoration: 'none',
