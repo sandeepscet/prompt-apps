@@ -63,6 +63,7 @@ const Prompt = (props) => {
   }
 
   async function onSubmit(form) {
+    setOutput('Loading Output...')
     const formData = form.formData
     const generatedPrompt = replaceAll(promptMetaDate?.prompt, formData)
     setGeneratedPrompt(generatedPrompt)
