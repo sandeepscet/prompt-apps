@@ -91,23 +91,31 @@ const Prompt = (props) => {
         container
         spacing={2}
         style={{
-          paddingTop: 20,
+          paddingTop: 50,
           backgroundColor: Colors.Color16,
+          paddingBottom: 50,
           height: '100%',
-          marginBottom: 50,
         }}
       >
         <Grid item xs={2} md={2}></Grid>
-        <Grid item xs={4} md={4}>
+        <Grid
+          item
+          xs={4}
+          md={4}
+          style={{
+            overflow: 'hidden',
+          }}
+        >
           <Box
             sx={{
               width: 'auto',
-              height: '100%',
+              height: 500,
               backgroundColor: Colors.White,
               border: '1px solid white',
-              borderRadius: 2,
+              borderRadius: 5,
               padding: 5,
-              scrollBehavior: 'auto',
+              overflow: 'hidden',
+              overflowY: 'scroll',
             }}
           >
             <Row>
@@ -137,8 +145,8 @@ const Prompt = (props) => {
           <Box
             sx={{
               width: 'auto',
-              border: '1px solid white',
-              borderRadius: 2,
+              border: '5px solid white',
+              borderRadius: 5,
               backgroundColor: Colors.White,
               height: '100%',
               padding: 5,
@@ -175,7 +183,8 @@ const Prompt = (props) => {
                 backgroundColor: Colors.Color15,
                 height: '50%',
                 padding: 3,
-                scrollBehavior: 'auto',
+                overflow: 'hidden',
+                overflowY: 'scroll',
               }}
             >
               <Row>
@@ -244,7 +253,6 @@ const Prompt = (props) => {
         </Grid>
         <Grid item xs={2} md={2}></Grid>
       </Grid>
-      <ShareModal isOpen={openShareModal} onClose={closeShareModal} />
     </>
   )
 }

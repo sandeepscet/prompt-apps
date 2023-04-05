@@ -20,6 +20,11 @@ import ShareIcon from '@mui/icons-material/Share'
 import SettingsIcon from '@mui/icons-material/Settings'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InputAdornment from '@mui/material/InputAdornment'
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormControl from '@mui/material/FormControl'
+import FormLabel from '@mui/material/FormLabel'
 import DescriptionIcon from '@mui/icons-material/Description'
 import {
   EmailShareButton,
@@ -53,15 +58,40 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [menuItem, setMenuitem] = useState([])
   const [openShareModal, setOpenShareModal] = useState(false)
+  const [show, setShow] = useState(false)
+  const [option, setOptions] = useState('')
+  const [apiKey, setApiKey] = useState(null)
+  const [apiEndpoint, setApiEndpoint] = useState(null)
+
   const [searchResults, setSearchResults] = useState([])
   const data1 = getTopFiveCategoryWithPrompt()
 
   const handleOpenShareModal = () => setOpenShareModal(true)
   const handleCloseShareModal = () => setOpenShareModal(false)
 
+  const handleSubmit = () => {
+    localStorage.setItem('apiKey', apiKey)
+    localStorage.setItem('apiEndpoint', apiEndpoint)
+    localStorage.setItem('option', option)
+    setShow(false)
+  }
+  const handleCloseSettingModal = () => {
+    setApiKey(localStorage.getItem('apiKey'))
+    setApiEndpoint(localStorage.getItem('apiEndpoint'))
+    setOptions(localStorage.getItem('option'))
+    setShow(false)
+  }
+
   useEffect(() => {
     setPageURL(window.location.href)
   })
+
+  useEffect(() => {
+    setOptions(localStorage.getItem('option'))
+    setApiKey(localStorage.getItem('apiKey'))
+    setApiEndpoint(localStorage.getItem('apiEndpoint'))
+  }, [])
+
   const handleClose = () => {
     setAnchorEl(null)
   }
@@ -81,7 +111,7 @@ const Header = () => {
   }
 
   const openConfig = () => {
-    alert('pending')
+    setShow(true)
   }
 
   const redirecToRepo = () => {
@@ -101,6 +131,11 @@ const Header = () => {
       parentInp.querySelector('input').value = ''
     }
     setSearchResults([])
+  }
+
+  const HadnleRadioChange = (e) => {
+    let data = e.target.value
+    setOptions(data)
   }
 
   return (
@@ -349,6 +384,126 @@ const Header = () => {
             </Typography>
           </Box>
         </Modal>
+        <Modal
+          keepMounted
+          open={show}
+          onClose={handleCloseSettingModal}
+          aria-labelledby="keep-mounted-modal-title"
+          aria-describedby="keep-mounted-modal-description"
+        >
+          <Box sx={styles}>
+            <Typography
+              style={{
+                color: Colors.Black,
+                ...typography.body27Bold,
+              }}
+              align="left"
+            >
+              Configuration
+            </Typography>
+            <Typography
+              style={{
+                color: Colors.Black,
+                ...typography.body15Regular,
+              }}
+              align="left"
+            >
+              API :
+            </Typography>
+
+            <Row>
+              {console.log('option', option)}
+              <Typography>
+                <FormControl style={{ marginTop: 15 }}>
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                    onChange={(e) => HadnleRadioChange(e)}
+                  >
+                    <FormControlLabel value="key" control={<Radio />} label="Key (Browser)" />
+                    <FormControlLabel
+                      value="endpoint"
+                      control={<Radio />}
+                      label="Endpoint (Server)"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Typography>
+            </Row>
+            <Row>
+              {option ? (
+                <Typography
+                  style={{ color: Colors.Black, ...typography.body15Regular, marginTop: 20 }}
+                >
+                  {option === 'key' ? 'OpenAI API Key:' : 'Server Endpoint:'}
+                </Typography>
+              ) : null}
+            </Row>
+            {option === 'key' && (
+              <>
+                <Typography style={{ with: '100%', marginTop: 5 }}>
+                  <TextField
+                    size="small"
+                    id="apiKey"
+                    style={{ width: '100%', paddingBottom: 1 }}
+                    value={apiKey ? apiKey : ''}
+                    onChange={(e) => setApiKey(e.target.value)}
+                  />
+                </Typography>
+                <Typography
+                  style={{ color: Colors.Color18, ...typography.body15Regular, width: '100%' }}
+                >
+                  You can find your Secret API key in your{' '}
+                  <a
+                    href="https://beta.openai.com/account/api-keys"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    User settings{' '}
+                  </a>
+                </Typography>
+              </>
+            )}
+            {option === 'endpoint' && (
+              <>
+                <Typography style={{ width: '100%', marginTop: 5 }}>
+                  <TextField
+                    size="small"
+                    id="apiEndpoint"
+                    value={apiEndpoint ? apiEndpoint : ''}
+                    onChange={(e) => setApiEndpoint(e.target.value)}
+                    style={{ width: '100%', paddingBottom: 1 }}
+                  />
+                </Typography>
+                <Typography
+                  style={{ color: Colors.Color18, ...typography.body15Regular, width: '100%' }}
+                >
+                  You can setup server that will respond to prompt{' '}
+                  <a
+                    href="https://github.com/waylaidwanderer/node-chatgpt-api"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Sample Repo
+                  </a>
+                </Typography>
+              </>
+            )}
+            <Row align="right" style={{ marginTop: 20, width: '100%', justifyContent: 'flex-end' }}>
+              <Button
+                variant="contained"
+                style={{ backgroundColor: Colors.Color19 }}
+                onClick={handleCloseSettingModal}
+              >
+                Close
+              </Button>
+              <Button variant="contained" style={{ marginLeft: 10 }} onClick={handleSubmit}>
+                Submit
+              </Button>
+            </Row>
+          </Box>
+        </Modal>
       </Box>
     </>
   )
@@ -404,6 +559,17 @@ const style = {
   p: 4,
 }
 
+const styles = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
+  bgcolor: 'background.paper',
+  borderRadius: 3,
+  boxShadow: 24,
+  p: 4,
+}
 const SearchResultsBox = ({ results, onClickSearchResult }) => {
   if (!results || results.length === 0) {
     return null
