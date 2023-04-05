@@ -66,6 +66,7 @@ const Footer = () => {
                   style={{
                     color: Colors.GreyText,
                   }}
+                  key={x.text}
                 >
                   {x.text}
                 </MenuItem>
@@ -150,6 +151,7 @@ const Footer = () => {
                       query: { SubCategoryName: x.title },
                     })
                   }
+                  key={x.title}
                 >
                   {x.title}
                 </MenuItem>
@@ -179,6 +181,7 @@ const Footer = () => {
                       query: { SubCategoryName: x.title },
                     })
                   }
+                  key={x.title}
                 >
                   {x.title}
                 </MenuItem>
@@ -207,6 +210,7 @@ const Footer = () => {
                       query: { SubCategoryName: x.title },
                     })
                   }
+                  key={x.title}
                 >
                   {x.title}
                 </MenuItem>

@@ -47,6 +47,7 @@ const PromptDetails = () => {
         </Grid>
         <Grid item xs={2} md={2}></Grid>
       </Grid>
+      {SubCategoryName && <Prompt id={SubCategoryName} />}
     </>
   )
 }
