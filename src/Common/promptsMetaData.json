@@ -1077,7 +1077,7 @@
       }
     },
     "prompt": "Please help me to create a {budgettype} budget plan for my {income} income, with {expenses} expenses, in order to achieve my financial {goal} goal.",
-    "title": "Budget Planner from income",
+    "title": "Budget Planner",
     "description": "Create a budget plan based on recurrence , income, expenses, goal",
     "id": "budget-planner-from-income"
   },
@@ -1277,7 +1277,7 @@
       }
     },
     "prompt": "Suggest DIY project ideas for home decor {room} room , {style} style and {skilllevel } skill level",
-    "title": "DIY project ideas for Home Decor",
+    "title": "DIY project ideas",
     "description": "DIY project ideas based on room, style , expertise",
     "id": "DIY-project-ideas-for-home-decor"
   },
