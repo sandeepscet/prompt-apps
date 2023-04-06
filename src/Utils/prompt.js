@@ -57,7 +57,7 @@ function getSimilarPrompts(promptId) {
 }
 
 function listPrompts(term, categoryId, pageNo, pageSize = 15) {
-  if(term.length == 0) return
+  if (term.length == 0) return
   const prompts = [...getPrompts()]
   const filteredPrompts = prompts.filter((obj) => {
     return obj.title.toLowerCase().includes(term)
@@ -95,7 +95,7 @@ function getPromptById(id) {
     UiSchema: {
       'ui:submitButtonOptions': {
         submitText: 'Submit',
-        norender: false,
+        norender: true,
         props: {
           disabled: false,
           className: 'btn btn-primary',
@@ -106,6 +106,7 @@ function getPromptById(id) {
 
   const promptFinalMetaData = merge(promptMetaData, overrideRJSFSchema)
 
+  /*
   promptFinalMetaData.schema = {
     ...promptFinalMetaData.schema,
     ...{
@@ -113,6 +114,7 @@ function getPromptById(id) {
       description: promptMetaData.description,
     },
   }
+  */
 
   return promptFinalMetaData
 }

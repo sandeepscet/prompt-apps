@@ -110,17 +110,24 @@ const Prompt = (props) => {
             overflow: 'hidden',
           }}
         >
-          <Box
-            sx={{
-              width: 'auto',
-              backgroundColor: Colors.White,
-              border: '1px solid white',
-              borderRadius: 5,
-              padding: 5,
-            }}
-          >
-            <Row>
-              {promptMetaDate ? (
+          {promptMetaDate ? (
+            <Box
+              sx={{
+                width: 'auto',
+                backgroundColor: Colors.White,
+                border: '1px solid white',
+                borderRadius: 5,
+                padding: 5,
+              }}
+            >
+              <Row>
+                <h1>{promptMetaDate.title}</h1>
+              </Row>
+              <Row>
+                <h3>{promptMetaDate.description}</h3>
+              </Row>
+
+              <Row>
                 <Form
                   schema={promptMetaDate?.schema}
                   uiSchema={promptMetaDate?.UiSchema}
@@ -130,9 +137,20 @@ const Prompt = (props) => {
                   onSubmit={onSubmit}
                   ref={formRef}
                 />
-              ) : null}
-            </Row>
-          </Box>
+              </Row>
+              <Row>
+                <Button
+                  onClick={onClickRegenerate}
+                  variant="contained"
+                  size="large"
+                  style={{ width: '15rem' }}
+                >
+                  {' '}
+                  Submit
+                </Button>
+              </Row>
+            </Box>
+          ) : null}
         </Grid>
         <Grid
           item
