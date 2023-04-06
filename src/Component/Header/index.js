@@ -412,7 +412,6 @@ const Header = () => {
             </Typography>
 
             <Row>
-              {console.log('option', option)}
               <Typography>
                 <FormControl style={{ marginTop: 15 }}>
                   <RadioGroup
