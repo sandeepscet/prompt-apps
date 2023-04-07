@@ -395,20 +395,20 @@ const Header = () => {
             <Typography
               style={{
                 color: Colors.Black,
-                ...typography.body27Bold,
+                ...typography.body20Bold,
               }}
               align="left"
             >
-              Configuration
+              API Configuration
             </Typography>
             <Typography
               style={{
-                color: Colors.Black,
                 ...typography.body15Regular,
+                fontStyle: 'italic',
               }}
               align="left"
             >
-              API :
+              Currently we support openAI
             </Typography>
 
             <Row>
@@ -462,6 +462,10 @@ const Header = () => {
                   >
                     User settings{' '}
                   </a>
+                  <br />
+                  <br />
+                  For privacy and security, the keys will only be stored in the browser. All the
+                  data will be retrieved from the browser.
                 </Typography>
               </>
             )}

@@ -59,7 +59,7 @@ const Prompt = (props) => {
   }
 
   const onClickTryInChatGPT = () => {
-    alert('Available Soon!!!')
+    alert('Chrome Extension will be available soon!!!')
   }
 
   async function onSubmit(form) {
@@ -75,9 +75,16 @@ const Prompt = (props) => {
       response: generatedPrompt,
     }
 
-    if (storedOption) {
-      const generateResponse = await getClientResponse(generatedPrompt, 'text-davinci-003')
-      result = generateResponse
+    if (storedOption && storedOption != 'null') {
+      if (
+        (storedOption === 'key' && localStorage.getItem('apiKey')) ||
+        (storedOption === 'endpoint' && localStorage.getItem('apiEndpoint'))
+      ) {
+        const generateResponse = await getClientResponse(generatedPrompt, 'text-davinci-003')
+        result = generateResponse
+      } else {
+        setAlertOnOutputBox(true)
+      }
     } else {
       setAlertOnOutputBox(true)
     }
@@ -85,7 +92,7 @@ const Prompt = (props) => {
     if (result !== 'ERROR_RESPONSE') {
       setOutput(result.response)
     } else {
-      setOutput('Error While generating Response.')
+      setOutput('Error While generating Response. It may be due to invalid configuration.')
     }
   }
 
@@ -173,7 +180,8 @@ const Prompt = (props) => {
                 severity="success"
                 color="info"
               >
-                Configuration of openAI key or endpoint pending, Generated Prompt to use in chatGPT
+                Configuration of openAI key or endpoint pending, Prompt has ben generated to use in
+                chatGPT
               </Alert>
             </Collapse>
             <Box
