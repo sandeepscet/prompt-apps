@@ -262,6 +262,7 @@ const Prompt = (props) => {
         </Grid>
         <Grid item xs={2} md={2}></Grid>
       </Grid>
+      <ShareModal isOpen={openShareModal} onClose={closeShareModal} />
     </>
   )
 }
