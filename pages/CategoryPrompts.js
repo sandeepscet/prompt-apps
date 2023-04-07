@@ -25,7 +25,7 @@ const CategoiresPrompt = () => {
   return (
     <>
       <Head>
-        <title>{category.name + ' Prompt Apps'}</title>
+        <title>{categoryId + ' Prompt Apps'}</title>
         <meta name="description" content="{category.description}" key="desc" />
       </Head>
       {categoryId && <SubCategoires SubCategoiresData={promptData} categoryName={categoryId} />}
