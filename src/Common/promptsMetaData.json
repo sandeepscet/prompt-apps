@@ -228,22 +228,41 @@
     }
   },
   {
-    "title": "Linux Terminal",
-    "description": "Type command and reply from teminal will be shown as output",
-    "prompt": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {command}.",
+    "title": "Topic Explainer",
+    "description": "Explain Like 5 Year Old #eli5",
+    "prompt": "Explain the {topic} to me, i am {year} year old and knows about {knows} and struggles with the {struggles}",
     "icon": null,
-    "seoMeta": ["linux", "terminal", "command"],
-    "id": "linuxtermial",
+    "seoMeta": ["explain", "eli5"],
+    "id": "topic-explainer",
     "outputFormattor": null,
-    "categories": ["programming", "educational"],
+    "categories": ["personal-development", "educational"],
     "model": ["chatgpt"],
     "schema": {
       "type": "object",
-      "required": ["command"],
+      "required": ["{topic}", "{year}"],
       "properties": {
-        "command": {
+        "{topic}": {
           "type": "string",
-          "title": "Command"
+          "title": "Topic",
+          "default": "AI",
+          "ui:placeholder": "Enter Topic you want to learn"
+        },
+        "{year}": {
+          "type": "number",
+          "title": "Age",
+          "default": 5
+        },
+        "{knows}": {
+          "type": "string",
+          "title": "Expertise Area",
+          "default": "Computer",
+          "ui:placeholder": "Enter your expert areas,  in comma separate format"
+        },
+        "{struggles}": {
+          "type": "string",
+          "title": "you struggle with?",
+          "default": "Math",
+          "ui:placeholder": "Enter area that you mostly stuggle ,  in comma separate format"
         }
       }
     }
@@ -559,46 +578,6 @@
     }
   },
   {
-    "title": "Topic Explainer",
-    "description": "Explain Like 5 Year Old #eli5",
-    "prompt": "Explain the {topic} to me, i am {year} year old and knows about {knows} and struggles with the {struggles}",
-    "icon": null,
-    "seoMeta": ["explain", "eli5"],
-    "id": "topic-explainer",
-    "outputFormattor": null,
-    "categories": ["personal-development", "educational"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{topic}", "{year}"],
-      "properties": {
-        "{topic}": {
-          "type": "string",
-          "title": "Topic",
-          "default": "AI",
-          "ui:placeholder": "Enter Topic you want to learn"
-        },
-        "{year}": {
-          "type": "number",
-          "title": "Age",
-          "default": 5
-        },
-        "{knows}": {
-          "type": "string",
-          "title": "Expertise Area",
-          "default": "Computer",
-          "ui:placeholder": "Enter your expert areas,  in comma separate format"
-        },
-        "{struggles}": {
-          "type": "string",
-          "title": "you struggle with?",
-          "default": "Math",
-          "ui:placeholder": "Enter area that you mostly stuggle ,  in comma separate format"
-        }
-      }
-    }
-  },
-  {
     "title": "AI Programmer",
     "description": "Write a code and explain",
     "prompt": "Write {language} {type} code for {purpose} in {style} style. Include {include}.",
@@ -768,6 +747,27 @@
             ]
           },
           "uniqueItems": true
+        }
+      }
+    }
+  },
+  {
+    "title": "Linux Terminal",
+    "description": "Type command and reply from teminal will be shown as output",
+    "prompt": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {command}.",
+    "icon": null,
+    "seoMeta": ["linux", "terminal", "command"],
+    "id": "linuxtermial",
+    "outputFormattor": null,
+    "categories": ["programming", "educational"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["command"],
+      "properties": {
+        "command": {
+          "type": "string",
+          "title": "Command"
         }
       }
     }
