@@ -15,6 +15,7 @@ const MainPage = () => {
       <Head>
         <title>chatgpt Prompt Apps</title>
         <meta name="description" content="User interface-based Apps from Prompt." key="desc" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.1" />
       </Head>
       <div style={{ width: '100%' }}>
         <Subscription />

@@ -27,6 +27,7 @@ const PromptDetails = () => {
       <Head>
         <title>{promptData.title}</title>
         <meta name="description" content={promptData.description} key="desc" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.1" />
         <meta
           name="keywords"
           content={promptData.seo ? promptData.seo.join(',') : ''}

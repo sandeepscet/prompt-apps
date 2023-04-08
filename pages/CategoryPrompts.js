@@ -27,6 +27,7 @@ const CategoiresPrompt = () => {
       <Head>
         <title>{categoryId + ' Prompt Apps'}</title>
         <meta name="description" content="{category.description}" key="desc" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.1" />
       </Head>
       {categoryId && <SubCategoires SubCategoiresData={promptData} categoryName={categoryId} />}
     </>
