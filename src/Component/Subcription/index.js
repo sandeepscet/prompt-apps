@@ -15,7 +15,7 @@ const Subscription = () => {
       button: (
         <a
           target="_blank"
-          href="https://www.producthunt.com/posts/june-ai-2"
+          href="https://www.producthunt.com/products/prompt-apps"
           style={{ textDecoration: 'none' }}
         >
           <Button
