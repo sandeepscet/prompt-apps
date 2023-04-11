@@ -1050,7 +1050,7 @@
     "model": ["chatgpt"],
     "schema": {
       "type": "object",
-      "required": ["{budget_type}", "{income}"],
+      "required": ["{budgettype}", "{income}"],
       "properties": {
         "{budgettype}": {
           "type": "string",
