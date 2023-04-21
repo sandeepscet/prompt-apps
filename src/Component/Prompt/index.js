@@ -80,7 +80,7 @@ const Prompt = (props) => {
         (storedOption === 'key' && localStorage.getItem('apiKey')) ||
         (storedOption === 'endpoint' && localStorage.getItem('apiEndpoint'))
       ) {
-        const generateResponse = await getClientResponse(generatedPrompt, 'text-davinci-003')
+        const generateResponse = await getClientResponse(generatedPrompt, 'gpt-3.5-turbo')
         result = generateResponse
       } else {
         setAlertOnOutputBox(true)
@@ -90,7 +90,7 @@ const Prompt = (props) => {
     }
 
     if (result !== 'ERROR_RESPONSE') {
-      setOutput(result.response)
+      setOutput(result.response.content)
     } else {
       setOutput('Error While generating Response. It may be due to invalid configuration.')
     }
@@ -180,7 +180,7 @@ const Prompt = (props) => {
                 severity="success"
                 color="info"
               >
-                Configuration of openAI key or endpoint pending, Prompt has ben generated to use in
+                Configuration of openAI key or endpoint pending, Prompt has been generated to use in
                 chatGPT
               </Alert>
             </Collapse>

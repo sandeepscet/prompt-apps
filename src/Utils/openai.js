@@ -8,9 +8,9 @@ async function createCompletionBrowser(prompt, engine = 'gpt-3.5-turbo', apiKey)
 
   console.log({ prompt })
   try {
-    const completion = await openai.createCompletion({
+    const completion = await openai.createChatCompletion({
       model: engine,
-      prompt: prompt,
+      messages: [{ role: 'user', content: prompt }],
       max_tokens: 2048,
     })
 
@@ -74,7 +74,7 @@ async function createCompletionBrowser(prompt, engine = 'gpt-3.5-turbo', apiKey)
 
     console.log(completion)
     if (completion && completion.data.choices && completion.data.choices[0]) {
-      const response = completion.data.choices[0].text
+      const response = completion.data.choices[0].message
       return { response }
     } else {
       return 'ERROR_RESPONSE'
