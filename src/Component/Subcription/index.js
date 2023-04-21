@@ -11,30 +11,8 @@ const Subscription = () => {
 
   const featureActions = [
     {
-      text: '',
-      button: (
-        <a
-          target="_blank"
-          href="https://www.producthunt.com/products/prompt-apps"
-          style={{ textDecoration: 'none' }}
-        >
-          <Button
-            variant="secondary"
-            style={{ ...typography.body12Regular, color: Colors.White, textTransform: 'none' }}
-          >
-            Upvote us on&nbsp;
-            <Icon>
-              <img
-                src={'product-hunt-logo.png'}
-                height={20}
-                width={20}
-                style={{ marginBottom: '1rem' }}
-              />
-            </Icon>
-            Product Hunt 🚀
-          </Button>
-        </a>
-      ),
+      text: 'Currently using free unstable version , Configure your API key for better response by clicking ⚙️ icon.',
+      button: <></>,
     },
   ]
 
