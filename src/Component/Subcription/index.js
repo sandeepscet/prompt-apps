@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, Typography, Icon } from '@mui/material'
 import { Colors } from '@/src/Theme/colors'
 import { typography } from '@/src/Theme/typography'
 
@@ -15,17 +15,26 @@ const Subscription = () => {
       button: (
         <a
           target="_blank"
-          href="https://github.com/sandeepscet/prompt-apps/"
+          href="https://www.producthunt.com/products/prompt-apps"
           style={{ textDecoration: 'none' }}
         >
-          <Button variant="secondary" style={{ ...typography.body12Regular, color: Colors.White }}>
-            Help us by starring our GitHub repo 🚀
+          <Button
+            variant="secondary"
+            style={{ ...typography.body12Regular, color: Colors.White, textTransform: 'none' }}
+          >
+            Upvote us on&nbsp;
+            <Icon>
+              <img
+                src={'product-hunt-logo.png'}
+                height={20}
+                width={20}
+                style={{ marginBottom: '1rem' }}
+              />
+            </Icon>
+            Product Hunt 🚀
           </Button>
         </a>
       ),
-    },
-    {
-      text: 'Free. No Sign-Up Required. No Limits.',
     },
   ]
 

@@ -57,7 +57,7 @@ function getSimilarPrompts(promptId) {
 }
 
 function listPrompts(term, categoryId, pageNo, pageSize = 15) {
-  if(term.length == 0) return
+  if (term.length == 0) return
   const prompts = [...getPrompts()]
   const filteredPrompts = prompts.filter((obj) => {
     return obj.title.toLowerCase().includes(term)
@@ -70,6 +70,16 @@ function getPromptsByCategory(categoryId) {
     return obj.categories.includes(categoryId)
   })
   return prompts
+}
+
+function getCategoryById(id) {
+  const categories = getCategories()
+  const category = categories.filter((obj) => {
+    return obj.id === id
+  })
+  if (category.length > 0) {
+    return category[0]
+  }
 }
 
 function getPromptById(id) {
@@ -127,5 +137,6 @@ export {
   getCategoryWithPrompt,
   getRecentPrompts,
   getPopularPrompts,
+  getCategoryById,
   listPrompts,
 }
