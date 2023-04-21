@@ -87,6 +87,12 @@ const Header = () => {
   })
 
   useEffect(() => {
+    if (!localStorage.getItem('option')) {
+      localStorage.setItem('apiEndpoint', 'https://api.pawan.krd/v1/chat/completions')
+      localStorage.setItem('option', 'endpoint')
+      setOptions(localStorage.getItem('option'))
+    }
+
     setOptions(localStorage.getItem('option'))
     setApiKey(localStorage.getItem('apiKey'))
     setApiEndpoint(localStorage.getItem('apiEndpoint'))
