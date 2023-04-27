@@ -990,7 +990,7 @@
       "type": "object",
       "required": ["{typedesign}"],
       "properties": {
-        "{typeofcontent}": {
+        "{typedesign}": {
           "type": "array",
           "title": "Type Of Design",
           "ui:widget": "checkboxes",
