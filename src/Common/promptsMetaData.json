@@ -1,1525 +1,1526 @@
 [
-  {
-    "title": "tldrlegal Killer",
-    "description": "Choose Criteria and list suitable Software licences",
-    "prompt": "List all software licenses which can {can} AND cannot {cannot} AND Must {must} , Please compile the results in a {format} format with property columns      ",
-    "icon": null,
-    "seoMeta": ["software", "licence", "tldr", "legal"],
-    "id": "tldrlegalkiller",
-    "outputFormattor": null,
-    "categories": ["programming", "legal", "personal-assistants"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{can}"],
-      "properties": {
-        "{can}": {
-          "type": "array",
-          "title": "Can",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Commercial Use",
-              "Modification",
-              "Liability",
-              "Disclaimer",
-              "Trademark Use",
-              "Copyright Notice",
-              "Required Changes Indicated",
-              "Place Warranty",
-              "Private Use",
-              "Use Patent Claims",
-              "Include Notice"
-            ]
-          },
-          "uniqueItems": true
-        },
-        "{cannot}": {
-          "type": "array",
-          "title": "Can Not",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Commercial Use",
-              "Modification",
-              "Liability",
-              "Disclaimer",
-              "Trademark Use",
-              "Copyright Notice",
-              "Required Changes Indicated",
-              "Place Warranty",
-              "Private Use",
-              "Use Patent Claims",
-              "Include Notice"
-            ]
-          },
-          "uniqueItems": true
-        },
-        "{must}": {
-          "type": "array",
-          "title": "Must Includes",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Commercial Use",
-              "Modification",
-              "Liability",
-              "Disclaimer",
-              "Trademark Use",
-              "Copyright Notice",
-              "Required Changes Indicated",
-              "Place Warranty",
-              "Private Use",
-              "Use Patent Claims",
-              "Include Notice"
-            ]
-          },
-          "uniqueItems": true
-        },
-        "{format}": {
-          "type": "string",
-          "title": "Format",
-          "default": "Table",
-          "enum": ["Table", "JSON", "Markdown"]
-        }
-      }
-    }
-  },
-  {
-    "title": "Grammerly Alternative",
-    "description": "Correct the grammer and make it suitable to Audience",
-    "prompt": "Please help me to correct the grammar of the sentence in curly braces {sentence} , make sure its suitable to a {audience} audience, {formality} tone with {purpose} purpose with intent to {intent}",
-    "icon": null,
-    "seoMeta": ["Writing", "Grammer"],
-    "id": "grammerlyalternative",
-    "outputFormattor": null,
-    "categories": ["creative-writing", "personal-assistants", "productivity"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["sentence"],
-      "properties": {
-        "sentence": {
-          "type": "string",
-          "title": "Sentence"
-        },
-        "{audience}": {
-          "type": "string",
-          "title": "Audience",
-          "default": "Knowledgeable",
-          "ui:widget": "radio",
-          "enum": ["General", "Knowledgeable", "Expert"]
-        },
-        "{formality}": {
-          "type": "string",
-          "title": "Formality",
-          "default": "Neutral",
-          "ui:widget": "radio",
-          "enum": ["Informal", "Neutral", "Format"]
-        },
-        "{purpose}": {
-          "type": "string",
-          "title": "Purpose",
-          "default": "General",
-          "ui:widget": "radio",
-          "enum": ["Academic", "Buiness", "General", "Email", "Casual", "Creative"]
-        },
-        "{intent}": {
-          "type": "string",
-          "title": "Intent",
-          "ui:widget": "radio",
-          "default": "Inform",
-          "enum": ["Inform", "Describe", "Convince", "Tell A Story"]
-        }
-      }
-    }
-  },
-  {
-    "title": "Wordtune Alternative",
-    "description": "Rewrite The Sentence",
-    "prompt": "Please rephrase/rewrite the sentence contained within the curly braces using a more {formality} tone and suitable to {audience} audience. {sentence}",
-    "icon": null,
-    "seoMeta": ["Writing", "Grammer"],
-    "id": "wordtunealternative",
-    "outputFormattor": null,
-    "categories": ["creative-writing", "personal-assistants", "productivity"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["sentence"],
-      "properties": {
-        "sentence": {
-          "type": "string",
-          "title": "Sentence"
-        },
-        "{audience}": {
-          "type": "string",
-          "title": "Audience",
-          "default": "Knowledgeable",
-          "ui:widget": "radio",
-          "enum": ["General", "Knowledgeable", "Expert"]
-        },
-        "{formality}": {
-          "type": "string",
-          "title": "Formality",
-          "default": "Neutral",
-          "ui:widget": "radio",
-          "enum": ["Formal", "Neutral", "Casual"]
-        }
-      }
-    }
-  },
-  {
-    "title": "Write as a Blogger",
-    "description": "Create Blog Meta data on any Topic",
-    "prompt": "I want you to act as a blogger and {topic} expert. The topic of the post will be '{topicdescription}'. The length of the blog post will be around {length} words. The tone will be {tone}.I want you to include these keywords:{keywords}, Replay within format {replyformat}",
-    "icon": null,
-    "seoMeta": ["Writing", "Blog"],
-    "id": "writeasblogger",
-    "outputFormattor": null,
-    "categories": ["creative-writing", "personal-assistants"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{topic}", "{topicdescription}"],
-      "properties": {
-        "{topic}": {
-          "type": "string",
-          "title": "Topic"
-        },
-        "{topicdescription}": {
-          "type": "string",
-          "title": "Little Bit More About Topic",
-          "ui:widget": "textarea",
-          "ui:options": {
-            "rows": 5
-          }
-        },
-        "{length}": {
-          "type": "number",
-          "title": "Length of Post (in Chars)",
-          "default": 500
-        },
-        "{tone}": {
-          "type": "string",
-          "title": "Tone",
-          "default": "Informal",
-          "ui:widget": "radio",
-          "enum": ["Informal", "Helpful", "Persuasive", "Professional", "Authorative"]
-        },
-        "{keywords}": {
-          "type": "string",
-          "title": "Any particular keyword(s) to include (Comma Separated)"
-        },
-        "replyformat": {
-          "type": "array",
-          "title": "Output",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["Title", "Short Description", "Descrition", "SEO Keywords"]
-          },
-          "uniqueItems": true
-        }
-      }
-    }
-  },
-  {
-    "title": "Topic Explainer",
-    "description": "Explain Like 5 Year Old #eli5",
-    "prompt": "Explain the {topic} to me, i am {year} year old and knows about {knows} and struggles with the {struggles}",
-    "icon": null,
-    "seoMeta": ["explain", "eli5"],
-    "id": "topic-explainer",
-    "outputFormattor": null,
-    "categories": ["personal-development", "educational"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{topic}", "{year}"],
-      "properties": {
-        "{topic}": {
-          "type": "string",
-          "title": "Topic",
-          "default": "AI",
-          "ui:placeholder": "Enter Topic you want to learn"
-        },
-        "{year}": {
-          "type": "number",
-          "title": "Age",
-          "default": 5
-        },
-        "{knows}": {
-          "type": "string",
-          "title": "Expertise Area",
-          "default": "Computer",
-          "ui:placeholder": "Enter your expert areas,  in comma separate format"
-        },
-        "{struggles}": {
-          "type": "string",
-          "title": "you struggle with?",
-          "default": "Math",
-          "ui:placeholder": "Enter area that you mostly stuggle ,  in comma separate format"
-        }
-      }
-    }
-  },
-  {
-    "title": "UX/UI developer",
-    "description": "Act as a UX/UI developer and Design",
-    "prompt": "I want you to act as a UX/UI developer. I will provide some details about the design of an [type], and it will be your job to come up with creative ways to improve its user experience. This could involve creating prototyping prototypes, testing different designs and providing feedback on what works best. My first request is \"I need help designing an intuitive {category} system  with primary color {colors}",
-    "icon": null,
-    "seoMeta": ["UX", "UI", "Developer", "Designer"],
-    "id": "actasuiuxdeveloper",
-    "outputFormattor": null,
-    "categories": ["design", "programming", "personal-assistants"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": [],
-      "properties": {
-        "type": {
-          "type": "string",
-          "title": "Type",
-          "default": "App",
-          "enum": ["App", "Website", "Poster", "Flyer"]
-        },
-        "category": {
-          "type": "string",
-          "title": "Category",
-          "default": "Navigation",
-          "enum": ["Navigation", "Sports", "Game", "Social Media"]
-        },
-        "colors": {
-          "type": "string",
-          "title": "colors",
-          "default": "Green",
-          "enum": ["Green", "Blue", "Red", "Yellow"]
-        }
-      }
-    }
-  },
-  {
-    "title": "Dream Interpreter",
-    "description": "Act as a dream interpreter and provide interpretations based inputs",
-    "prompt": "I want you to act as a dream interpreter. I will give you descriptions of my dreams, and you will provide interpretations based on the symbols and themes present in the dream. Do not provide personal opinions or assumptions about the dreamer. Provide only factual interpretations based on the information given. My dream is about {description1} ,  {description2} , {description3}",
-    "icon": null,
-    "seoMeta": ["Dream", "interpreter"],
-    "id": "actasadreaminterpreter",
-    "outputFormattor": null,
-    "categories": ["personal-development", "philosophy", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": [],
-      "properties": {
-        "description1": {
-          "type": "string",
-          "title": "First Description",
-          "default": "Chased by Tiger"
-        },
-        "description2": {
-          "type": "string",
-          "title": "Another Description",
-          "default": "Found in Apocalypse time"
-        },
-        "description3": {
-          "type": "string",
-          "title": "Some more Description",
-          "ui:widget": "textarea",
-          "ui:options": {
-            "rows": 5
-          }
-        }
-      }
-    }
-  },
-  {
-    "title": "Domain name generator",
-    "description": "Act as a smart domain name generator and suggest",
-    "prompt": "I want you to act as a smart domain name generator. I will tell you what my {companyname} or {idea} does and you will reply me a list of domain name alternatives according to my prompt. You will only reply the domain list, and nothing else. Domains should be max {maxletters} letters, should be {preference}. Do {wantexplaination} write explanations.",
-    "icon": null,
-    "seoMeta": ["Domain", "generator"],
-    "id": "actasadomainnamegenerator",
-    "outputFormattor": null,
-    "categories": ["recommendations", "productivity"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": [],
-      "properties": {
-        "companyname": {
-          "type": "string",
-          "title": "Your Company Name"
-        },
-        "idea": {
-          "type": "string",
-          "title": "What does it do?"
-        },
-        "maxletters": {
-          "type": "number",
-          "title": "Max letters"
-        },
-        "preference": {
-          "type": "string",
-          "title": "Any Preference?",
-          "default": "short but unique, can be catchy or non-existent words"
-        },
-        "wantexplaination": {
-          "type": "string",
-          "title": "Want Explaination with output?",
-          "default": "Not",
-          "enum": ["", "Not"]
-        }
-      }
-    }
-  },
-  {
-    "title": "Product Manager",
-    "description": "Be a product manager and Write Product Development Requirement",
-    "prompt": "Please respond to me as a product manager. For the {subject}, and Help me to write a PRD or requirement for it with these headers: [headers]",
-    "icon": null,
-    "seoMeta": ["Product", "Manager"],
-    "id": "actasaproductmanager",
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "creative-writing", "educational"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": [],
-      "properties": {
-        "subject": {
-          "type": "string",
-          "title": "Subject"
-        },
-        "headers": {
-          "type": "array",
-          "title": "Include below checked Points",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Subject",
-              "Introduction",
-              "Problem Statement",
-              "Goals and Objectives",
-              "User Stories",
-              "Technical requirements",
-              "Benefits",
-              "KPIs",
-              "Development Risks"
-            ]
-          },
-          "uniqueItems": true
-        }
-      }
-    }
-  },
-  {
-    "title": "Checklist",
-    "description": "Create checklist for different topic",
-    "prompt": "Create a checklist for preparing for a {theme}. Please do consider {consideration}",
-    "icon": null,
-    "seoMeta": ["checklist", "jobinterview", "travel"],
-    "id": "checklistfortopic",
-    "outputFormattor": null,
-    "categories": ["personal-development", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["theme"],
-      "properties": {
-        "theme": {
-          "type": "string",
-          "title": "Theme",
-          "default": "Job Interview"
-        },
-        "consideration": {
-          "type": "string",
-          "title": "Any Consideration?"
-        }
-      }
-    }
-  },
-  {
-    "title": "Code Generation",
-    "description": "Create checklist for different topic",
-    "prompt": "Write '{problemstatement}' in {programminglanguage}",
-    "icon": null,
-    "seoMeta": ["Code", "Generation", "Programming"],
-    "id": "codegeneration",
-    "outputFormattor": null,
-    "categories": ["programming"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{problemstatement}", "{programminglanguage}"],
-      "properties": {
-        "{problemstatement}": {
-          "type": "string",
-          "title": "Problem Statement",
-          "default": "Simple Factorial Program",
-          "ui:widget": "textarea",
-          "ui:options": {
-            "rows": 5
-          }
-        },
-        "{programminglanguage}": {
-          "type": "string",
-          "title": "Programming Language",
-          "ui:placeholder": "PHP"
-        }
-      }
-    }
-  },
-  {
-    "title": "List the Competitor",
-    "description": "list of competitors to business and format",
-    "prompt": "Please create a list of competitors to {business}. List the name of the {fields} and whether they are a {isdirect} competitor. Please compile the results in a {format} format",
-    "icon": null,
-    "seoMeta": ["ppc", "business", "analytics"],
-    "id": "listthecompetitor",
-    "outputFormattor": null,
-    "categories": ["productivity", "analytics"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["business", "fields"],
-      "properties": {
-        "business": {
-          "type": "string",
-          "title": "Business"
-        },
-        "fields": {
-          "type": "string",
-          "title": "Problem Statement",
-          "default": "Name Of Company, headquarters, Size of Company"
-        },
-        "isdirect": {
-          "type": "array",
-          "title": "direct Or InDirect",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["direct", "indirect"]
-          },
-          "uniqueItems": true
-        },
-        "format": {
-          "type": "string",
-          "title": "Format",
-          "default": "table"
-        }
-      }
-    }
-  },
-  {
-    "title": "Code Explainer",
-    "description": "What does this code do?",
-    "prompt": "We have the following [xxx] code: ```[xxx] {codeblock} ``` Please explain {linebyline}",
-    "icon": null,
-    "seoMeta": ["programming", "coding"],
-    "id": "code-explainer",
-    "outputFormattor": null,
-    "categories": ["programming", "educational"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["codeblock"],
-      "properties": {
-        "codeblock": {
-          "type": "string",
-          "title": "Code Block",
-          "ui:widget": "textarea"
-        },
-        "{linebyline}": {
-          "type": "string",
-          "title": "Line By Line",
-          "ui:widget": "radio",
-          "enum": ["Line By Line", "Summary"]
-        }
-      }
-    }
-  },
-  {
-    "title": "HTML Code Generator",
-    "description": "HTML Code of Framework and theme?",
-    "prompt": "Please share html code for {framework} {theme} {component}",
-    "icon": null,
-    "seoMeta": ["programming", "coding", "HTML"],
-    "id": "html-code-generator",
-    "outputFormattor": null,
-    "categories": ["programming", "educational"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{component}"],
-      "properties": {
-        "{framework}": {
-          "type": "string",
-          "title": "CSS Framework",
-          "ui:placeholder": "Bootstrap"
-        },
-        "{theme}": {
-          "type": "string",
-          "title": "Theme",
-          "default": " ",
-          "ui:placeholder": "Light Grey"
-        },
-        "{component}": {
-          "type": "string",
-          "title": "Component",
-          "ui:placeholder": "Navigation Bar"
-        }
-      }
-    }
-  },
-  {
-    "title": "AI Programmer",
-    "description": "Write a code and explain",
-    "prompt": "Write {language} {type} code for {purpose} in {style} style. Include {include}.",
-    "icon": null,
-    "seoMeta": ["explain", "Programming", "coding"],
-    "id": "ai-programmer",
-    "outputFormattor": null,
-    "categories": ["programming", "educational"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{language}", "{purpose}"],
-      "properties": {
-        "{language}": {
-          "type": "string",
-          "title": "Language",
-          "default": "python"
-        },
-        "{purpose}": {
-          "type": "string",
-          "title": "Purpose",
-          "ui:placeholder": "Get a Random Number"
-        },
-        "{style}": {
-          "type": "string",
-          "title": "Style",
-          "default": "Imperative",
-          "ui:widget": "radio",
-          "enum": ["Imperative", "Declarative"]
-        },
-        "{type}": {
-          "type": "string",
-          "title": "Type",
-          "default": "Functional",
-          "ui:widget": "radio",
-          "enum": ["Functional", "object oriented"]
-        },
-        "{include}": {
-          "type": "array",
-          "title": "Include",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["Code", "Explaination"]
-          },
-          "uniqueItems": true
-        }
-      }
-    }
-  },
-  {
-    "title": "Social Media Post",
-    "description": "Create a social Media Post for a feature",
-    "prompt": "Create a {website} post for {purpose}. {instruction}",
-    "icon": null,
-    "seoMeta": ["social-media", "Writing", "twitter", "facebook"],
-    "id": "social-media-post",
-    "outputFormattor": null,
-    "categories": ["productivity", "creative-writing", "personal-assistants"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{website}", "{purpose}"],
-      "properties": {
-        "{website}": {
-          "type": "string",
-          "title": "Website",
-          "default": "Twitter"
-        },
-        "{purpose}": {
-          "type": "string",
-          "title": "Purpose",
-          "ui:placeholder": "A new dark mode feature for a running app"
-        },
-        "{style}": {
-          "type": "string",
-          "title": "Style",
-          "ui:placeholder": "Include emojis in the post. The post should be energetic and succinct. Do not use acronyms or abbreviations"
-        }
-      }
-    }
-  },
-  {
-    "title": "Personal Shopper",
-    "description": "Suggest items for me to purchase",
-    "prompt": "I want you to act as my personal shopper. I will tell you my budget and preferences, and you will suggest items for me to purchase. You should only reply with the items you recommend, and nothing else. Do not write explanations. My first request is I have a budget of {currency}{amount} and I am looking for a {item}.",
-    "icon": null,
-    "seoMeta": ["Finance", "Shopping"],
-    "id": "[personalshopper]",
-    "outputFormattor": null,
-    "categories": ["recommendations", "finance"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{amount}", "{item}"],
-      "properties": {
-        "{currency}": {
-          "type": "string",
-          "default": "$",
-          "title": "Your Currency"
-        },
-        "{amount}": {
-          "type": "number",
-          "title": "Amount?",
-          "default": 100
-        },
-        "{item}": {
-          "type": "string",
-          "title": "Items"
-        }
-      }
-    }
-  },
-  {
-    "title": "Stand-up Comedian",
-    "description": "Humorous take on any topic",
-    "prompt": "I want you to act as a stand-up comedian. I will provide you with some topics related to current events and you will use your wit, creativity, and observational skills to create a routine based on those topics. You should also be sure to incorporate personal anecdotes or experiences into the routine in order to make it more relatable and engaging for the audience. My first request is “I want a humorous take on {topic}.",
-    "icon": null,
-    "seoMeta": ["Finance", "Shopping"],
-    "id": "[personalshopper]",
-    "outputFormattor": null,
-    "categories": ["entertainment"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{topic}"],
-      "properties": {
-        "{topic}": {
-          "type": "string",
-          "title": "Topic ?"
-        }
-      }
-    }
-  },
-  {
-    "title": "Behind The Name",
-    "description": "The etymology and history of first names",
-    "prompt": "Can you please share meaning of name '{name}'.  Please output with below fields. {fields}",
-    "icon": null,
-    "seoMeta": ["name", "personal"],
-    "id": "behind-the-name",
-    "outputFormattor": null,
-    "categories": ["entertainment", "personal-assistants"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{name}"],
-      "properties": {
-        "{name}": {
-          "type": "string",
-          "title": "Name"
-        },
-        "{fields}": {
-          "type": "array",
-          "title": "Information you looking",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Meaning",
-              "Related Names",
-              "Origin",
-              "Positive or Nagative",
-              "History",
-              "Gender",
-              "Famous people"
-            ]
-          },
-          "uniqueItems": true
-        }
-      }
-    }
-  },
-  {
-    "title": "Linux Terminal",
-    "description": "Type command and reply from teminal will be shown as output",
-    "prompt": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {command}.",
-    "icon": null,
-    "seoMeta": ["linux", "terminal", "command"],
-    "id": "linuxtermial",
-    "outputFormattor": null,
-    "categories": ["programming", "educational"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["command"],
-      "properties": {
-        "command": {
-          "type": "string",
-          "title": "Command"
-        }
-      }
-    }
-  },
-  {
-    "title": "City Chooser",
-    "description": "Looking for the best city to live in",
-    "prompt": "As someone looking for the best city to live in, consider these basic factors:  Interests: {interests} , Climate Preference: {climate} Monthly Budget: [budget] Good In {criteria} .Main Task: Generate a simple list of cities that align with provided interests, climate preference, living standard and budget.",
-    "icon": null,
-    "seoMeta": ["personal"],
-    "id": "citychooser",
-    "outputFormattor": null,
-    "categories": ["personal-assistants"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{interests}", "{climate}", "{budget}"],
-      "properties": {
-        "{climate}": {
-          "type": "array",
-          "title": "Climate",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["Warm", "Cold", "Temperate"]
-          },
-          "uniqueItems": true
-        },
-        "{criteria}": {
-          "type": "array",
-          "title": "Good in Criteria",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Education",
-              "Health",
-              "Housing",
-              "Mobility",
-              "Safety",
-              "Environment",
-              "Recreation",
-              "Energy Consumption",
-              "Economic Opportunities"
-            ]
-          },
-          "uniqueItems": true
-        },
-        "{interests}": {
-          "type": "string",
-          "title": "Interests?",
-          "ui:placeholder": "outdoor activities, arts and culture, nightlife"
-        },
-        "{budget}": {
-          "type": "number",
-          "title": "Monthly Budget ($)"
-        }
-      }
-    }
-  },
-  {
-    "title": "Code Improvement",
-    "description": "Seeking to improve  code",
-    "prompt": "As a software developer seeking to improve your code, consider the following basic aspects: Language: {lanaguage} Code Snippet: ```[xxx] {codeblock} ``` Problem or Error: {description} Main Task: Identify and address the issue in the provided code snippet to improve the code quality.",
-    "icon": null,
-    "seoMeta": ["programming", "coding"],
-    "id": "code-improvement",
-    "outputFormattor": null,
-    "categories": ["programming", "educational"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{language}"],
-      "properties": {
-        "{language}": {
-          "type": "string",
-          "default": "PHP",
-          "title": "Programming Language"
-        },
-        "codeblock": {
-          "type": "string",
-          "title": "Code Block",
-          "ui:widget": "textarea"
-        },
-        "{description}": {
-          "type": "string",
-          "title": "What improvement you looking for?",
-          "ui:placeholder": "Explain the specific problem or error message you're encountering"
-        }
-      }
-    }
-  },
-  {
-    "title": "Sequel Writer",
-    "description": "Write a sequel/prequel about the any movie",
-    "prompt": "Write a {type} about the {moviename} movie",
-    "icon": null,
-    "seoMeta": ["entertainment", "movie", "writing"],
-    "id": "[sequel-writer]",
-    "outputFormattor": null,
-    "categories": ["entertainment"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{moviename}", "{type}"],
-      "properties": {
-        "{type}": {
-          "type": "string",
-          "default": "Sequel",
-          "ui:widget": "radio",
-          "enum": ["Sequel", "Prequel", "Remake"],
-          "title": "Installment  ?"
-        },
-        "{moviename}": {
-          "type": "string",
-          "title": "Movie Name ?"
-        }
-      }
-    }
-  },
-  {
-    "icon": null,
-    "outputFormattor": null,
-    "categories": ["entertainment"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{genre}"],
-      "properties": {
-        "{genre}": {
-          "type": "string",
-          "title": "Genre"
-        },
-        "similar": {
-          "type": "string",
-          "title": "Similar To "
-        }
-      }
-    },
-    "prompt": "Can you recommend a good {genre}  movie similar to {similar} for me to watch ?",
-    "title": "Movie Recommendation",
-    "description": "Recommend a good genre movie for me",
-    "seoMeta": ["movie , recommendation"],
-    "id": "movie-recommendation"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["social-media"],
-    "outputFormattor": null,
-    "categories": ["productivity", "social-media", "personal-assistants", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{typeofcontent}"],
-      "properties": {
-        "{typeofcontent}": {
-          "type": "array",
-          "title": "Type Of Content",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["image", "video", "text"]
-          },
-          "uniqueItems": true
-        },
-        "{socialmediaplatform}": {
-          "type": "array",
-          "title": "Social Media Platform",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["Instagram", "Twitter", "Facebook", "Linkedin"]
-          },
-          "uniqueItems": true
-        },
-        "{targetaudience}": {
-          "type": "array",
-          "title": "Target of Audience",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["teenagers", "millennials", "genZ", "parents", "woman"]
-          },
-          "uniqueItems": true
-        },
-        "{tone}": {
-          "type": "array",
-          "title": "Tone",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["funny", "informative", "serious"]
-          },
-          "uniqueItems": true
-        },
-        "{goal}": {
-          "type": "array",
-          "title": "Goal",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["increase engagement", "drive traffic", "promote brand"]
-          },
-          "uniqueItems": true
-        }
-      }
-    },
-    "prompt": "Help me create a {typeofcontent} for {socialmediaplatform} that targets {targetaudience} with a {tone} tone and a {goal} goal.",
-    "title": "Create a Social Media Post",
-    "description": "Help me create post based  on  type of content , platform , target audience and goal .",
-    "id": "create--social-media-post"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["design", "social-media"],
-    "outputFormattor": null,
-    "categories": ["design", "social-media", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{typedesign}"],
-      "properties": {
-        "{typeofcontent}": {
-          "type": "array",
-          "title": "Type Of Design",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["poster", "logo", "website"]
-          },
-          "uniqueItems": true
-        },
-        "{socialmediaplatform}": {
-          "type": "array",
-          "title": "Social Media Platform",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["Instagram", "Twitter", "Facebook", "Linkedin"]
-          },
-          "uniqueItems": true
-        },
-        "{targetaudience}": {
-          "type": "array",
-          "title": "Target of Audience",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["teenagers", "millennials", "genZ", "parents", "woman", "corporate"]
-          },
-          "uniqueItems": true
-        },
-        "{colorscheme}": {
-          "type": "array",
-          "title": "Color scheme",
-          "ui:widget": "checkboxes",
-          "items": {
-            "type": "string",
-            "enum": ["bright", "monochromatic", "pastel"]
-          },
-          "uniqueItems": true
-        },
-        "{specificelement}": {
-          "type": "string",
-          "title": "Any specific Element",
-          "ui:placeholder": "geometric shapes, nature elements, typography, etc."
-        }
-      }
-    },
-    "prompt": "Create a {typedesign} that appeals to a {targetaudience} audience, using {colorscheme} colors and incorporating {specificelement} element.",
-    "title": "Create a Design",
-    "description": "Create a for Design based on target audience , color scheme.",
-    "id": "create-a-design"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["budget", "personal-budget"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "finance"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{budgettype}", "{income}"],
-      "properties": {
-        "{budgettype}": {
-          "type": "string",
-          "title": "Type Of Budget",
-          "ui:widget": "radio",
-          "enum": ["Monthly", "Yearly", "Weekly"],
-          "uniqueItems": true
-        },
-        "{income}": {
-          "type": "number",
-          "title": "Income"
-        },
-        "{expenses}": {
-          "type": "number",
-          "title": "Expense"
-        },
-        "{goal}": {
-          "type": "string",
-          "title": "Goal",
-          "ui:widget": "radio",
-          "enum": ["Savings", "Debt Repayment", "Retirement"],
-          "uniqueItems": true
-        }
-      }
-    },
-    "prompt": "Please help me to create a {budgettype} budget plan for my {income} income, with {expenses} expenses, in order to achieve my financial {goal} goal.",
-    "title": "Budget Planner",
-    "description": "Create a budget plan based on recurrence , income, expenses, goal",
-    "id": "budget-planner-from-income"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["movie", "recommendation", "books"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "entertainment", "social-media"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{number}", "{category}", "{interest}"],
-      "properties": {
-        "{number}": {
-          "type": "number",
-          "title": "Number of Recommendation"
-        },
-        "{category}": {
-          "type": "string",
-          "title": "Category",
-          "ui:placeholder": "books, movies, podcasts"
-        },
-
-        "{interest}": {
-          "type": "string",
-          "title": "Interest",
-          "ui:placeholder": "motivation, entertainment, education, etc."
-        }
-      }
-    },
-    "prompt": "What are your top {number} {category} recommendations for someone looking for {interest}?",
-    "title": "Interest Recommendations",
-    "description": "Recommendation based on interest",
-    "id": "interest-recommendation"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["recipe", "recommendation"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "personal-development", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{dietary}", "{mealtype}", "{cuisine}"],
-      "properties": {
-        "{dietary}": {
-          "type": "string",
-          "title": "Dietary",
-          "ui:placeholder": "vegan, vegetarian, gluten-free, keto"
-        },
-        "{mealtype}": {
-          "type": "string",
-          "title": "Meal Type",
-          "ui:placeholder": "breakfast, lunch, dinner"
-        },
-
-        "{cuisine}": {
-          "type": "string",
-          "title": "Cuisine",
-          "ui:placeholder": "Italian, Mexican, Indian, etc."
-        }
-      }
-    },
-    "prompt": "Recipe suggestions based on {dietary} restrictions for {mealtype} and  {cuisine} cuisine",
-    "title": "Recipe Suggestions",
-    "description": "Suggestions based on dietary restrictions for meal type and cuisine",
-    "id": "recipe-suggestions"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["career", "advice"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "personal-development", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{industry}", "{levelofexperience}", "{careergoals}"],
-      "properties": {
-        "{industry}": {
-          "type": "string",
-          "title": "Industry",
-          "ui:placeholder": "tech, finance, marketing etc"
-        },
-        "{levelofexperience}": {
-          "type": "string",
-          "title": "Level of Experience",
-          "ui:placeholder": "entry-level, mid-career, executive"
-        },
-
-        "{careergoals}": {
-          "type": "string",
-          "title": "Career Goals",
-          "ui:placeholder": "promotion, career change, entrepreneurship"
-        }
-      }
-    },
-    "prompt": "Career advice for professionals from {industry} and {levelofexperience} level of experience with {careergoals} career goals",
-    "title": "Career advice for professionals",
-    "description": "Career advice based on  industry, level of experience and goals",
-    "id": "career-advice-for-professionals"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["career", "advice"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "personal-development", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{genre}", "{author}", "{readingformat}"],
-      "properties": {
-        "{genre}": {
-          "type": "string",
-          "title": "Genre",
-          "ui:placeholder": "mystery, romance, science fiction"
-        },
-        "{author}": {
-          "type": "string",
-          "title": "Author",
-          "ui:placeholder": "Stephen King, Jane Austen, George R.R. Martin"
-        },
-
-        "{readingformat}": {
-          "type": "string",
-          "title": "Reading Format",
-          "ui:widget": "radio",
-          "enum": ["e-book", "audiobook", "physical book"]
-        }
-      }
-    },
-    "prompt": "Can you recommend a good books based {genre} genre from authour {author} in  {readingformat} reading format",
-    "title": "Book recommendations",
-    "description": "Book recommendations based on genre",
-    "id": "book-recommendations-based-on-genre"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["travel", "advice"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "recommendations", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{destination}", "{style}", "{budget}"],
-      "properties": {
-        "{destination}": {
-          "type": "string",
-          "title": "Destination",
-          "ui:placeholder": "beach, city, mountains"
-        },
-        "{style}": {
-          "type": "string",
-          "title": "Style",
-          "ui:placeholder": "adventure, relaxation, cultural"
-        },
-
-        "{budget}": {
-          "type": "string",
-          "title": "budget",
-          "ui:widget": "radio",
-          "enum": ["luxury", "mid-range", "budget-friendly"]
-        }
-      }
-    },
-    "prompt": "Suggest Travel itinerary for a {destination} destination, {style} style and  {budget} budget",
-    "title": "Travel itinerary suggestions",
-    "description": "Travel itinerary suggestions for a weekend getaway",
-    "id": "travel-itinerary-suggestions"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["travel", "advice"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "recommendations", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{room}", "{style}", "{skilllevel}"],
-      "properties": {
-        "{room}": {
-          "type": "string",
-          "title": "Room",
-          "ui:placeholder": "bedroom, living room, kitchen"
-        },
-        "{style}": {
-          "type": "string",
-          "title": "Style",
-          "ui:placeholder": "modern, rustic, bohemian"
-        },
-
-        "{skilllevel}": {
-          "type": "string",
-          "title": "Skill Level",
-          "ui:widget": "radio",
-          "enum": ["beginner", "intermediate", "advanced"]
-        }
-      }
-    },
-    "prompt": "Suggest DIY project ideas for home decor {room} room , {style} style and {skilllevel } skill level",
-    "title": "DIY project ideas",
-    "description": "DIY project ideas based on room, style , expertise",
-    "id": "DIY-project-ideas-for-home-decor"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["travel", "advice"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "recommendations", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{space}", "{type}", "{climate}", "{skilllevel}"],
-      "properties": {
-        "{type}": {
-          "type": "string",
-          "title": "Type",
-          "ui:placeholder": "Vegetable, herb, flower"
-        },
-        "{climate}": {
-          "type": "string",
-          "title": "Climate",
-          "ui:placeholder": "tropical, temperate, arid etc"
-        },
-        "{space}": {
-          "type": "string",
-          "title": "Skill Level",
-          "ui:widget": "radio",
-          "enum": ["balcony", "backyard", "community garden"]
-        },
-        "{skilllevel}": {
-          "type": "string",
-          "title": "Skill Level",
-          "ui:widget": "radio",
-          "enum": ["beginner", "intermediate", "advanced"]
-        }
-      }
-    },
-    "prompt": "Gardening tips for {skilllevel} Skill Level, {type} Type of garden , {climate} climate for {space} like space",
-    "title": "Gardening tips",
-    "description": "Gardening tips  based on garden type, climate , space",
-    "id": "gardening-tips"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["legal"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "legal"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{type}", "{country1}", "{country2}"],
-      "properties": {
-        "{type}": {
-          "type": "string",
-          "title": "Type",
-          "ui:placeholder": "employment contracts, marriage, renting, etc."
-        },
-        "{country1}": {
-          "type": "string",
-          "title": "Country 1",
-          "ui:placeholder": "United States, Canada, Australia, etc."
-        },
-        "{country2}": {
-          "type": "string",
-          "title": "Country 2",
-          "ui:placeholder": "Canada, Australia, United States etc."
-        }
-      }
-    },
-    "prompt": "What are the laws regarding {type} in {country1} and how do they differ from {country2}?",
-    "title": "Laws Comparision",
-    "description": "Compare Laws between Countries",
-    "id": "laws-comparision"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["legal"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "legal"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{type}", "{country}", "{customer}"],
-      "properties": {
-        "{type}": {
-          "type": "string",
-          "title": "Type",
-          "ui:placeholder": "employment contracts, marriage, renting, etc."
-        },
-        "{customer}": {
-          "type": "string",
-          "title": "Customer Type",
-          "ui:placeholder": "employers, landlords, consumers, etc."
-        },
-        "{country}": {
-          "type": "string",
-          "title": "Country",
-          "ui:placeholder": "Canada, Australia, United States etc."
-        }
-      }
-    },
-    "prompt": "What are the possible consequences for {customer} if they violate {type} in {country}?",
-    "title": "Laws Consequences",
-    "description": "Consequences of Laws",
-    "id": "laws-consequences"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["marketing"],
-    "outputFormattor": null,
-    "categories": ["social-media", "creative-writing", "productivity"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{metric}", "{industry}", "{demographic}", "{interest}"],
-      "properties": {
-        "{metric}": {
-          "type": "string",
-          "title": "Metric",
-          "ui:placeholder": "sales, website traffic, social media engagement"
-        },
-        "{industry}": {
-          "type": "string",
-          "title": "Industry",
-          "ui:placeholder": "fashion, technology, healthcare"
-        },
-        "{demographic}": {
-          "type": "string",
-          "title": "Demographic",
-          "ui:placeholder": "age, gender, location"
-        },
-        "{interest}": {
-          "type": "string",
-          "title": "Interest",
-          "ui:placeholder": "sustainability, fitness, travel"
-        }
-      }
-    },
-    "prompt": "You are a marketer trying to increase {metric} for a {industry} company. What are some strategies you would recommend for targeting {demographic} customers who are interested in {interest}?",
-    "title": "Digital Marketer",
-    "description": "marketer trying to increase  Sales or website Traffic",
-    "id": "digital-marketer"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["fitness"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "personal-development", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{goal}", "{bodypart}", "{skill}", "{metric}"],
-      "properties": {
-        "{goal}": {
-          "type": "string",
-          "title": "Goal",
-          "ui:placeholder": "weight loss, muscle gain, improved stamina"
-        },
-        "{bodypart}": {
-          "type": "string",
-          "title": "Bodypart",
-          "ui:placeholder": "legs, abs, arms"
-        },
-        "{skill}": {
-          "type": "string",
-          "title": "Skill",
-          "ui:placeholder": "balance, strength, flexibility"
-        },
-        "{metric}": {
-          "type": "string",
-          "title": "Metric",
-          "ui:placeholder": "endurance, speed, power"
-        }
-      }
-    },
-    "prompt": "You are a fitness trainer designing a workout plan for a {goal} client. What exercises would you recommend for {bodypart} that target {skill} and improve {metric}?",
-    "title": "Fitness Trainer",
-    "description": "Fitness trainer designing a workout plan for client",
-    "id": "fitness-trainer"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["wedding", "planning"],
-    "outputFormattor": null,
-    "categories": ["personal-assistants", "misc"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{theme}", "{venue}", "{emotion}"],
-      "properties": {
-        "{theme}": {
-          "type": "string",
-          "title": "Theme",
-          "ui:placeholder": "rustic, vintage, beach"
-        },
-        "{venue}": {
-          "type": "string",
-          "title": "Venue",
-          "ui:placeholder": "ballroom, garden, vineyard"
-        },
-        "{emotion}": {
-          "type": "string",
-          "title": "Emotion",
-          "ui:placeholder": "romance, joy, nostalgia"
-        }
-      }
-    },
-    "prompt": "You are planning a wedding and need ideas for {theme}. What are some decor elements, colors, and music genres that would complement {venue} and evoke {emotion}?",
-    "title": "Wedding Theme Ideas",
-    "description": "Planning a wedding and need ideas for theme",
-    "id": "wedding-theme-ideas"
-  },
-  {
-    "icon": null,
-    "seoMeta": ["startup", "investment"],
-    "outputFormattor": null,
-    "categories": ["finance", "analytics"],
-    "model": ["chatgpt"],
-    "schema": {
-      "type": "object",
-      "required": ["{businessage}", "{fundingsource}", "{businessmodel}"],
-      "properties": {
-        "{businessage}": {
-          "type": "string",
-          "title": "Business Age",
-          "ui:placeholder": "e.g. pre-revenue, 1 year, 3 years"
-        },
-        "{fundingsource}": {
-          "type": "string",
-          "title": "Funding Source",
-          "ui:placeholder": "e.g. bootstrapped, venture capital, angel investors"
-        },
-        "{businessmodel}": {
-          "type": "string",
-          "title": "Business Model",
-          "ui:placeholder": "e.g. subscription-based, e-commerce, B2B"
-        }
-      }
-    },
-    "prompt": "Prepare a cash flow statement for a startup company considering {businessage} Business age, {fundingsource} Funding source and {businessmodel} Business Model",
-    "title": "cash flow statement",
-    "description": "Prepare a cash flow statement for a startup company.",
-    "id": "cash-flow-statement"
-  }
+	{
+		"title": "tldrlegal Killer",
+		"description": "Choose Criteria and list suitable Software licences",
+		"prompt": "List all software licenses which can {can} AND cannot {cannot} AND Must {must} , Please compile the results in a {format} format with property columns      ",
+		"icon": null,
+		"seoMeta": ["software", "licence", "tldr", "legal"],
+		"id": "tldrlegalkiller",
+		"outputFormattor": null,
+		"categories": ["programming", "legal", "personal-assistants"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{can}"],
+			"properties": {
+				"{can}": {
+					"type": "array",
+					"title": "Can",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": [
+							"Commercial Use",
+							"Modification",
+							"Liability",
+							"Disclaimer",
+							"Trademark Use",
+							"Copyright Notice",
+							"Required Changes Indicated",
+							"Place Warranty",
+							"Private Use",
+							"Use Patent Claims",
+							"Include Notice"
+						]
+					},
+					"uniqueItems": true
+				},
+				"{cannot}": {
+					"type": "array",
+					"title": "Can Not",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": [
+							"Commercial Use",
+							"Modification",
+							"Liability",
+							"Disclaimer",
+							"Trademark Use",
+							"Copyright Notice",
+							"Required Changes Indicated",
+							"Place Warranty",
+							"Private Use",
+							"Use Patent Claims",
+							"Include Notice"
+						]
+					},
+					"uniqueItems": true
+				},
+				"{must}": {
+					"type": "array",
+					"title": "Must Includes",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": [
+							"Commercial Use",
+							"Modification",
+							"Liability",
+							"Disclaimer",
+							"Trademark Use",
+							"Copyright Notice",
+							"Required Changes Indicated",
+							"Place Warranty",
+							"Private Use",
+							"Use Patent Claims",
+							"Include Notice"
+						]
+					},
+					"uniqueItems": true
+				},
+				"{format}": {
+					"type": "string",
+					"title": "Format",
+					"default": "Table",
+					"enum": ["Table", "JSON", "Markdown"]
+				}
+			}
+		}
+	},
+	{
+		"title": "Grammerly Alternative",
+		"description": "Correct the grammer and make it suitable to Audience",
+		"prompt": "Please help me to correct the grammar of the sentence in curly braces {sentence} , make sure its suitable to a {audience} audience, {formality} tone with {purpose} purpose with intent to {intent}",
+		"icon": null,
+		"seoMeta": ["Writing", "Grammer"],
+		"id": "grammerlyalternative",
+		"outputFormattor": null,
+		"categories": ["creative-writing", "personal-assistants", "productivity"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["sentence"],
+			"properties": {
+				"sentence": {
+					"type": "string",
+					"title": "Sentence"
+				},
+				"{audience}": {
+					"type": "string",
+					"title": "Audience",
+					"default": "Knowledgeable",
+					"ui:widget": "radio",
+					"enum": ["General", "Knowledgeable", "Expert"]
+				},
+				"{formality}": {
+					"type": "string",
+					"title": "Formality",
+					"default": "Neutral",
+					"ui:widget": "radio",
+					"enum": ["Informal", "Neutral", "Format"]
+				},
+				"{purpose}": {
+					"type": "string",
+					"title": "Purpose",
+					"default": "General",
+					"ui:widget": "radio",
+					"enum": ["Academic", "Buiness", "General", "Email", "Casual", "Creative"]
+				},
+				"{intent}": {
+					"type": "string",
+					"title": "Intent",
+					"ui:widget": "radio",
+					"default": "Inform",
+					"enum": ["Inform", "Describe", "Convince", "Tell A Story"]
+				}
+			}
+		}
+	},
+	{
+		"title": "Wordtune Alternative",
+		"description": "Rewrite The Sentence",
+		"prompt": "Please rephrase/rewrite the sentence contained within the curly braces using a more {formality} tone and suitable to {audience} audience. {sentence}",
+		"icon": null,
+		"seoMeta": ["Writing", "Grammer"],
+		"id": "wordtunealternative",
+		"outputFormattor": null,
+		"categories": ["creative-writing", "personal-assistants", "productivity"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["sentence"],
+			"properties": {
+				"sentence": {
+					"type": "string",
+					"title": "Sentence"
+				},
+				"{audience}": {
+					"type": "string",
+					"title": "Audience",
+					"default": "Knowledgeable",
+					"ui:widget": "radio",
+					"enum": ["General", "Knowledgeable", "Expert"]
+				},
+				"{formality}": {
+					"type": "string",
+					"title": "Formality",
+					"default": "Neutral",
+					"ui:widget": "radio",
+					"enum": ["Formal", "Neutral", "Casual"]
+				}
+			}
+		}
+	},
+	{
+		"title": "Write as a Blogger",
+		"description": "Create Blog Meta data on any Topic",
+		"prompt": "I want you to act as a blogger and {topic} expert. The topic of the post will be '{topicdescription}'. The length of the blog post will be around {length} words. The tone will be {tone}.I want you to include these keywords:{keywords}, Replay within format {replyformat}",
+		"icon": null,
+		"seoMeta": ["Writing", "Blog"],
+		"id": "writeasblogger",
+		"outputFormattor": null,
+		"categories": ["creative-writing", "personal-assistants"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{topic}", "{topicdescription}"],
+			"properties": {
+				"{topic}": {
+					"type": "string",
+					"title": "Topic"
+				},
+				"{topicdescription}": {
+					"type": "string",
+					"title": "Little Bit More About Topic",
+					"ui:widget": "textarea",
+					"ui:options": {
+						"rows": 5
+					}
+				},
+				"{length}": {
+					"type": "number",
+					"title": "Length of Post (in Chars)",
+					"default": 500
+				},
+				"{tone}": {
+					"type": "string",
+					"title": "Tone",
+					"default": "Informal",
+					"ui:widget": "radio",
+					"enum": ["Informal", "Helpful", "Persuasive", "Professional", "Authorative"]
+				},
+				"{keywords}": {
+					"type": "string",
+					"title": "Any particular keyword(s) to include (Comma Separated)"
+				},
+				"replyformat": {
+					"type": "array",
+					"title": "Output",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["Title", "Short Description", "Descrition", "SEO Keywords"]
+					},
+					"uniqueItems": true
+				}
+			}
+		}
+	},
+	{
+		"title": "Topic Explainer",
+		"description": "Explain Like 5 Year Old #eli5",
+		"prompt": "Explain the {topic} to me, i am {year} year old and knows about {knows} and struggles with the {struggles}",
+		"icon": null,
+		"seoMeta": ["explain", "eli5"],
+		"id": "topic-explainer",
+		"outputFormattor": null,
+		"categories": ["personal-development", "educational"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{topic}", "{year}"],
+			"properties": {
+				"{topic}": {
+					"type": "string",
+					"title": "Topic",
+					"default": "AI",
+					"ui:placeholder": "Enter Topic you want to learn"
+				},
+				"{year}": {
+					"type": "number",
+					"title": "Age",
+					"default": 5
+				},
+				"{knows}": {
+					"type": "string",
+					"title": "Expertise Area",
+					"default": "Computer",
+					"ui:placeholder": "Enter your expert areas,  in comma separate format"
+				},
+				"{struggles}": {
+					"type": "string",
+					"title": "you struggle with?",
+					"default": "Math",
+					"ui:placeholder": "Enter area that you mostly stuggle ,  in comma separate format"
+				}
+			}
+		}
+	},
+	{
+		"title": "UX/UI developer",
+		"description": "Act as a UX/UI developer and Design",
+		"prompt": "I want you to act as a UX/UI developer. I will provide some details about the design of an [type], and it will be your job to come up with creative ways to improve its user experience. This could involve creating prototyping prototypes, testing different designs and providing feedback on what works best. My first request is \"I need help designing an intuitive {category} system  with primary color {colors}",
+		"icon": null,
+		"seoMeta": ["UX", "UI", "Developer", "Designer"],
+		"id": "actasuiuxdeveloper",
+		"outputFormattor": null,
+		"categories": ["design", "programming", "personal-assistants"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"type": {
+					"type": "string",
+					"title": "Type",
+					"default": "App",
+					"enum": ["App", "Website", "Poster", "Flyer"]
+				},
+				"category": {
+					"type": "string",
+					"title": "Category",
+					"default": "Navigation",
+					"enum": ["Navigation", "Sports", "Game", "Social Media"]
+				},
+				"colors": {
+					"type": "string",
+					"title": "colors",
+					"default": "Green",
+					"enum": ["Green", "Blue", "Red", "Yellow"]
+				}
+			}
+		}
+	},
+	{
+		"title": "Dream Interpreter",
+		"description": "Act as a dream interpreter and provide interpretations based inputs",
+		"prompt": "I want you to act as a dream interpreter. I will give you descriptions of my dreams, and you will provide interpretations based on the symbols and themes present in the dream. Do not provide personal opinions or assumptions about the dreamer. Provide only factual interpretations based on the information given. My dream is about {description1} ,  {description2} , {description3}",
+		"icon": null,
+		"seoMeta": ["Dream", "interpreter"],
+		"id": "actasadreaminterpreter",
+		"outputFormattor": null,
+		"categories": ["personal-development", "philosophy", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"description1": {
+					"type": "string",
+					"title": "First Description",
+					"default": "Chased by Tiger"
+				},
+				"description2": {
+					"type": "string",
+					"title": "Another Description",
+					"default": "Found in Apocalypse time"
+				},
+				"description3": {
+					"type": "string",
+					"title": "Some more Description",
+					"ui:widget": "textarea",
+					"ui:options": {
+						"rows": 5
+					}
+				}
+			}
+		}
+	},
+	{
+		"title": "Domain name generator",
+		"description": "Act as a smart domain name generator and suggest",
+		"prompt": "I want you to act as a smart domain name generator. I will tell you what my {companyname} or {idea} does and you will reply me a list of domain name alternatives according to my prompt. You will only reply the domain list, and nothing else. Domains should be max {maxletters} letters, should be {preference}. Do {wantexplaination} write explanations.",
+		"icon": null,
+		"seoMeta": ["Domain", "generator"],
+		"id": "actasadomainnamegenerator",
+		"outputFormattor": null,
+		"categories": ["recommendations", "productivity"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"companyname": {
+					"type": "string",
+					"title": "Your Company Name"
+				},
+				"idea": {
+					"type": "string",
+					"title": "What does it do?"
+				},
+				"maxletters": {
+					"type": "number",
+					"title": "Max letters"
+				},
+				"preference": {
+					"type": "string",
+					"title": "Any Preference?",
+					"default": "short but unique, can be catchy or non-existent words"
+				},
+				"wantexplaination": {
+					"type": "string",
+					"title": "Want Explaination with output?",
+					"default": "Not",
+					"enum": ["", "Not"]
+				}
+			}
+		}
+	},
+	{
+		"title": "Product Manager",
+		"description": "Be a product manager and Write Product Development Requirement",
+		"prompt": "Please respond to me as a product manager. For the {subject}, and Help me to write a PRD or requirement for it with these headers: [headers]",
+		"icon": null,
+		"seoMeta": ["Product", "Manager"],
+		"id": "actasaproductmanager",
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "creative-writing", "educational"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"subject": {
+					"type": "string",
+					"title": "Subject"
+				},
+				"headers": {
+					"type": "array",
+					"title": "Include below checked Points",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": [
+							"Subject",
+							"Introduction",
+							"Problem Statement",
+							"Goals and Objectives",
+							"User Stories",
+							"Technical requirements",
+							"Benefits",
+							"KPIs",
+							"Development Risks"
+						]
+					},
+					"uniqueItems": true
+				}
+			}
+		}
+	},
+	{
+		"title": "Checklist",
+		"description": "Create checklist for different topic",
+		"prompt": "Create a checklist for preparing for a {theme}. Please do consider {consideration}",
+		"icon": null,
+		"seoMeta": ["checklist", "jobinterview", "travel"],
+		"id": "checklistfortopic",
+		"outputFormattor": null,
+		"categories": ["personal-development", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["theme"],
+			"properties": {
+				"theme": {
+					"type": "string",
+					"title": "Theme",
+					"default": "Job Interview"
+				},
+				"consideration": {
+					"type": "string",
+					"title": "Any Consideration?"
+				}
+			}
+		}
+	},
+	{
+		"title": "Code Generation",
+		"description": "Create checklist for different topic",
+		"prompt": "Write '{problemstatement}' in {programminglanguage}",
+		"icon": null,
+		"seoMeta": ["Code", "Generation", "Programming"],
+		"id": "codegeneration",
+		"outputFormattor": null,
+		"categories": ["programming"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{problemstatement}", "{programminglanguage}"],
+			"properties": {
+				"{problemstatement}": {
+					"type": "string",
+					"title": "Problem Statement",
+					"default": "Simple Factorial Program",
+					"ui:widget": "textarea",
+					"ui:options": {
+						"rows": 5
+					}
+				},
+				"{programminglanguage}": {
+					"type": "string",
+					"title": "Programming Language",
+					"ui:placeholder": "PHP"
+				}
+			}
+		}
+	},
+	{
+		"title": "List the Competitor",
+		"description": "list of competitors to business and format",
+		"prompt": "Please create a list of competitors to {business}. List the name of the {fields} and whether they are a {isdirect} competitor. Please compile the results in a {format} format",
+		"icon": null,
+		"seoMeta": ["ppc", "business", "analytics"],
+		"id": "listthecompetitor",
+		"outputFormattor": null,
+		"categories": ["productivity", "analytics"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["business", "fields"],
+			"properties": {
+				"business": {
+					"type": "string",
+					"title": "Business"
+				},
+				"fields": {
+					"type": "string",
+					"title": "Problem Statement",
+					"default": "Name Of Company, headquarters, Size of Company"
+				},
+				"isdirect": {
+					"type": "array",
+					"title": "direct Or InDirect",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["direct", "indirect"]
+					},
+					"uniqueItems": true
+				},
+				"format": {
+					"type": "string",
+					"title": "Format",
+					"default": "table"
+				}
+			}
+		}
+	},
+	{
+		"title": "Code Explainer",
+		"description": "What does this code do?",
+		"prompt": "We have the following [xxx] code: ```[xxx] {codeblock} ``` Please explain {linebyline}",
+		"icon": null,
+		"seoMeta": ["programming", "coding"],
+		"id": "code-explainer",
+		"outputFormattor": null,
+		"categories": ["programming", "educational"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["codeblock"],
+			"properties": {
+				"codeblock": {
+					"type": "string",
+					"title": "Code Block",
+					"ui:widget": "textarea"
+				},
+				"{linebyline}": {
+					"type": "string",
+					"title": "Line By Line",
+					"ui:widget": "radio",
+					"enum": ["Line By Line", "Summary"]
+				}
+			}
+		}
+	},
+	{
+		"title": "HTML Code Generator",
+		"description": "HTML Code of Framework and theme?",
+		"prompt": "Please share html code for {framework} {theme} {component}",
+		"icon": null,
+		"seoMeta": ["programming", "coding", "HTML"],
+		"id": "html-code-generator",
+		"outputFormattor": null,
+		"categories": ["programming", "educational"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{component}"],
+			"properties": {
+				"{framework}": {
+					"type": "string",
+					"title": "CSS Framework",
+					"ui:placeholder": "Bootstrap"
+				},
+				"{theme}": {
+					"type": "string",
+					"title": "Theme",
+					"default": " ",
+					"ui:placeholder": "Light Grey"
+				},
+				"{component}": {
+					"type": "string",
+					"title": "Component",
+					"ui:placeholder": "Navigation Bar"
+				}
+			}
+		}
+	},
+	{
+		"title": "AI Programmer",
+		"description": "Write a code and explain",
+		"prompt": "Write {language} {type} code for {purpose} in {style} style. Include {include}.",
+		"icon": null,
+		"seoMeta": ["explain", "Programming", "coding"],
+		"id": "ai-programmer",
+		"outputFormattor": null,
+		"categories": ["programming", "educational"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{language}", "{purpose}"],
+			"properties": {
+				"{language}": {
+					"type": "string",
+					"title": "Language",
+					"default": "python"
+				},
+				"{purpose}": {
+					"type": "string",
+					"title": "Purpose",
+					"ui:placeholder": "Get a Random Number"
+				},
+				"{style}": {
+					"type": "string",
+					"title": "Style",
+					"default": "Imperative",
+					"ui:widget": "radio",
+					"enum": ["Imperative", "Declarative"]
+				},
+				"{type}": {
+					"type": "string",
+					"title": "Type",
+					"default": "Functional",
+					"ui:widget": "radio",
+					"enum": ["Functional", "object oriented"]
+				},
+				"{include}": {
+					"type": "array",
+					"title": "Include",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["Code", "Explaination"]
+					},
+					"uniqueItems": true
+				}
+			}
+		}
+	},
+	{
+		"title": "Social Media Post",
+		"description": "Create a social Media Post for a feature",
+		"prompt": "Create a {website} post for {purpose}. {instruction}",
+		"icon": null,
+		"seoMeta": ["social-media", "Writing", "twitter", "facebook"],
+		"id": "social-media-post",
+		"outputFormattor": null,
+		"categories": ["productivity", "creative-writing", "personal-assistants"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{website}", "{purpose}"],
+			"properties": {
+				"{website}": {
+					"type": "string",
+					"title": "Website",
+					"default": "Twitter"
+				},
+				"{purpose}": {
+					"type": "string",
+					"title": "Purpose",
+					"ui:placeholder": "A new dark mode feature for a running app"
+				},
+				"{style}": {
+					"type": "string",
+					"title": "Style",
+					"ui:placeholder": "Include emojis in the post. The post should be energetic and succinct. Do not use acronyms or abbreviations"
+				}
+			}
+		}
+	},
+	{
+		"title": "Personal Shopper",
+		"description": "Suggest items for me to purchase",
+		"prompt": "I want you to act as my personal shopper. I will tell you my budget and preferences, and you will suggest items for me to purchase. You should only reply with the items you recommend, and nothing else. Do not write explanations. My first request is I have a budget of {currency}{amount} and I am looking for a {item}.",
+		"icon": null,
+		"seoMeta": ["Finance", "Shopping"],
+		"id": "[personalshopper]",
+		"outputFormattor": null,
+		"categories": ["recommendations", "finance"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{amount}", "{item}"],
+			"properties": {
+				"{currency}": {
+					"type": "string",
+					"default": "$",
+					"title": "Your Currency"
+				},
+				"{amount}": {
+					"type": "number",
+					"title": "Amount?",
+					"default": 100
+				},
+				"{item}": {
+					"type": "string",
+					"title": "Items"
+				}
+			}
+		}
+	},
+	{
+		"title": "Stand-up Comedian",
+		"description": "Humorous take on any topic",
+		"prompt": "I want you to act as a stand-up comedian. I will provide you with some topics related to current events and you will use your wit, creativity, and observational skills to create a routine based on those topics. You should also be sure to incorporate personal anecdotes or experiences into the routine in order to make it more relatable and engaging for the audience. My first request is “I want a humorous take on {topic}.",
+		"icon": null,
+		"seoMeta": ["Finance", "Shopping"],
+		"id": "[personalshopper]",
+		"outputFormattor": null,
+		"categories": ["entertainment"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{topic}"],
+			"properties": {
+				"{topic}": {
+					"type": "string",
+					"title": "Topic ?"
+				}
+			}
+		}
+	},
+	{
+		"title": "Behind The Name",
+		"description": "The etymology and history of first names",
+		"prompt": "Can you please share meaning of name '{name}'.  Please output with below fields. {fields}",
+		"icon": null,
+		"seoMeta": ["name", "personal"],
+		"id": "behind-the-name",
+		"outputFormattor": null,
+		"categories": ["entertainment", "personal-assistants"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{name}"],
+			"properties": {
+				"{name}": {
+					"type": "string",
+					"title": "Name"
+				},
+				"{fields}": {
+					"type": "array",
+					"title": "Information you looking",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": [
+							"Meaning",
+							"Related Names",
+							"Origin",
+							"Positive or Nagative",
+							"History",
+							"Gender",
+							"Famous people"
+						]
+					},
+					"uniqueItems": true
+				}
+			}
+		}
+	},
+	{
+		"title": "Linux Terminal",
+		"description": "Type command and reply from teminal will be shown as output",
+		"prompt": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {command}.",
+		"icon": null,
+		"seoMeta": ["linux", "terminal", "command"],
+		"id": "linuxtermial",
+		"outputFormattor": null,
+		"categories": ["programming", "educational"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["command"],
+			"properties": {
+				"command": {
+					"type": "string",
+					"title": "Command"
+				}
+			}
+		}
+	},
+	{
+		"title": "City Chooser",
+		"description": "Looking for the best city to live in",
+		"prompt": "As someone looking for the best city to live in, consider these basic factors:  Interests: {interests} , Climate Preference: {climate} Monthly Budget: [budget] Good In {criteria} .Main Task: Generate a simple list of cities that align with provided interests, climate preference, living standard and budget.",
+		"icon": null,
+		"seoMeta": ["personal"],
+		"id": "citychooser",
+		"outputFormattor": null,
+		"categories": ["personal-assistants"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{interests}", "{climate}", "{budget}"],
+			"properties": {
+				"{climate}": {
+					"type": "array",
+					"title": "Climate",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["Warm", "Cold", "Temperate"]
+					},
+					"uniqueItems": true
+				},
+				"{criteria}": {
+					"type": "array",
+					"title": "Good in Criteria",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": [
+							"Education",
+							"Health",
+							"Housing",
+							"Mobility",
+							"Safety",
+							"Environment",
+							"Recreation",
+							"Energy Consumption",
+							"Economic Opportunities"
+						]
+					},
+					"uniqueItems": true
+				},
+				"{interests}": {
+					"type": "string",
+					"title": "Interests?",
+					"ui:placeholder": "outdoor activities, arts and culture, nightlife"
+				},
+				"{budget}": {
+					"type": "number",
+					"title": "Monthly Budget ($)"
+				}
+			}
+		}
+	},
+	{
+		"title": "Code Improvement",
+		"description": "Seeking to improve  code",
+		"prompt": "As a software developer seeking to improve your code, consider the following basic aspects: Language: {lanaguage} Code Snippet: ```[xxx] {codeblock} ``` Problem or Error: {description} Main Task: Identify and address the issue in the provided code snippet to improve the code quality.",
+		"icon": null,
+		"seoMeta": ["programming", "coding"],
+		"id": "code-improvement",
+		"outputFormattor": null,
+		"categories": ["programming", "educational"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{language}"],
+			"properties": {
+				"{language}": {
+					"type": "string",
+					"default": "PHP",
+					"title": "Programming Language"
+				},
+				"codeblock": {
+					"type": "string",
+					"title": "Code Block",
+					"ui:widget": "textarea"
+				},
+				"{description}": {
+					"type": "string",
+					"title": "What improvement you looking for?",
+					"ui:placeholder": "Explain the specific problem or error message you're encountering"
+				}
+			}
+		}
+	},
+	{
+		"title": "Sequel Writer",
+		"description": "Write a sequel/prequel about the any movie",
+		"prompt": "Write a {type} about the {moviename} movie",
+		"icon": null,
+		"seoMeta": ["entertainment", "movie", "writing"],
+		"id": "[sequel-writer]",
+		"outputFormattor": null,
+		"categories": ["entertainment"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{moviename}", "{type}"],
+			"properties": {
+				"{type}": {
+					"type": "string",
+					"default": "Sequel",
+					"ui:widget": "radio",
+					"enum": ["Sequel", "Prequel", "Remake"],
+					"title": "Installment  ?"
+				},
+				"{moviename}": {
+					"type": "string",
+					"title": "Movie Name ?"
+				}
+			}
+		}
+	},
+	{
+		"icon": null,
+		"outputFormattor": null,
+		"categories": ["entertainment"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{genre}"],
+			"properties": {
+				"{genre}": {
+					"type": "string",
+					"title": "Genre"
+				},
+				"similar": {
+					"type": "string",
+					"title": "Similar To "
+				}
+			}
+		},
+		"prompt": "Can you recommend a good {genre}  movie similar to {similar} for me to watch ?",
+		"title": "Movie Recommendation",
+		"description": "Recommend a good genre movie for me",
+		"seoMeta": ["movie , recommendation"],
+		"id": "movie-recommendation"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["social-media"],
+		"outputFormattor": null,
+		"categories": ["productivity", "social-media", "personal-assistants", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{typeofcontent}"],
+			"properties": {
+				"{typeofcontent}": {
+					"type": "array",
+					"title": "Type Of Content",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["image", "video", "text"]
+					},
+					"uniqueItems": true
+				},
+				"{socialmediaplatform}": {
+					"type": "array",
+					"title": "Social Media Platform",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["Instagram", "Twitter", "Facebook", "Linkedin"]
+					},
+					"uniqueItems": true
+				},
+				"{targetaudience}": {
+					"type": "array",
+					"title": "Target of Audience",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["teenagers", "millennials", "genZ", "parents", "woman"]
+					},
+					"uniqueItems": true
+				},
+				"{tone}": {
+					"type": "array",
+					"title": "Tone",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["funny", "informative", "serious"]
+					},
+					"uniqueItems": true
+				},
+				"{goal}": {
+					"type": "array",
+					"title": "Goal",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["increase engagement", "drive traffic", "promote brand"]
+					},
+					"uniqueItems": true
+				}
+			}
+		},
+		"prompt": "Help me create a {typeofcontent} for {socialmediaplatform} that targets {targetaudience} with a {tone} tone and a {goal} goal.",
+		"title": "Create a Social Media Post",
+		"description": "Help me create post based  on  type of content , platform , target audience and goal .",
+		"id": "create--social-media-post"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["design", "social-media"],
+		"outputFormattor": null,
+		"categories": ["design", "social-media", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{typedesign}"],
+			"properties": {
+				"{typeofcontent}": {
+					"type": "array",
+					"title": "Type Of Design",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["poster", "logo", "website"]
+					},
+					"uniqueItems": true
+				},
+				"{socialmediaplatform}": {
+					"type": "array",
+					"title": "Social Media Platform",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["Instagram", "Twitter", "Facebook", "Linkedin"]
+					},
+					"uniqueItems": true
+				},
+				"{targetaudience}": {
+					"type": "array",
+					"title": "Target of Audience",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": [
+							"teenagers",
+							"millennials",
+							"genZ",
+							"parents",
+							"woman",
+							"corporate"
+						]
+					},
+					"uniqueItems": true
+				},
+				"{colorscheme}": {
+					"type": "array",
+					"title": "Color scheme",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": ["bright", "monochromatic", "pastel"]
+					},
+					"uniqueItems": true
+				},
+				"{specificelement}": {
+					"type": "string",
+					"title": "Any specific Element",
+					"ui:placeholder": "geometric shapes, nature elements, typography, etc."
+				}
+			}
+		},
+		"prompt": "Create a {typedesign} that appeals to a {targetaudience} audience, using {colorscheme} colors and incorporating {specificelement} element.",
+		"title": "Create a Design",
+		"description": "Create a for Design based on target audience , color scheme.",
+		"id": "create-a-design"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["budget", "personal-budget"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "finance"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{budgettype}", "{income}"],
+			"properties": {
+				"{budgettype}": {
+					"type": "string",
+					"title": "Type Of Budget",
+					"ui:widget": "radio",
+					"enum": ["Monthly", "Yearly", "Weekly"],
+					"uniqueItems": true
+				},
+				"{income}": {
+					"type": "number",
+					"title": "Income"
+				},
+				"{expenses}": {
+					"type": "number",
+					"title": "Expense"
+				},
+				"{goal}": {
+					"type": "string",
+					"title": "Goal",
+					"ui:widget": "radio",
+					"enum": ["Savings", "Debt Repayment", "Retirement"],
+					"uniqueItems": true
+				}
+			}
+		},
+		"prompt": "Please help me to create a {budgettype} budget plan for my {income} income, with {expenses} expenses, in order to achieve my financial {goal} goal.",
+		"title": "Budget Planner",
+		"description": "Create a budget plan based on recurrence , income, expenses, goal",
+		"id": "budget-planner-from-income"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["movie", "recommendation", "books"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "entertainment", "social-media"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{number}", "{category}", "{interest}"],
+			"properties": {
+				"{number}": {
+					"type": "number",
+					"title": "Number of Recommendation"
+				},
+				"{category}": {
+					"type": "string",
+					"title": "Category",
+					"ui:placeholder": "books, movies, podcasts"
+				},
+				"{interest}": {
+					"type": "string",
+					"title": "Interest",
+					"ui:placeholder": "motivation, entertainment, education, etc."
+				}
+			}
+		},
+		"prompt": "What are your top {number} {category} recommendations for someone looking for {interest}?",
+		"title": "Interest Recommendations",
+		"description": "Recommendation based on interest",
+		"id": "interest-recommendation"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["recipe", "recommendation"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "personal-development", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{dietary}", "{mealtype}", "{cuisine}"],
+			"properties": {
+				"{dietary}": {
+					"type": "string",
+					"title": "Dietary",
+					"ui:placeholder": "vegan, vegetarian, gluten-free, keto"
+				},
+				"{mealtype}": {
+					"type": "string",
+					"title": "Meal Type",
+					"ui:placeholder": "breakfast, lunch, dinner"
+				},
+				"{cuisine}": {
+					"type": "string",
+					"title": "Cuisine",
+					"ui:placeholder": "Italian, Mexican, Indian, etc."
+				}
+			}
+		},
+		"prompt": "Recipe suggestions based on {dietary} restrictions for {mealtype} and  {cuisine} cuisine",
+		"title": "Recipe Suggestions",
+		"description": "Suggestions based on dietary restrictions for meal type and cuisine",
+		"id": "recipe-suggestions"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["career", "advice"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "personal-development", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{industry}", "{levelofexperience}", "{careergoals}"],
+			"properties": {
+				"{industry}": {
+					"type": "string",
+					"title": "Industry",
+					"ui:placeholder": "tech, finance, marketing etc"
+				},
+				"{levelofexperience}": {
+					"type": "string",
+					"title": "Level of Experience",
+					"ui:placeholder": "entry-level, mid-career, executive"
+				},
+				"{careergoals}": {
+					"type": "string",
+					"title": "Career Goals",
+					"ui:placeholder": "promotion, career change, entrepreneurship"
+				}
+			}
+		},
+		"prompt": "Career advice for professionals from {industry} and {levelofexperience} level of experience with {careergoals} career goals",
+		"title": "Career advice for professionals",
+		"description": "Career advice based on  industry, level of experience and goals",
+		"id": "career-advice-for-professionals"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["career", "advice"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "personal-development", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{genre}", "{author}", "{readingformat}"],
+			"properties": {
+				"{genre}": {
+					"type": "string",
+					"title": "Genre",
+					"ui:placeholder": "mystery, romance, science fiction"
+				},
+				"{author}": {
+					"type": "string",
+					"title": "Author",
+					"ui:placeholder": "Stephen King, Jane Austen, George R.R. Martin"
+				},
+				"{readingformat}": {
+					"type": "string",
+					"title": "Reading Format",
+					"ui:widget": "radio",
+					"enum": ["e-book", "audiobook", "physical book"]
+				}
+			}
+		},
+		"prompt": "Can you recommend a good books based {genre} genre from authour {author} in  {readingformat} reading format",
+		"title": "Book recommendations",
+		"description": "Book recommendations based on genre",
+		"id": "book-recommendations-based-on-genre"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["travel", "advice"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "recommendations", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{destination}", "{style}", "{budget}"],
+			"properties": {
+				"{destination}": {
+					"type": "string",
+					"title": "Destination",
+					"ui:placeholder": "beach, city, mountains"
+				},
+				"{style}": {
+					"type": "string",
+					"title": "Style",
+					"ui:placeholder": "adventure, relaxation, cultural"
+				},
+				"{budget}": {
+					"type": "string",
+					"title": "budget",
+					"ui:widget": "radio",
+					"enum": ["luxury", "mid-range", "budget-friendly"]
+				}
+			}
+		},
+		"prompt": "Suggest Travel itinerary for a {destination} destination, {style} style and  {budget} budget",
+		"title": "Travel itinerary suggestions",
+		"description": "Travel itinerary suggestions for a weekend getaway",
+		"id": "travel-itinerary-suggestions"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["travel", "advice"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "recommendations", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{room}", "{style}", "{skilllevel}"],
+			"properties": {
+				"{room}": {
+					"type": "string",
+					"title": "Room",
+					"ui:placeholder": "bedroom, living room, kitchen"
+				},
+				"{style}": {
+					"type": "string",
+					"title": "Style",
+					"ui:placeholder": "modern, rustic, bohemian"
+				},
+				"{skilllevel}": {
+					"type": "string",
+					"title": "Skill Level",
+					"ui:widget": "radio",
+					"enum": ["beginner", "intermediate", "advanced"]
+				}
+			}
+		},
+		"prompt": "Suggest DIY project ideas for home decor {room} room , {style} style and {skilllevel } skill level",
+		"title": "DIY project ideas",
+		"description": "DIY project ideas based on room, style , expertise",
+		"id": "DIY-project-ideas-for-home-decor"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["travel", "advice"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "recommendations", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{space}", "{type}", "{climate}", "{skilllevel}"],
+			"properties": {
+				"{type}": {
+					"type": "string",
+					"title": "Type",
+					"ui:placeholder": "Vegetable, herb, flower"
+				},
+				"{climate}": {
+					"type": "string",
+					"title": "Climate",
+					"ui:placeholder": "tropical, temperate, arid etc"
+				},
+				"{space}": {
+					"type": "string",
+					"title": "Skill Level",
+					"ui:widget": "radio",
+					"enum": ["balcony", "backyard", "community garden"]
+				},
+				"{skilllevel}": {
+					"type": "string",
+					"title": "Skill Level",
+					"ui:widget": "radio",
+					"enum": ["beginner", "intermediate", "advanced"]
+				}
+			}
+		},
+		"prompt": "Gardening tips for {skilllevel} Skill Level, {type} Type of garden , {climate} climate for {space} like space",
+		"title": "Gardening tips",
+		"description": "Gardening tips  based on garden type, climate , space",
+		"id": "gardening-tips"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["legal"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "legal"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{type}", "{country1}", "{country2}"],
+			"properties": {
+				"{type}": {
+					"type": "string",
+					"title": "Type",
+					"ui:placeholder": "employment contracts, marriage, renting, etc."
+				},
+				"{country1}": {
+					"type": "string",
+					"title": "Country 1",
+					"ui:placeholder": "United States, Canada, Australia, etc."
+				},
+				"{country2}": {
+					"type": "string",
+					"title": "Country 2",
+					"ui:placeholder": "Canada, Australia, United States etc."
+				}
+			}
+		},
+		"prompt": "What are the laws regarding {type} in {country1} and how do they differ from {country2}?",
+		"title": "Laws Comparision",
+		"description": "Compare Laws between Countries",
+		"id": "laws-comparision"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["legal"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "legal"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{type}", "{country}", "{customer}"],
+			"properties": {
+				"{type}": {
+					"type": "string",
+					"title": "Type",
+					"ui:placeholder": "employment contracts, marriage, renting, etc."
+				},
+				"{customer}": {
+					"type": "string",
+					"title": "Customer Type",
+					"ui:placeholder": "employers, landlords, consumers, etc."
+				},
+				"{country}": {
+					"type": "string",
+					"title": "Country",
+					"ui:placeholder": "Canada, Australia, United States etc."
+				}
+			}
+		},
+		"prompt": "What are the possible consequences for {customer} if they violate {type} in {country}?",
+		"title": "Laws Consequences",
+		"description": "Consequences of Laws",
+		"id": "laws-consequences"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["marketing"],
+		"outputFormattor": null,
+		"categories": ["social-media", "creative-writing", "productivity"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{metric}", "{industry}", "{demographic}", "{interest}"],
+			"properties": {
+				"{metric}": {
+					"type": "string",
+					"title": "Metric",
+					"ui:placeholder": "sales, website traffic, social media engagement"
+				},
+				"{industry}": {
+					"type": "string",
+					"title": "Industry",
+					"ui:placeholder": "fashion, technology, healthcare"
+				},
+				"{demographic}": {
+					"type": "string",
+					"title": "Demographic",
+					"ui:placeholder": "age, gender, location"
+				},
+				"{interest}": {
+					"type": "string",
+					"title": "Interest",
+					"ui:placeholder": "sustainability, fitness, travel"
+				}
+			}
+		},
+		"prompt": "You are a marketer trying to increase {metric} for a {industry} company. What are some strategies you would recommend for targeting {demographic} customers who are interested in {interest}?",
+		"title": "Digital Marketer",
+		"description": "marketer trying to increase  Sales or website Traffic",
+		"id": "digital-marketer"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["fitness"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "personal-development", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{goal}", "{bodypart}", "{skill}", "{metric}"],
+			"properties": {
+				"{goal}": {
+					"type": "string",
+					"title": "Goal",
+					"ui:placeholder": "weight loss, muscle gain, improved stamina"
+				},
+				"{bodypart}": {
+					"type": "string",
+					"title": "Bodypart",
+					"ui:placeholder": "legs, abs, arms"
+				},
+				"{skill}": {
+					"type": "string",
+					"title": "Skill",
+					"ui:placeholder": "balance, strength, flexibility"
+				},
+				"{metric}": {
+					"type": "string",
+					"title": "Metric",
+					"ui:placeholder": "endurance, speed, power"
+				}
+			}
+		},
+		"prompt": "You are a fitness trainer designing a workout plan for a {goal} client. What exercises would you recommend for {bodypart} that target {skill} and improve {metric}?",
+		"title": "Fitness Trainer",
+		"description": "Fitness trainer designing a workout plan for client",
+		"id": "fitness-trainer"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["wedding", "planning"],
+		"outputFormattor": null,
+		"categories": ["personal-assistants", "misc"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{theme}", "{venue}", "{emotion}"],
+			"properties": {
+				"{theme}": {
+					"type": "string",
+					"title": "Theme",
+					"ui:placeholder": "rustic, vintage, beach"
+				},
+				"{venue}": {
+					"type": "string",
+					"title": "Venue",
+					"ui:placeholder": "ballroom, garden, vineyard"
+				},
+				"{emotion}": {
+					"type": "string",
+					"title": "Emotion",
+					"ui:placeholder": "romance, joy, nostalgia"
+				}
+			}
+		},
+		"prompt": "You are planning a wedding and need ideas for {theme}. What are some decor elements, colors, and music genres that would complement {venue} and evoke {emotion}?",
+		"title": "Wedding Theme Ideas",
+		"description": "Planning a wedding and need ideas for theme",
+		"id": "wedding-theme-ideas"
+	},
+	{
+		"icon": null,
+		"seoMeta": ["startup", "investment"],
+		"outputFormattor": null,
+		"categories": ["finance", "analytics"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{businessage}", "{fundingsource}", "{businessmodel}"],
+			"properties": {
+				"{businessage}": {
+					"type": "string",
+					"title": "Business Age",
+					"ui:placeholder": "e.g. pre-revenue, 1 year, 3 years"
+				},
+				"{fundingsource}": {
+					"type": "string",
+					"title": "Funding Source",
+					"ui:placeholder": "e.g. bootstrapped, venture capital, angel investors"
+				},
+				"{businessmodel}": {
+					"type": "string",
+					"title": "Business Model",
+					"ui:placeholder": "e.g. subscription-based, e-commerce, B2B"
+				}
+			}
+		},
+		"prompt": "Prepare a cash flow statement for a startup company considering {businessage} Business age, {fundingsource} Funding source and {businessmodel} Business Model",
+		"title": "cash flow statement",
+		"description": "Prepare a cash flow statement for a startup company.",
+		"id": "cash-flow-statement"
+	}
 ]

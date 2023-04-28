@@ -1,47 +1,22 @@
 [
-  {
-    "name": "First",
-    "prompt": [
-      "one",
-      "two"
-    ]
-  },
-  {
-    "name": "Second",
-    "prompt": [
-      "one",
-      "two",
-      "three"
-    ]
-  },
-  {
-    "name": "Third",
-    "prompt": [
-      "one",
-      "two",
-      "three",
-      "four"
-    ]
-  },
-  {
-    "name": "Four",
-    "prompt": [
-      "one",
-      "two",
-      "three",
-      "four",
-      "five"
-    ]
-  },
-  {
-    "name": "Five",
-    "prompt": [
-      "one",
-      "two",
-      "three",
-      "four",
-      "five",
-      "six"
-    ]
-  }
+	{
+		"name": "First",
+		"prompt": ["one", "two"]
+	},
+	{
+		"name": "Second",
+		"prompt": ["one", "two", "three"]
+	},
+	{
+		"name": "Third",
+		"prompt": ["one", "two", "three", "four"]
+	},
+	{
+		"name": "Four",
+		"prompt": ["one", "two", "three", "four", "five"]
+	},
+	{
+		"name": "Five",
+		"prompt": ["one", "two", "three", "four", "five", "six"]
+	}
 ]

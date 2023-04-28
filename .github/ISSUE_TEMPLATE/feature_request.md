@@ -1,9 +1,9 @@
 ---
 name: Feature request
 about: Suggest new functionality for this project.
-title: ''
-labels: ''
-assignees: ''
+title: ""
+labels: ""
+assignees: ""
 ---
 
 By submitting an Issue to this repository, you agree to the terms within the [Auth0 Code of Conduct](../../CODE-OF-CONDUCT.md).
