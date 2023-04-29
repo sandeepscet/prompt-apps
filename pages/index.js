@@ -4,8 +4,8 @@ import React from "react";
 import { Category } from "@/src/Component/Category";
 import { SubCategoires } from "@/src/Component/Subcategories";
 import { getPopularPrompts } from "@/src/Utils/prompt";
-import RecentHeader from "@/src/Component/RecentHeader";
-import Subscription from "@/src/Component/Subcription";
+import { RecentHeader } from "@/src/Component/RecentHeader";
+import { Subscription } from "@/src/Component/Subcription";
 
 const MainPage = () => {
 	const getPromptsData = getPopularPrompts();

@@ -18,7 +18,7 @@ import { Row } from "@nextui-org/react";
 import { typography } from "../../Theme/typography";
 import { getCategoryWithPrompt } from "@/src/Utils/prompt";
 
-export const Category = () => {
+export function Category() {
 	const router = useRouter();
 	const allCategoires = getCategoryWithPrompt();
 	const Categoires = allCategoires.splice(0, 12);

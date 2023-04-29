@@ -14,12 +14,12 @@ import { getPromptById } from "@/src/Utils/prompt";
 import { replaceAll } from "@/src/Utils/common";
 import ReplayCircleFilledIcon from "@mui/icons-material/ReplayCircleFilled";
 import SendIcon from "@mui/icons-material/Send";
-import getClientResponse from "@/src/Utils/client";
+import { getClientResponse } from "@/src/Utils/client";
 
 import { Alert, Box, Button, Collapse, Grid, IconButton } from "@mui/material";
 import { Colors } from "@/src/Theme/colors";
 import { Row } from "@nextui-org/react";
-import ShareModal from "@/src/Component/Common/ShareModal";
+import { ShareModal } from "@/src/Component/Common/ShareModal";
 
 const Prompt = (props) => {
 	const { id } = props;
@@ -268,4 +268,4 @@ const Prompt = (props) => {
 	);
 };
 
-export default Prompt;
+export { Prompt };

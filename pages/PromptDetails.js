@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 import Head from "next/head";
-import Prompt from "@/src/Component/Prompt";
+import { Prompt } from "@/src/Component/Prompt";
 
 const PromptDetails = () => {
 	const router = useRouter();
