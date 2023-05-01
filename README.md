@@ -4,8 +4,8 @@ User interface-based Apps from Prompt.
 
 ## Problem
 
-- Text-based tools, Boring And Cognitively demanding so-called `Prompt engineering`
-- Different Model Expect Different Prompt Grammers
+-   Text-based tools, Boring And Cognitively demanding so-called `Prompt engineering`
+-   Different Model Expect Different Prompt Grammers
 
 ## Solution
 
@@ -13,20 +13,20 @@ User interface-based Apps from Prompt. [Live Link](https://prompt-apps.vercel.ap
 
 This will help
 
-- Mitigate writer's block
-- Remove the Language Barrier
-- Optimised Prompt beneath UI
-- Create, share, and Remix Prompts
-- Test Diffrent Models
-- Single Interface for all Prompts
+-   Mitigate writer's block
+-   Remove the Language Barrier
+-   Optimised Prompt beneath UI
+-   Create, share, and Remix Prompts
+-   Test Diffrent Models
+-   Single Interface for all Prompts
 
 ## Develoment
 
-- [Open Feature Requests](https://prompt-apps.canny.io/feature-requests)
+-   [Open Feature Requests](https://prompt-apps.canny.io/feature-requests)
 
-- [Bugs](https://github.com/sandeepscet/prompt-apps/issues?q=is%3Aissue+is%3Aopen)
+-   [Bugs](https://github.com/sandeepscet/prompt-apps/issues?q=is%3Aissue+is%3Aopen)
 
-- [Prompt Conversion](https://prompt-apps.canny.io/prompt-conversion)
+-   [Prompt Conversion](https://prompt-apps.canny.io/prompt-conversion)
 
 ## Getting Started
 
@@ -34,8 +34,8 @@ This will help
 
 Repo is built with [Next.js](https://nextjs.org/).
 
-- Clone the repo
-- `npm install`
+-   Clone the repo
+-   `npm install`
 
 ### Development Environment
 
@@ -59,14 +59,14 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 
 ## Contribution
 
 We appreciate feedback and contribution to this template! Before you get started, please see the following:
 
-- [Contribution guidelines](GENERAL-CONTRIBUTING.md)
-- [Conduct guidelines](CODE-OF-CONDUCT.md)
+-   [Contribution guidelines](GENERAL-CONTRIBUTING.md)
+-   [Conduct guidelines](CODE-OF-CONDUCT.md)
 
 ## Thank You!
 

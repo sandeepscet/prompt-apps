@@ -4,26 +4,26 @@ Please read [General Contribution guidelines](GENERAL-CONTRIBUTING.md).
 
 ## Feature Development
 
-- Take a Feature Request from issues or project Board
-- Test the Feature
-- Raise a PR
+-   Take a Feature Request from issues or project Board
+-   Test the Feature
+-   Raise a PR
 
 ## Prompt Engineering
 
-- Collect general usage Prompts
-- Convert Prompt into Form JSON
-- Raise a PR or save public using Login
+-   Collect general usage Prompts
+-   Convert Prompt into Form JSON
+-   Raise a PR or save public using Login
 
 ## Content Writer
 
-- Help us to write SEO content relative to prompt
+-   Help us to write SEO content relative to prompt
 
 ## Documentation
 
-- PR for docs site update, if needed
-- Code-level documentation expectations
-  - 100% documentation coverage for PRs
-  - Include links to relevant Auth0 doc pages
+-   PR for docs site update, if needed
+-   Code-level documentation expectations
+    -   100% documentation coverage for PRs
+    -   Include links to relevant Auth0 doc pages
 
 ## Assets compilation
 
