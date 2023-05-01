@@ -25,7 +25,7 @@ const PromptDetails = () => {
 	return (
 		<>
 			<Head>
-				<title>{promptData.title} chatgpt prompt</title>
+				<title>{promptData.title + " chatgpt prompt"} </title>
 				<meta name="description" content={promptData.description} key="desc" />
 				<meta name="viewport" content="width=device-width, initial-scale=0.1" />
 				<meta
