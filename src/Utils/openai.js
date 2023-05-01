@@ -90,4 +90,4 @@ async function createCompletionBrowser(prompt, engine = "gpt-3.5-turbo", apiKey)
 	}
 }
 
-export default createCompletionBrowser;
+export { createCompletionBrowser };

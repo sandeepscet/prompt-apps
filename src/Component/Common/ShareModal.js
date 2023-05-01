@@ -134,4 +134,4 @@ const ShareModal = (props) => {
 		</Modal>
 	);
 };
-export default ShareModal;
+export { ShareModal };

@@ -5,7 +5,7 @@ import { SubCategoires } from "@/src/Component/Subcategories";
 import { getPromptsByCategory } from "@/src/Utils/prompt";
 import Head from "next/head";
 
-const CategoiresPrompt = () => {
+const CategoriesPrompt = () => {
 	const router = useRouter();
 	const [promptData, setPromptData] = useState([]);
 	const [categoryId, setCategoryId] = useState("");
@@ -34,4 +34,4 @@ const CategoiresPrompt = () => {
 		</>
 	);
 };
-export default CategoiresPrompt;
+export default CategoriesPrompt;

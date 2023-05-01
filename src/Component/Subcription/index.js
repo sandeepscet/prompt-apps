@@ -3,7 +3,7 @@ import { Colors } from "@/src/Theme/colors";
 import { typography } from "@/src/Theme/typography";
 import React, { useEffect, useState } from "react";
 
-const Subscription = () => {
+function Subscription() {
 	const [hydrated, setHydrated] = useState(false);
 	useEffect(() => {
 		setHydrated(true);
@@ -51,4 +51,4 @@ const Subscription = () => {
 		</Box>
 	);
 };
-export default Subscription;
+export { Subscription };

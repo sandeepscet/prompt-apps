@@ -37,4 +37,4 @@ async function createCompletionServer(prompt, engine = "gpt-3.5-turbo", apiEndpo
 	}
 }
 
-export default createCompletionServer;
+export { createCompletionServer };

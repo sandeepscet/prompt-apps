@@ -6,7 +6,7 @@ import React from "react";
 
 import { getRecentPrompts } from "./../../Utils/prompt";
 
-const RecentHeader = () => {
+function RecentHeader() {
 	const recentPrompts = getRecentPrompts();
 	const router = useRouter();
 
@@ -58,4 +58,4 @@ const RecentHeader = () => {
 		</Box>
 	);
 };
-export default RecentHeader;
+export { RecentHeader };

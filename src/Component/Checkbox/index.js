@@ -4,7 +4,7 @@ import FormGroup from "@mui/material/FormGroup";
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-export default function CheckboxLabels() {
+function CheckboxLabels() {
 	const [checkedValues, setCheckedValues] = useState({
 		football: false,
 		basketball: false,
@@ -53,3 +53,5 @@ export default function CheckboxLabels() {
 		</FormGroup>
 	);
 }
+
+export { CheckboxLabels };

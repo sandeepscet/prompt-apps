@@ -108,7 +108,8 @@ const styles = {
 };
 
 import Link from "next/link";
-const Header = () => {
+
+function Header() {
 	const router = useRouter();
 	const searchInputRef = createRef();
 
@@ -694,4 +695,4 @@ const SearchResultsBox = ({ results, onClickSearchResult }) => {
 	);
 };
 
-export default Header;
+export { Header };

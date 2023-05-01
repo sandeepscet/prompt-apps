@@ -1,5 +1,5 @@
-import createCompletionBrowser from "./openai";
-import createCompletionServer from "./api";
+import { createCompletionBrowser } from "./openai";
+import { createCompletionServer } from "./api";
 
 function getClientResponse(msg, engine = "gpt-3.5-turbo") {
 	const option = localStorage.getItem("option");
@@ -10,4 +10,4 @@ function getClientResponse(msg, engine = "gpt-3.5-turbo") {
 	}
 }
 
-export default getClientResponse;
+export { getClientResponse };
