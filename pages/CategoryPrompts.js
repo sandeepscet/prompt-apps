@@ -24,8 +24,12 @@ const CategoriesPrompt = () => {
 	return (
 		<>
 			<Head>
-				<title>{`${categoryId  } Prompt Apps`}</title>
-				<meta name="description" content="{category.description}" key="desc" />
+				<title>{`${categoryId} Prompt Apps`}</title>
+				<meta
+					name="description"
+					content="{category.description} chatgpt Prompts"
+					key="desc"
+				/>
 				<meta name="viewport" content="width=device-width, initial-scale=0.1" />
 			</Head>
 			{categoryId && (
