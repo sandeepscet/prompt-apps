@@ -752,22 +752,43 @@
     }
   },
   {
-    "title": "Linux Terminal",
-    "description": "Type command and reply from teminal will be shown as output",
-    "prompt": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {command}.",
+    "title": "Bedtime Story",
+    "description": "Personalized Kids story generation",
+    "prompt": "Act as a grandma and write a bedtime story for {age} Year with length of {length} words based on {theme} theme, main character name is {name}. Moral should be around {moral}. Output should be with proper punctuation , formatting and expressive tone",
     "icon": null,
-    "seoMeta": ["linux", "terminal", "command"],
-    "id": "linuxtermial",
+    "seoMeta": ["personal", "generator", "story", "kids"],
+    "id": "bedtime-story",
     "outputFormattor": null,
-    "categories": ["programming", "educational"],
+    "categories": ["personal-assistants", "educational", "creative-writing"],
     "model": ["chatgpt"],
     "schema": {
       "type": "object",
-      "required": ["command"],
+      "required": ["{age}", "{length}", "{theme}", "{name}", "{moral}"],
       "properties": {
-        "command": {
+        "{age}": {
+          "type": "number",
+          "title": "Age of Kid",
+          "default": 5
+        },
+        "{length}": {
+          "type": "number",
+          "title": "Length Of story",
+          "default": 1000
+        },
+        "{theme}": {
           "type": "string",
-          "title": "Command"
+          "title": "Story Theme",
+          "default": "space adventure"
+        },
+        "{name}": {
+          "type": "string",
+          "title": "Name of Charactor",
+          "default": "Noah"
+        },
+        "{moral}": {
+          "type": "string",
+          "title": "Moral Of the Story",
+          "default": "Hard Work"
         }
       }
     }
@@ -1100,7 +1121,6 @@
           "title": "Category",
           "ui:placeholder": "books, movies, podcasts"
         },
-
         "{interest}": {
           "type": "string",
           "title": "Interest",
@@ -1133,7 +1153,6 @@
           "title": "Meal Type",
           "ui:placeholder": "breakfast, lunch, dinner"
         },
-
         "{cuisine}": {
           "type": "string",
           "title": "Cuisine",
@@ -1166,7 +1185,6 @@
           "title": "Level of Experience",
           "ui:placeholder": "entry-level, mid-career, executive"
         },
-
         "{careergoals}": {
           "type": "string",
           "title": "Career Goals",
@@ -1199,7 +1217,6 @@
           "title": "Author",
           "ui:placeholder": "Stephen King, Jane Austen, George R.R. Martin"
         },
-
         "{readingformat}": {
           "type": "string",
           "title": "Reading Format",
@@ -1233,7 +1250,6 @@
           "title": "Style",
           "ui:placeholder": "adventure, relaxation, cultural"
         },
-
         "{budget}": {
           "type": "string",
           "title": "budget",
@@ -1267,7 +1283,6 @@
           "title": "Style",
           "ui:placeholder": "modern, rustic, bohemian"
         },
-
         "{skilllevel}": {
           "type": "string",
           "title": "Skill Level",
@@ -1521,5 +1536,63 @@
     "title": "cash flow statement",
     "description": "Prepare a cash flow statement for a startup company.",
     "id": "cash-flow-statement"
+  },
+  {
+    "title": "Linux Terminal",
+    "description": "Type command and reply from teminal will be shown as output",
+    "prompt": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {command}.",
+    "icon": null,
+    "seoMeta": ["linux", "terminal", "command"],
+    "id": "linuxtermial",
+    "outputFormattor": null,
+    "categories": ["programming", "educational"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["command"],
+      "properties": {
+        "command": {
+          "type": "string",
+          "title": "Command"
+        }
+      }
+    }
+  },
+  {
+    "title": "Regex Generator",
+    "description": "Regular expression based on description with flavor",
+    "prompt": "Create Regex from description delimited with triple backticks with {flavor} flavor. Output should be in format Regx and Explanation. Description: '''{description}'''",
+    "icon": null,
+    "seoMeta": ["regex", "programming"],
+    "id": "linuxtermial",
+    "outputFormattor": null,
+    "categories": ["programming", "educational"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{description}", "{flavor}"],
+      "properties": {
+        "{description}": {
+          "type": "string",
+          "title": "Description"
+        },
+        "{flavor}": {
+          "type": "string",
+          "title": "flavor",
+          "default": "ECMASCRIPT",
+          "ui:widget": "radio",
+          "enum": [
+            "PCRE2(PHP>=7.3)",
+            "PCRE(PHP<7.3)",
+            "ECMASCRIPT",
+            "Python",
+            "Golang",
+            "JAVA8",
+            ".NET",
+            "RUST"
+          ]
+        }
+      }
+    }
   }
 ]

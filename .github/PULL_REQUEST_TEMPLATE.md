@@ -12,10 +12,10 @@ By submitting a PR to this repository, you agree to the terms within the [Code o
 
 > Include any links supporting this change such as a:
 >
-> - GitHub Issue/PR number addressed or fixed
-> - StackOverflow post
-> - Support forum thread
-> - Related pull requests/issues from other repos
+> -   GitHub Issue/PR number addressed or fixed
+> -   StackOverflow post
+> -   Support forum thread
+> -   Related pull requests/issues from other repos
 >
 > If there are no references, simply delete this section.
 
@@ -27,10 +27,10 @@ By submitting a PR to this repository, you agree to the terms within the [Code o
 >
 > Also include details of the environment this PR was developed in (language/platform/browser version).
 
-- [ ] This change adds test coverage for new/changed/fixed functionality
+-   [ ] This change adds test coverage for new/changed/fixed functionality
 
 ### Checklist
 
-- [ ] I have added documentation for new/changed functionality in this PR or in auth0.com/docs
-- [ ] All active GitHub checks for tests, formatting, and security are passing
-- [ ] The correct base branch is being used, if not `master`
+-   [ ] I have added documentation for new/changed functionality in this PR or in auth0.com/docs
+-   [ ] All active GitHub checks for tests, formatting, and security are passing
+-   [ ] The correct base branch is being used, if not `master`
