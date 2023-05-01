@@ -1563,5 +1563,42 @@
         }
       }
     }
+  },
+  {
+    "title": "Regex Generator",
+    "description": "Regular expression based on description with flavor",
+    "prompt": "Create Regex from description delimited with triple backticks with {flavor} flavor. Output should be in format Regx and Explanation. Description: '''{description}'''",
+    "icon": null,
+    "seoMeta": ["regex", "programming"],
+    "id": "linuxtermial",
+    "outputFormattor": null,
+    "categories": ["programming", "educational"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["{description}", "{flavor}"],
+      "properties": {
+        "{description}": {
+          "type": "string",
+          "title": "Description"
+        },
+        "{flavor}": {
+          "type": "string",
+          "title": "flavor",
+          "default": "ECMASCRIPT",
+          "ui:widget": "radio",
+          "enum": [
+            "PCRE2(PHP>=7.3)",
+            "PCRE(PHP<7.3)",
+            "ECMASCRIPT",
+            "Python",
+            "Golang",
+            "JAVA8",
+            ".NET",
+            "RUST"
+          ]
+        }
+      }
+    }
   }
 ]
