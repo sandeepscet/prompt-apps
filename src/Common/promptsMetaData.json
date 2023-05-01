@@ -752,22 +752,43 @@
     }
   },
   {
-    "title": "Linux Terminal",
-    "description": "Type command and reply from teminal will be shown as output",
-    "prompt": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {command}.",
+    "title": "Bedtime Story",
+    "description": "Personalized Kids story generation",
+    "prompt": "Act as a grandma and write a bedtime story for {age} Year with length of {length} words based on {theme} theme, main character name is {name}. Moral should be around {moral}. Output should be with proper punctuation , formatting and expressive tone",
     "icon": null,
-    "seoMeta": ["linux", "terminal", "command"],
-    "id": "linuxtermial",
+    "seoMeta": ["personal", "generator", "story", "kids"],
+    "id": "bedtime-story",
     "outputFormattor": null,
-    "categories": ["programming", "educational"],
+    "categories": ["personal-assistants", "educational", "creative-writing"],
     "model": ["chatgpt"],
     "schema": {
       "type": "object",
-      "required": ["command"],
+      "required": ["{age}", "{length}", "{theme}", "{name}", "{moral}"],
       "properties": {
-        "command": {
+        "{age}": {
+          "type": "number",
+          "title": "Age of Kid",
+          "default": 5
+        },
+        "{length}": {
+          "type": "number",
+          "title": "Length Of story",
+          "default": 1000
+        },
+        "{theme}": {
           "type": "string",
-          "title": "Command"
+          "title": "Story Theme",
+          "default": "space adventure"
+        },
+        "{name}": {
+          "type": "string",
+          "title": "Name of Charactor",
+          "default": "Noah"
+        },
+        "{moral}": {
+          "type": "string",
+          "title": "Moral Of the Story",
+          "default": "Hard Work"
         }
       }
     }
@@ -990,7 +1011,7 @@
       "type": "object",
       "required": ["{typedesign}"],
       "properties": {
-        "{typeofcontent}": {
+        "{typedesign}": {
           "type": "array",
           "title": "Type Of Design",
           "ui:widget": "checkboxes",
@@ -1521,5 +1542,26 @@
     "title": "cash flow statement",
     "description": "Prepare a cash flow statement for a startup company.",
     "id": "cash-flow-statement"
+  },
+  {
+    "title": "Linux Terminal",
+    "description": "Type command and reply from teminal will be shown as output",
+    "prompt": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {command}.",
+    "icon": null,
+    "seoMeta": ["linux", "terminal", "command"],
+    "id": "linuxtermial",
+    "outputFormattor": null,
+    "categories": ["programming", "educational"],
+    "model": ["chatgpt"],
+    "schema": {
+      "type": "object",
+      "required": ["command"],
+      "properties": {
+        "command": {
+          "type": "string",
+          "title": "Command"
+        }
+      }
+    }
   }
 ]
