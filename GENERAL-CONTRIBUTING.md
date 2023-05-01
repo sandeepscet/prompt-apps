@@ -1,16 +1,16 @@
 # Contributing to projects
 
-A big welcome and thank you for considering contributing to  open source projects! It’s people like you that make it a reality for users in our community.
+A big welcome and thank you for considering contributing to open source projects! It’s people like you that make it a reality for users in our community.
 
 Reading and following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing these open source projects. In return, we will reciprocate that respect by addressing your issue, assessing changes, and helping you finalize your pull requests.
 
 ## Quicklinks
 
-- [Contributing to projects]
-  - [Quicklinks](#quicklinks)
-  - [Code of Conduct](#code-of-conduct)
-    - [Issues](#issues)
-    - [Pull Requests](#pull-requests)
+-   [Contributing to projects]
+    -   [Quicklinks](#quicklinks)
+    -   [Code of Conduct](#code-of-conduct)
+        -   [Issues](#issues)
+        -   [Pull Requests](#pull-requests)
 
 ## Code of Conduct
 
@@ -26,11 +26,11 @@ If you find an Issue that addresses the problem you're having, please add your o
 
 PRs to our libraries are always welcome and can be a quick way to get your fix or improvement slated for the next release. In general, PRs should:
 
-- Only fix/add the functionality in question **OR** address wide-spread whitespace/style issues, not both.
-- Add unit or integration tests for fixed or changed functionality (if a test suite already exists).
-- Address a single concern in the least number of changed lines as possible.
-- Include documentation in the repo.
-- Be accompanied by a complete Pull Request template (loaded automatically when a PR is created).
+-   Only fix/add the functionality in question **OR** address wide-spread whitespace/style issues, not both.
+-   Add unit or integration tests for fixed or changed functionality (if a test suite already exists).
+-   Address a single concern in the least number of changed lines as possible.
+-   Include documentation in the repo.
+-   Be accompanied by a complete Pull Request template (loaded automatically when a PR is created).
 
 For changes that address core functionality or would require breaking changes (e.g. a major release), it's best to open an Issue to discuss your proposal first. This is not required but can save time creating and reviewing changes.
 

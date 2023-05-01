@@ -1011,7 +1011,7 @@
       "type": "object",
       "required": ["{typedesign}"],
       "properties": {
-        "{typedesign}": {
+        "{typeofcontent}": {
           "type": "array",
           "title": "Type Of Design",
           "ui:widget": "checkboxes",
@@ -1121,7 +1121,6 @@
           "title": "Category",
           "ui:placeholder": "books, movies, podcasts"
         },
-
         "{interest}": {
           "type": "string",
           "title": "Interest",
@@ -1154,7 +1153,6 @@
           "title": "Meal Type",
           "ui:placeholder": "breakfast, lunch, dinner"
         },
-
         "{cuisine}": {
           "type": "string",
           "title": "Cuisine",
@@ -1187,7 +1185,6 @@
           "title": "Level of Experience",
           "ui:placeholder": "entry-level, mid-career, executive"
         },
-
         "{careergoals}": {
           "type": "string",
           "title": "Career Goals",
@@ -1220,7 +1217,6 @@
           "title": "Author",
           "ui:placeholder": "Stephen King, Jane Austen, George R.R. Martin"
         },
-
         "{readingformat}": {
           "type": "string",
           "title": "Reading Format",
@@ -1254,7 +1250,6 @@
           "title": "Style",
           "ui:placeholder": "adventure, relaxation, cultural"
         },
-
         "{budget}": {
           "type": "string",
           "title": "budget",
@@ -1288,7 +1283,6 @@
           "title": "Style",
           "ui:placeholder": "modern, rustic, bohemian"
         },
-
         "{skilllevel}": {
           "type": "string",
           "title": "Skill Level",
