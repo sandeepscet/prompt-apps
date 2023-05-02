@@ -1899,5 +1899,56 @@
 				}
 			}
 		}
+	},
+	{
+		"title": "Cover letter  Generator",
+		"description": "Using Company About us and Job description",
+		"prompt": "Create Cover letter from given Company's About Us delimited by single quote, Job description delimited by double Quote and Resume Text delimited by triple backticks. Limit cover letter by max {letters} letters and My Name is {name}.About Us : '{aboutus}' Job Description :\"{jobdescription}\" Resume in Plain Text : ```{resume}```",
+		"icon": null,
+		"seoMeta": ["resume", "coverletter"],
+		"id": "cover-letter-generator",
+		"outputFormattor": null,
+		"categories": ["personal-development", "educational"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{aboutus}", "{jobdescription}", "{resume}", "{letters}"],
+			"properties": {
+				"{aboutus}": {
+					"type": "string",
+					"title": "Company's About US",
+					"ui:widget": "textarea",
+					"ui:options": {
+						"rows": 5
+					}
+				},
+				"{jobdescription}": {
+					"type": "string",
+					"title": "Job Description",
+					"ui:widget": "textarea",
+					"ui:options": {
+						"rows": 5
+					}
+				},
+				"{resume}": {
+					"type": "string",
+					"title": "Resume in Plain Text",
+					"ui:widget": "textarea",
+					"ui:options": {
+						"rows": 5
+					}
+				},
+				"{name}": {
+					"type": "string",
+					"title": "Your Name",
+					"default": "Elon Musk"
+				},
+				"{letters}": {
+					"type": "number",
+					"title": "No of max Letters",
+					"default": 300
+				}
+			}
+		}
 	}
 ]
