@@ -1639,7 +1639,7 @@
 	{
 		"title": "In Depth Explanation",
 		"description": "Basic To Advanced",
-		"prompt": "Act as Teach and explain {topic} , Provide output in below markdown format: {format}",
+		"prompt": "Act as Teach and explain {topic} , Provide output in below markdown format with these details : {details}",
 		"icon": null,
 		"seoMeta": ["explain"],
 		"id": "in-depth-explanation",
@@ -1648,7 +1648,7 @@
 		"model": ["chatgpt"],
 		"schema": {
 			"type": "object",
-			"required": ["{topic}", "{format}"],
+			"required": ["{topic}", "{details}"],
 			"properties": {
 				"{topic}": {
 					"type": "string",
@@ -1656,7 +1656,7 @@
 					"default": "algebra",
 					"ui:placeholder": "Enter Topic"
 				},
-				"{topic2}": {
+				"{details}": {
 					"type": "array",
 					"title": "Output",
 					"ui:widget": "checkboxes",
