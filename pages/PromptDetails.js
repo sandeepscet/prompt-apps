@@ -9,7 +9,7 @@ import { Prompt } from "@/src/Component/Prompt";
 const PromptDetails = () => {
 	const router = useRouter();
 	const [SubCategoryName, setSubCategoryName] = useState("");
-	const [promptData, setpromptData] = useState({});
+	const [promptData, setPromptData] = useState({});
 
 	useEffect(() => {
 		if (router.isReady) {
@@ -18,9 +18,13 @@ const PromptDetails = () => {
 			setSubCategoryName(SubCategoryName);
 
 			const promptData = getPromptById(SubCategoryName);
-			setpromptData(promptData);
+			setPromptData(promptData);
 		}
 	}, [router]);
+
+	if (!promptData.title) {
+		return null;
+	}
 
 	return (
 		<>

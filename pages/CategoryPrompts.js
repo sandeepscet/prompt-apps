@@ -21,6 +21,10 @@ const CategoriesPrompt = () => {
 		}
 	}, [router]);
 
+	if (!categoryId) {
+		return null;
+	}
+
 	return (
 		<>
 			<Head>
