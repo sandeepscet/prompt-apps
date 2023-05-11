@@ -24,7 +24,7 @@ async function createCompletionServer(prompt, engine = "gpt-3.5-turbo", apiEndpo
 			},
 			body: JSON.stringify(post)
 		});
-		const data = response.json();
+		const data = await response.json();
 		if (response.ok) {
 			return formatResponse(data);
 		} else {
