@@ -1950,5 +1950,67 @@
 				}
 			}
 		}
+	},
+	{
+		"title": "Cold Email",
+		"description": "Research company and email and generate perfect cold email",
+		"prompt": "Help me to write cold email using competitor Company/Product name {name} and description {description}. Expecting outcome should be {outcome}. Goal is to get reply from email. Try to learn more around company/product name and description First before reply so that email text seems more personalized and contextual.{extra} may help",
+		"icon": null,
+		"seoMeta": ["email", "b2b", "cold-email"],
+		"id": "[cold-email]",
+		"outputFormattor": null,
+		"categories": ["productivity"],
+		"model": ["chatgpt"],
+		"schema": {
+			"type": "object",
+			"required": ["{email}","{name}", "{description}", "{outcome}"],
+			"properties": {
+				"{email}": {
+					"type": "string",
+					"title": "Email"
+				},
+				"{name}": {
+					"type": "string",
+					"default": "Google",
+					"title": "Company / Product Name  ?"
+				},
+				"{description}": {
+					"type": "string",
+					"title": "Little Bit More About company/product Description",
+					"ui:widget": "textarea",
+					"ui:options": {
+						"rows": 5
+					}
+				},
+				"{linkedinurl}": {
+					"type": "string",
+					"title": "Linkedin URL (Public)"
+				},
+				"{extra}": {
+					"type": "string",
+					"title": "Any Extra Details",
+					"ui:widget": "textarea",
+					"ui:options": {
+						"rows": 3
+					}
+				},
+				"{outcome}": {
+					"type": "array",
+					"title": "Can",
+					"ui:widget": "checkboxes",
+					"items": {
+						"type": "string",
+						"enum": [
+							"Schedule a Meeting",
+							"Reply to ask for more information",
+							"Sell the Product",
+							"Share the Product",
+							"Sales cold email "
+						]
+					},
+					"uniqueItems": true
+				}
+			}
+		}
 	}
 ]
